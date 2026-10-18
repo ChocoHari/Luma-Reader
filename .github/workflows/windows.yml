@@ -10,7 +10,7 @@ jobs:
     timeout-minutes: 35
     env:
       QT_QPA_PLATFORM: offscreen
-      LUMA_DATA_DIR: ${{ runner.temp }}/Luma-CI
+      LUMA_DATA_DIR: ${{ github.workspace }}/.ci-data
     defaults:
       run:
         shell: pwsh

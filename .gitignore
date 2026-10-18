@@ -1,6 +1,7 @@
 .venv/
 __pycache__/
 .pytest_cache/
+.ci-data/
 data/
 tmp/
 *.wav
