@@ -1,0 +1,17 @@
+Luma Reader
+Copyright (C) 2026 Luma Reader contributors
+
+The first-party Luma source, original application graphics and documentation are
+licensed under GNU AGPL version 3 or, at your option, any later version. See LICENSE.
+
+Third-party libraries, model weights, recordings and datasets retain their own
+copyrights and licences. Luma does not claim authorship or ownership of them.
+See THIRD_PARTY.md and the component/model manifests supplied with a release.
+
+The first-party licence does not relicense user documents, imported voices,
+generated user content, or the third-party components distributed with Luma.
+No endorsement by upstream projects, voice contributors or a university is implied.
+
+Luma Reader is provided without warranty to the extent permitted by its licence.
+No third-party voice models are approved for bundling merely by appearing in a
+local user's Piper Voices directory.

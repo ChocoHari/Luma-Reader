@@ -1,0 +1,694 @@
+{
+  "repository": "https://huggingface.co/api/models/SWHL/RapidOCR",
+  "revision": "1cfba2e90fc938db55889873735088de210cc173",
+  "retrieved": "2026-10-18",
+  "license": "apache-2.0",
+  "files": [
+    {
+      "type": "file",
+      "oid": "9a01aff60e08a67805951aca5fe96a87dfa78169",
+      "size": 4745517,
+      "lfs": {
+        "oid": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9",
+        "size": 4745517,
+        "pointerSize": 132
+      },
+      "xetHash": "fe29f303dadae54c7e31846c3abdc00a719d35e6517556688d82bbe298472d55",
+      "path": "PP-OCRv4/ch_PP-OCRv4_det_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=9a01aff60e08a67805951aca5fe96a87dfa78169&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/76 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "414ab70103e4340f2f36bb72fe7aa13d493bafd2",
+      "size": 113352104,
+      "lfs": {
+        "oid": "cfa39a3f298f6d3fc71789834d15da36d11a6c59b489fc16ea4733728012f786",
+        "size": 113352104,
+        "pointerSize": 134
+      },
+      "xetHash": "a54ece84a963633bd77565164bbb9fa4dfd74bf02a298d20ecebe2c24d5355f2",
+      "path": "PP-OCRv4/ch_PP-OCRv4_det_server_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=414ab70103e4340f2f36bb72fe7aa13d493bafd2&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/76 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/cfa39a3f298f6d3fc71789834d15da36d11a6c59b489fc16ea4733728012f786?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "949d2365a1b3713b88938865cb9099401a9873c9",
+      "size": 10857958,
+      "lfs": {
+        "oid": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+        "size": 10857958,
+        "pointerSize": 133
+      },
+      "xetHash": "ad7a6b2cc98d9d8078eddef08c39895caadc75de0ebde289822bdacac40810c7",
+      "path": "PP-OCRv4/ch_PP-OCRv4_rec_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=949d2365a1b3713b88938865cb9099401a9873c9&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/75 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "110eef6af1316807fce01b737ddd2afdfae42190",
+      "size": 90530732,
+      "lfs": {
+        "oid": "6a2676219be9907c7fc9cf61ebaa843bf2898777def567925b78886fcd90c07a",
+        "size": 90530732,
+        "pointerSize": 133
+      },
+      "xetHash": "f008b300d1ece5c5ca514fe75faf6f6ee2b18753b7263ab933111c85bb44c697",
+      "path": "PP-OCRv4/ch_PP-OCRv4_rec_server_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=110eef6af1316807fce01b737ddd2afdfae42190&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/76 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/6a2676219be9907c7fc9cf61ebaa843bf2898777def567925b78886fcd90c07a?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "c384515da357fc6f8a0eb3f7c30fa9afe9f9e2a3",
+      "size": 2423224,
+      "lfs": {
+        "oid": "f139598bc2af4e4b6fe98dec11574e30edfdd91fc94ac1425c18ace3bd5a866b",
+        "size": 2423224,
+        "pointerSize": 132
+      },
+      "xetHash": "681f545c4eb47dc184857e18b034c961c540cb26f3c5027cd54f637570a1e7b4",
+      "path": "PP-OCRv4/en_PP-OCRv3_det_infer.onnx",
+      "lastCommit": {
+        "id": "1cfba2e90fc938db55889873735088de210cc173",
+        "title": "Upload en_PP-OCRv3_det_infer.onnx",
+        "date": "2024-08-28T14:48:54.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=c384515da357fc6f8a0eb3f7c30fa9afe9f9e2a3&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/76 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/f139598bc2af4e4b6fe98dec11574e30edfdd91fc94ac1425c18ace3bd5a866b?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "4de612ffed6aa02c7dea0a108a76535aed656cb5",
+      "size": 2341867,
+      "lfs": {
+        "oid": "43d01120eab9f00e8d7541ad0f906dd9c7f28394233e47279073fab73f82da87",
+        "size": 2341867,
+        "pointerSize": 132
+      },
+      "xetHash": "d3cf0f4d4d65575cfc81654a199e2abccbd4bd8218621354b4a6ee44c86a703c",
+      "path": "PP-OCRv2/ch_PP-OCRv2_det_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=4de612ffed6aa02c7dea0a108a76535aed656cb5&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/77 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/43d01120eab9f00e8d7541ad0f906dd9c7f28394233e47279073fab73f82da87?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "612896f196a825ca0726365dd6f4cc3fce47c2e2",
+      "size": 8402009,
+      "lfs": {
+        "oid": "86eec59d02644a8890d54f4aa5fe7402cf2848450fc7ac613d4677cd6025b3da",
+        "size": 8402009,
+        "pointerSize": 132
+      },
+      "xetHash": "84dd7dc8ac3bb5f0da41a32b5a707999441f1936aced67ae61470c7b1c54e25f",
+      "path": "PP-OCRv2/ch_PP-OCRv2_rec_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=612896f196a825ca0726365dd6f4cc3fce47c2e2&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/77 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/86eec59d02644a8890d54f4aa5fe7402cf2848450fc7ac613d4677cd6025b3da?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "4c48b27bd1c5ec2c80ac6e4c31f6d11d38ff64d7",
+      "size": 585532,
+      "lfs": {
+        "oid": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c",
+        "size": 585532,
+        "pointerSize": 131
+      },
+      "xetHash": "1ee9ba0be287ff4a1c0c44b2ecaa6b6c53271a6f70490933fd99af7193065137",
+      "path": "PP-OCRv1/ch_ppocr_mobile_v2.0_cls_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "queued",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=4c48b27bd1c5ec2c80ac6e4c31f6d11d38ff64d7&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "queued",
+          "message": "QUEUED",
+          "reportLink": "https://www.virustotal.com/gui/file/e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "1c409617d8d9d57dca0b389ff76e7d0247d4a9d5",
+      "size": 2343058,
+      "lfs": {
+        "oid": "6800a946ab4222d7b96b71706cbd2c8e926b45ed4c0ddeebd0b221186f321f1f",
+        "size": 2343058,
+        "pointerSize": 132
+      },
+      "xetHash": "5f75623380d245dc48472a06f5854dcaaffa610dd56a6d3b40a3d784357b9de1",
+      "path": "PP-OCRv1/ch_ppocr_mobile_v2.0_det_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "queued",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=1c409617d8d9d57dca0b389ff76e7d0247d4a9d5&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "queued",
+          "message": "QUEUED",
+          "reportLink": "https://www.virustotal.com/gui/file/6800a946ab4222d7b96b71706cbd2c8e926b45ed4c0ddeebd0b221186f321f1f?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "135450a652f71d962a582c9e68ec9676c7de155b",
+      "size": 4444090,
+      "lfs": {
+        "oid": "6701d6db953d6e803024ec2e86ab3a5ec9132a2cf47b15b843ce6f1522486a55",
+        "size": 4444090,
+        "pointerSize": 132
+      },
+      "xetHash": "d1855dd44510a33d9a29797e4b8c207c1db31f3eb30d64960f279aa9a28dd53b",
+      "path": "PP-OCRv1/ch_ppocr_mobile_v2.0_rec_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=135450a652f71d962a582c9e68ec9676c7de155b&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/77 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/6701d6db953d6e803024ec2e86ab3a5ec9132a2cf47b15b843ce6f1522486a55?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "ffb71f3965f71935f3368b16e2d1a6a2ce41de3d",
+      "size": 48866380,
+      "lfs": {
+        "oid": "0a7e74057c1f4e17f38bf3e0a9f500e64e83159e4fd58775f4953f13438370ca",
+        "size": 48866380,
+        "pointerSize": 133
+      },
+      "xetHash": "4c1c567854bc777943fe6b19d74fd3dd863b1c3599ddc78feb4778ae94bb3b13",
+      "path": "PP-OCRv1/ch_ppocr_server_v2.0_det_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=ffb71f3965f71935f3368b16e2d1a6a2ce41de3d&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/77 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/0a7e74057c1f4e17f38bf3e0a9f500e64e83159e4fd58775f4953f13438370ca?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "3d4b6eb11cff701c8a1be460b9e09c2ba52995f8",
+      "size": 111590126,
+      "lfs": {
+        "oid": "9d0714a2b44f5d7ac7a17e44d0e1961393447590c895f4197f37e855e3464f53",
+        "size": 111590126,
+        "pointerSize": 134
+      },
+      "xetHash": "4c19e47fba7cb5d4417c20a2395be98de6362c8af27fb171536cc72011206e2c",
+      "path": "PP-OCRv1/ch_ppocr_server_v2.0_rec_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=3d4b6eb11cff701c8a1be460b9e09c2ba52995f8&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/77 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/9d0714a2b44f5d7ac7a17e44d0e1961393447590c895f4197f37e855e3464f53?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "445e7ef7f402b5cc32b3a7a2442591206469fa73",
+      "size": 1882607,
+      "lfs": {
+        "oid": "e679ba625c544444be78292a50d9e1af9caa1569239a88bb8b864cb688b11c01",
+        "size": 1882607,
+        "pointerSize": 132
+      },
+      "xetHash": "754fdb0aa59d47963bfef3ddced0e044a31ea1a02873c5cc71f7dee56966112a",
+      "path": "PP-OCRv1/en_number_mobile_v2.0_rec_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=445e7ef7f402b5cc32b3a7a2442591206469fa73&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/77 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/e679ba625c544444be78292a50d9e1af9caa1569239a88bb8b864cb688b11c01?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "4c28dfde7808b017fe9781879d8acd059b5d28c7",
+      "size": 3571807,
+      "lfs": {
+        "oid": "2b0495059f5738166e606d864b04ff00093f67a807efb02cddf472839cae970c",
+        "size": 3571807,
+        "pointerSize": 132
+      },
+      "xetHash": "bc2e8f15205b1b18087b023fc7250b077efc112f225d97beef01f9f888e72720",
+      "path": "PP-OCRv1/japan_rec_crnn.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=4c28dfde7808b017fe9781879d8acd059b5d28c7&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/77 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/2b0495059f5738166e606d864b04ff00093f67a807efb02cddf472839cae970c?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "1b7ebbe375a5efd98476b4a0995562de8cac1c75",
+      "size": 3290650,
+      "lfs": {
+        "oid": "b6558500138b43b46a4941957fb8c918546dae5fb0e71718536f1883acc80faf",
+        "size": 3290650,
+        "pointerSize": 132
+      },
+      "xetHash": "c872cef9740449833f5a76a1f465a94bb0f0e8319133e3aa92282a82ad4b36f3",
+      "path": "PP-OCRv1/korean_mobile_v2.0_rec_infer.onnx",
+      "lastCommit": {
+        "id": "4e4644045a07c403b1ad40ca97340ecb4a8dc2c1",
+        "title": "Upload 25 files",
+        "date": "2024-04-13T02:54:06.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/SWHL/RapidOCR/1cfba2e90fc938db55889873735088de210cc173/files?blob-id=1b7ebbe375a5efd98476b4a0995562de8cac1c75&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/77 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/b6558500138b43b46a4941957fb8c918546dae5fb0e71718536f1883acc80faf?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    }
+  ],
+  "local_comparison": [
+    {
+      "file": "ch_PP-OCRv4_det_infer.onnx",
+      "sha256": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9",
+      "bytes": 4745517,
+      "upstream_matches": [
+        "PP-OCRv4/ch_PP-OCRv4_det_infer.onnx"
+      ]
+    },
+    {
+      "file": "ch_PP-OCRv4_rec_infer.onnx",
+      "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+      "bytes": 10857958,
+      "upstream_matches": [
+        "PP-OCRv4/ch_PP-OCRv4_rec_infer.onnx"
+      ]
+    },
+    {
+      "file": "ch_ppocr_mobile_v2.0_cls_infer.onnx",
+      "sha256": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c",
+      "bytes": 585532,
+      "upstream_matches": [
+        "PP-OCRv1/ch_ppocr_mobile_v2.0_cls_infer.onnx"
+      ]
+    }
+  ]
+}

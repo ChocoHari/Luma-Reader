@@ -1,0 +1,91 @@
+LUMA COMMUNITY RELEASE PROGRAMME
+Approved 17 October 2026. Updated 18 October 2026.
+Goal: distributable open-source Windows reader; no Python setup for end users.
+Overall goal ACTIVE. Public binary distribution is NOT approved.
+
+PHASE 1 - LICENSING FOUNDATION [COMPLETE]
+[x] Dependency/model/asset inventory and first-party licence.
+[x] Third-party notice policy and exact approved voice manifest.
+[x] Private-data-safe source allowlist and release gates.
+Evidence: THIRD_PARTY.md; release/release-gates.json; release/CORI_CLEARANCE.md.
+This foundation does not clear all binary/source distribution obligations.
+
+PHASE 2 - MARKDOWN EDITOR [COMPLETE]
+[x] Markdown default; Source/Preview/Split; syntax toolbar and outline.
+[x] Tasks, links, quotes, code, tables, focus and recovery drafts.
+[x] HTML import/conversion; save/reopen/recovery and speech checks.
+Evidence: tests/test_v2.py; USER_GUIDE.md.
+
+PHASE 3 - WINDOWS FRAME [IN PROGRESS]
+[x] Native resize/caption/maximize hit tests; standard-frame fallback.
+[x] Maximize/restore, Alt+Space, Alt+F4 and full Snap hover flyout.
+[ ] Select a Snap layout and verify resulting bounds.
+[ ] Visible taskbar/auto-hide, scaling, monitor movement/disconnection.
+Evidence: release/WINDOW_SUPPORT.md. Tested one 1920x1080/100% Windows host.
+
+PHASE 4 - PDF INTERACTION [COMPLETE]
+[x] Original-page selection, Copy, Read selection and Read from here.
+[x] Multiline and Shift-click cross-page selection; zoom/rotation mapping.
+[x] OCR coordinates, legacy cache upgrade and confident highlight fallback.
+[x] Representative native/scanned/rotated/two-column documents verified.
+[x] Native and OCR column order shared with highlight/selection mappings.
+Evidence: release/PDF_VERIFICATION.md; tests/test_pdf_reading_order.py;
+tests/test_reader.py; tests/test_v2.py. Actual offline OCR recovered/mapped
+all 11 lines in an original two-column image-only PDF.
+Limits: arbitrary tables/nested layouts, figure descriptions, letter-level OCR
+selection, full-book accuracy and continuous edge-drag navigation are not claimed.
+
+PHASE 5 - STANDALONE PACKAGING [IN PROGRESS]
+[x] Read-only assets separate from per-user/portable writable data.
+[x] One-time non-overwriting data migration and voice imports.
+[x] Runtime/OCR/Piper/reviewed Cori voice; no blanket local voice copying.
+[x] Restrict DLL search paths and reject unexpected native-library origins.
+[x] Preserve/index Python runtime licence and available dependency notices.
+[x] Portable integrity, matching source identity and installer checksums.
+[x] Install, reinstall, version upgrade, installed diagnostics and uninstall.
+[x] Preserve notes/settings through upgrade and user data after uninstall.
+[ ] Complete native licences, build/patch/source correspondence and runtime terms.
+[ ] Clean Windows machine, interrupted install and visible wizard checks.
+Evidence: release/BUILD_WINDOWS.md; INSTALLER_VERIFICATION.md;
+NATIVE_SOURCE_REVIEW.md; STORAGE.md (all under release/).
+
+PHASE 6 - OPEN-SOURCE BETA [IN PROGRESS]
+[x] Allowlisted exact source snapshot, hashes and bundled fingerprint.
+[x] Contribution/issue/PR templates, known issues, beta guide and release notes.
+[x] Windows CI workflow prepared; reviewed-voice fetcher and portable checks.
+[x] User guide consolidated to current app behavior; companion guides bundled.
+[x] Official Qt/PySide/FFmpeg source archives retained with hashes/inventories.
+[ ] Complete corresponding-source package and public distribution destination.
+[ ] User-selected GitHub repository, hosted CI run, tags and release readiness.
+[ ] Clean-machine beta feedback and required remaining compatibility evidence.
+Selected public repository: https://github.com/ChocoHari/Luma-Reader .
+Connected GitHub access verified; remote was empty at inspection. Source-only
+review branch is being prepared. No binary release has been published.
+
+PHASE 7 - MARKETING AND SUPPORT [IN PROGRESS]
+[x] Original-content screenshots, banners, logo exports and captioned demo.
+[x] Page copy, FAQ, launch/update drafts, support story and platform drafts.
+[x] Local marketing ZIP/manifest; visuals and video inspected.
+[ ] Payout country/provider eligibility and actual donation destinations.
+[ ] Final public-release claim review against remaining gates.
+Evidence: marketing/; dist/Luma-marketing-preview.zip. No public posts/accounts.
+Payout country remains unanswered; no country inferred from timezone.
+
+PHASES 8-9 - RESEARCH/PILOT ONLY [PROPOSALS PREPARED]
+[x] Consented original free-voice pilot/script/evaluation proposal.
+[x] Premium feature validation and one-time per-major-version proposal.
+[x] No training, recordings, spending or final price committed.
+Evidence: release/VOICE_PILOT_PROPOSAL.md; VOICE_PILOT_SCRIPT.md;
+PREMIUM_PROPOSAL.md (all under release/).
+
+LATEST VERIFIED DEVELOPMENT CANDIDATE
+Full automated suite: 66 passed.
+Standalone: 805 audited files; diagnostic passed PDF/DOCX/OCR/Piper/storage,
+4.24-second synthesis and muted decoding to EndOfMedia. Audibility unverified.
+Upgrade trial: upgrade-trial-84f19cc5, all eight checks passed.
+Source fingerprint: c6d37c8cec17b51049018e406b5950c34a17a2820baf01ea585c6d8ef441fec1
+Portable: 312619337 bytes. Installer 0.3.1-dev: 259050688 bytes.
+Current artifacts/checksums: dist/SHA256SUMS.txt.
+Subsequent checklist/native-review tooling changes are outside the retained exact
+build snapshot. Rebuild before describing a newer source state as that binary.
+Historical raw verification stays private under verification/ and local-audit/.

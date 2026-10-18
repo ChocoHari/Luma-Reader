@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "public_binary_approved": false,
+  "gates": [
+    {
+      "id": "qt-ffmpeg",
+      "phase": 5,
+      "status": "pending",
+      "requirement": "Inventory the exact shipped Qt/native DLLs, codecs, notices, build configuration and matching source requirements; omit unused Qt WebEngine/Pdf."
+    },
+    {
+      "id": "ocr-model-provenance",
+      "phase": 5,
+      "status": "passed",
+      "requirement": "Verify the three shipped RapidOCR ONNX artifacts against upstream model provenance and preserve applicable notices.",
+      "evidence": "release/OCR_MODELS.md; immutable upstream metadata matches all three hashes; rebuilt package enforces hashes and preserves model attribution/full Apache text"
+    },
+    {
+      "id": "voice-clearance",
+      "phase": 5,
+      "status": "passed",
+      "requirement": "Choose at least one explicit approved voice with hashes, model/source evidence and attribution; never glob-copy the local voice directory.",
+      "evidence": "release/CORI_CLEARANCE.md; voice-manifest.json; packaged voice hashes and frozen synthesis verified 2026-10-18"
+    },
+    {
+      "id": "corresponding-source",
+      "phase": 6,
+      "status": "pending",
+      "requirement": "Retain source/build scripts for the exact application and covered binary components; provide a functional user-selected distribution destination."
+    },
+    {
+      "id": "clean-package",
+      "phase": 6,
+      "status": "pending",
+      "requirement": "Verify installer/portable artifacts without private data, with licence files, checksums, upgrade/uninstall and no-Python launch tests."
+    }
+  ]
+}

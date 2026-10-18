@@ -1,0 +1,31 @@
+# Development binary only: public redistribution is controlled by release/release-gates.json.
+from pathlib import Path
+import os
+import sys
+from PyInstaller.utils.hooks import collect_data_files,collect_dynamic_libs
+
+root=Path(SPECPATH)
+datas=[(str(root/name),'.') for name in ('LICENSE','NOTICE','THIRD_PARTY.md','USER_GUIDE.md','OTHER_READERS.md')]
+datas += [(str(root/'release/KNOWN_ISSUES.md'),'release')]
+datas += [(str(root/'release/local-audit/SOURCE_MANIFEST.json'),'.')]
+datas += [(str(root/'assets'/name),'assets') for name in ('luma.ico','luma.png','book-wave.svg','page-sound.svg','luma-orbit.svg')]
+datas += collect_data_files('piper')+collect_data_files('rapidocr_onnxruntime')
+binaries=collect_dynamic_libs('piper')+collect_dynamic_libs('onnxruntime')
+a=Analysis([str(root/'tools/frozen_entry.py')],pathex=[str(root)],binaries=binaries,datas=datas,
+    hiddenimports=['piper','rapidocr_onnxruntime','onnxruntime','frozen_diagnostics'],
+    excludes=['PySide6.QtWebEngineCore','PySide6.QtWebEngineWidgets','PySide6.QtWebEngineQuick',
+              'PySide6.QtPdf','PySide6.QtPdfWidgets','pytest','tkinter'],noarchive=False)
+# Qt uses the Windows system ICU API. Do not shadow it with a different ICU
+# found on the developer PATH (for example a Poppler runtime).
+a.binaries=[item for item in a.binaries if Path(item[0]).name.lower() not in
+    {'icuuc.dll','icudt78.dll','qt6pdf.dll','qpdf.dll'}]
+# Refuse libraries harvested from unrelated applications on a developer machine.
+trusted=[(root/'.venv').resolve(),Path(sys.base_prefix).resolve(),
+         Path(os.environ.get('SystemRoot','C:/Windows')).resolve()]
+for name,source,kind in a.binaries:
+    if not any(Path(source).resolve().is_relative_to(base) for base in trusted):
+        raise RuntimeError(f'Unexpected native-library origin for {name}: {source}')
+pyz=PYZ(a.pure)
+exe=EXE(pyz,a.scripts,[],exclude_binaries=True,name='Luma',debug=False,
+    bootloader_ignore_signals=False,strip=False,upx=False,console=False,icon=str(root/'assets/luma.ico'))
+coll=COLLECT(exe,a.binaries,a.datas,strip=False,upx=False,name='Luma')

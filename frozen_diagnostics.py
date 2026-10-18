@@ -1,0 +1,81 @@
+"""Exercise packaged imports and native runtime without opening personal documents."""
+import json
+import sys
+import tempfile
+import os
+import wave
+from pathlib import Path
+
+
+def run(output):
+    report={'frozen':bool(getattr(sys,'frozen',False)),'checks':{},'errors':[]}
+    try:
+        from PySide6.QtWidgets import QApplication
+        from PySide6.QtMultimedia import QMediaPlayer,QAudioOutput,QAudioBufferOutput
+        from PySide6.QtCore import QEventLoop,QTimer,QUrl
+        import pymupdf
+        from docx import Document
+        from rapidocr_onnxruntime import RapidOCR
+        from piper import PiperVoice
+        from piper.phonemize_espeak import EspeakPhonemizer
+        from runtime_paths import ASSET_ROOT,DATA_ROOT
+        app=QApplication.instance() or QApplication([])
+        player=QMediaPlayer()
+        report['checks']['qt_platform']=app.platformName()
+        report['checks']['assets']=all((ASSET_ROOT/p).is_file() for p in ('USER_GUIDE.md','assets/luma.ico','LICENSE'))
+        source_manifest=json.loads((ASSET_ROOT/'SOURCE_MANIFEST.json').read_text())
+        report['source_fingerprint']=source_manifest['source_fingerprint']
+        report['checks']['source_identity']=len(report['source_fingerprint'])==64
+        with tempfile.TemporaryDirectory(prefix='luma-diagnostic-') as folder:
+            folder=Path(folder)
+            path=folder/'sample.pdf'
+            with pymupdf.open() as pdf:
+                pdf.new_page().insert_text((50,80),'Luma standalone PDF check.')
+                pdf.save(path)
+            with pymupdf.open(path) as pdf:
+                report['checks']['pdf']='Luma standalone' in pdf[0].get_text()
+                report['checks']['pdf_render']=pdf[0].get_pixmap().width>0
+            doc=Document();doc.add_paragraph('Luma document check.');doc.save(folder/'sample.docx')
+            report['checks']['docx']=Document(folder/'sample.docx').paragraphs[0].text=='Luma document check.'
+        engine=RapidOCR()
+        report['checks']['ocr_models_loaded']=engine is not None
+        report['checks']['piper_import']=PiperVoice is not None
+        phonemizer=EspeakPhonemizer()
+        report['checks']['piper_phonemization']=bool(phonemizer.phonemize('en-us','Luma standalone voice check.'))
+        voice_path=os.environ.get('LUMA_TEST_VOICE')
+        if voice_path:
+            model=PiperVoice.load(voice_path)
+            target=Path(output).with_suffix('.wav')
+            with wave.open(str(target),'wb') as stream:
+                model.synthesize_wav('Welcome to Luma. Your documents and your voice can stay on your computer.',stream)
+            with wave.open(str(target),'rb') as stream:
+                report['checks']['voice_synthesis']=stream.getnframes()>stream.getframerate()
+                report['voice_seconds']=round(stream.getnframes()/stream.getframerate(),2)
+                report['voice_sample_rate']=stream.getframerate()
+            audio=QAudioOutput();audio.setMuted(True)
+            player.setAudioOutput(audio)
+            buffers=QAudioBufferOutput();player.setAudioBufferOutput(buffers)
+            decoded=[];statuses=[]
+            buffers.audioBufferReceived.connect(lambda buffer:decoded.append(buffer.frameCount()) if buffer.isValid() else None)
+            loop=QEventLoop()
+            def status_changed(status):
+                statuses.append(status.name)
+                if status in (QMediaPlayer.MediaStatus.EndOfMedia,QMediaPlayer.MediaStatus.InvalidMedia):loop.quit()
+            player.mediaStatusChanged.connect(status_changed)
+            player.errorOccurred.connect(lambda *args:loop.quit())
+            timeout=QTimer();timeout.setSingleShot(True);timeout.timeout.connect(loop.quit)
+            timeout.start(15000)
+            player.setSource(QUrl.fromLocalFile(str(target.resolve())))
+            player.play();loop.exec();timeout.stop()
+            report['checks']['audio_decoded']=sum(decoded)>0
+            report['checks']['playback_completed']='EndOfMedia' in statuses
+            report['playback']={'muted':True,'decoded_frames':sum(decoded),'statuses':statuses,'error':player.errorString()}
+            player.stop()
+        DATA_ROOT.mkdir(parents=True,exist_ok=True)
+        report['checks']['user_storage']=DATA_ROOT.is_dir()
+    except Exception as error:
+        import traceback
+        report['errors'].append(traceback.format_exc())
+    report['passed']=not report['errors'] and all(report['checks'].values())
+    Path(output).write_text(json.dumps(report,indent=2),encoding='utf-8')
+    return 0 if report['passed'] else 1

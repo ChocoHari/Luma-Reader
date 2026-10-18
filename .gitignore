@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+.pytest_cache/
+data/
+tmp/
+*.wav
+Piper Voices/
+backups/
+verification/
+integrations/
+build/
+dist/
+*.lnk
+*.spec.bak
+release/local-audit/
+assets/design-gallery.html
+tools/verify_book.py
+tools/verify_v2.py
+tools/apply_v2.py
+note.*
+reading.*

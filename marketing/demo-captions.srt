@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:04,000
+Keep original pages in view.
+
+2
+00:00:04,000 --> 00:00:08,000
+Write Markdown beside a live preview.
+
+3
+00:00:08,000 --> 00:00:12,000
+Choose a light or dark workspace.
+
+4
+00:00:12,000 --> 00:00:16,000
+Keep notes and local reading together.
+
+5
+00:00:16,000 --> 00:00:20,000
+Luma Reader — development preview.

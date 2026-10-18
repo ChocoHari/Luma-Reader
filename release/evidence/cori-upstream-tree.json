@@ -1,0 +1,133 @@
+{
+  "source": "https://huggingface.co/api/models/rhasspy/piper-voices/tree/main/en/en_GB/cori/high?expand=true",
+  "retrieved": "2026-10-18",
+  "files": [
+    {
+      "type": "directory",
+      "oid": "314f06d674e7725c3ccb7245f3121ed1038477d5",
+      "size": 0,
+      "path": "en/en_GB/cori/high/samples",
+      "lastCommit": {
+        "id": "217ddc79818708b078d0d14a8fae9608b9d77141",
+        "title": "Move samples to correct directory",
+        "date": "2025-05-16T16:35:01.000Z"
+      }
+    },
+    {
+      "type": "file",
+      "oid": "d115efb76a7bf218a9d8c62a55cb75b8fb2a5a9e",
+      "size": 468,
+      "path": "en/en_GB/cori/high/MODEL_CARD",
+      "lastCommit": {
+        "id": "3001aba6a7e29fca16fd6174d4fac367951b7929",
+        "title": "Add cori medium",
+        "date": "2024-03-22T18:52:15.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/rhasspy/piper-voices/c10ece1aade47bb51c153c893d14e5bf8e5b7117/files?blob-id=d115efb76a7bf218a9d8c62a55cb75b8fb2a5a9e&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "unscanned"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Not a machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "330ba61db0af22ded8d064e38c1df7d28911cbf3",
+      "size": 114219352,
+      "lfs": {
+        "oid": "470b4dd634c98f8a4850d7626ffc3dfc90774628eeef6605a6dd8f88f30a5903",
+        "size": 114219352,
+        "pointerSize": 134
+      },
+      "xetHash": "e379e7d48f24b44501f00ba348b3efdd84c43d93ff09ca16d5beeb47a3efcca3",
+      "path": "en/en_GB/cori/high/en_GB-cori-high.onnx",
+      "lastCommit": {
+        "id": "bae641dcb5a608cff81ccaf7ff018baaca1a33e1",
+        "title": "Add cori, kristin, ljspeech, claude",
+        "date": "2024-03-12T15:07:25.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/rhasspy/piper-voices/c10ece1aade47bb51c153c893d14e5bf8e5b7117/files?blob-id=330ba61db0af22ded8d064e38c1df7d28911cbf3&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "safe",
+          "message": "0/75 engines detect it as malicious.",
+          "reportLink": "https://www.virustotal.com/gui/file/470b4dd634c98f8a4850d7626ffc3dfc90774628eeef6605a6dd8f88f30a5903?utm_source=huggingface"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Unsupported machine-learning model"
+        }
+      }
+    },
+    {
+      "type": "file",
+      "oid": "ec08ff84191b2e7fe7dd91928b6068bca12ff81b",
+      "size": 4963,
+      "path": "en/en_GB/cori/high/en_GB-cori-high.onnx.json",
+      "lastCommit": {
+        "id": "bae641dcb5a608cff81ccaf7ff018baaca1a33e1",
+        "title": "Add cori, kristin, ljspeech, claude",
+        "date": "2024-03-12T15:07:25.000Z"
+      },
+      "securityFileStatus": {
+        "status": "safe",
+        "protectAiScan": {
+          "status": "safe",
+          "message": "This file has no security findings.",
+          "reportLink": "https://insights-db.paloaltonetworks.com/models/rhasspy/piper-voices/c10ece1aade47bb51c153c893d14e5bf8e5b7117/files?blob-id=ec08ff84191b2e7fe7dd91928b6068bca12ff81b&utm_source=huggingface"
+        },
+        "avScan": {
+          "status": "safe",
+          "message": "No security issues detected",
+          "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+        },
+        "pickleImportScan": {
+          "status": "unscanned",
+          "pickleImports": [],
+          "version": "0.0.0"
+        },
+        "virusTotalScan": {
+          "status": "unscanned"
+        },
+        "jFrogScan": {
+          "status": "unscanned",
+          "message": "Not a machine-learning model"
+        }
+      }
+    }
+  ]
+}
