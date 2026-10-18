@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "parent_repository": "https://github.com/ArtifexSoftware/mupdf",
+  "parent_commit": "fe374accd98a43174a328fa7980d7675e06d5b0d",
+  "version": "1.28.2",
+  "source": "GitHub release tag tree and .gitmodules at parent_commit",
+  "binary_build_correspondence_verified": false,
+  "components": [
+    {
+      "path": "thirdparty/brotli",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-brotli",
+      "commit": "2523f3314501aa5c90e561922b2e668b3ccee26e",
+      "archive": "mupdf-brotli-2523f3314501aa5c90e561922b2e668b3ccee26e.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-brotli/tar.gz/2523f3314501aa5c90e561922b2e668b3ccee26e"
+    },
+    {
+      "path": "thirdparty/cmark-gfm",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-cmark-gfm",
+      "commit": "74e0f5b6b62bbdd1e262c92f4bb2c6c871c6307e",
+      "archive": "mupdf-cmark-gfm-74e0f5b6b62bbdd1e262c92f4bb2c6c871c6307e.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-cmark-gfm/tar.gz/74e0f5b6b62bbdd1e262c92f4bb2c6c871c6307e"
+    },
+    {
+      "path": "thirdparty/curl",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-curl",
+      "commit": "f43c6fbb2dbdf68dfdd0f0c3399e3711a621614a",
+      "archive": "mupdf-curl-f43c6fbb2dbdf68dfdd0f0c3399e3711a621614a.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-curl/tar.gz/f43c6fbb2dbdf68dfdd0f0c3399e3711a621614a"
+    },
+    {
+      "path": "thirdparty/extract",
+      "repository": "https://github.com/ArtifexSoftware/extract",
+      "commit": "8750ac39c30a0d65119b426b5a491c5b8e8bf674",
+      "archive": "mupdf-extract-8750ac39c30a0d65119b426b5a491c5b8e8bf674.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/extract/tar.gz/8750ac39c30a0d65119b426b5a491c5b8e8bf674"
+    },
+    {
+      "path": "thirdparty/freeglut",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-freeglut",
+      "commit": "d5e2256d571b3ef66fb60716c99e35e9d3e570a2",
+      "archive": "mupdf-freeglut-d5e2256d571b3ef66fb60716c99e35e9d3e570a2.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-freeglut/tar.gz/d5e2256d571b3ef66fb60716c99e35e9d3e570a2"
+    },
+    {
+      "path": "thirdparty/freetype",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-freetype2",
+      "commit": "0a0221a1347e2f1e07c395263540026e9a0aa7c7",
+      "archive": "mupdf-freetype-0a0221a1347e2f1e07c395263540026e9a0aa7c7.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-freetype2/tar.gz/0a0221a1347e2f1e07c395263540026e9a0aa7c7"
+    },
+    {
+      "path": "thirdparty/gumbo-parser",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-gumbo-parser",
+      "commit": "61bd4e736c3b342e592f65be0d65ec6a0acd8dcb",
+      "archive": "mupdf-gumbo-parser-61bd4e736c3b342e592f65be0d65ec6a0acd8dcb.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-gumbo-parser/tar.gz/61bd4e736c3b342e592f65be0d65ec6a0acd8dcb"
+    },
+    {
+      "path": "thirdparty/harfbuzz",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-harfbuzz",
+      "commit": "c28ba35a1e6dc4b6b32e2b1d11fd2a408f6c86bb",
+      "archive": "mupdf-harfbuzz-c28ba35a1e6dc4b6b32e2b1d11fd2a408f6c86bb.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-harfbuzz/tar.gz/c28ba35a1e6dc4b6b32e2b1d11fd2a408f6c86bb"
+    },
+    {
+      "path": "thirdparty/jbig2dec",
+      "repository": "https://github.com/ArtifexSoftware/jbig2dec",
+      "commit": "dc15c39bbbddc90f79c14563d2eb5a794106be8f",
+      "archive": "mupdf-jbig2dec-dc15c39bbbddc90f79c14563d2eb5a794106be8f.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/jbig2dec/tar.gz/dc15c39bbbddc90f79c14563d2eb5a794106be8f"
+    },
+    {
+      "path": "thirdparty/lcms2",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-lcms2",
+      "commit": "d69c64417c4a33a4629957fc0e08f4f4c5abcc3d",
+      "archive": "mupdf-lcms2-d69c64417c4a33a4629957fc0e08f4f4c5abcc3d.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-lcms2/tar.gz/d69c64417c4a33a4629957fc0e08f4f4c5abcc3d"
+    },
+    {
+      "path": "thirdparty/leptonica",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-leptonica",
+      "commit": "7fbe9ea76d1e0c48a02b2ed371d24f92c7bac40c",
+      "archive": "mupdf-leptonica-7fbe9ea76d1e0c48a02b2ed371d24f92c7bac40c.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-leptonica/tar.gz/7fbe9ea76d1e0c48a02b2ed371d24f92c7bac40c"
+    },
+    {
+      "path": "thirdparty/libjpeg",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-libjpeg",
+      "commit": "627faae398468d5d11e3d694dc325432f734b5c4",
+      "archive": "mupdf-libjpeg-627faae398468d5d11e3d694dc325432f734b5c4.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-libjpeg/tar.gz/627faae398468d5d11e3d694dc325432f734b5c4"
+    },
+    {
+      "path": "thirdparty/mujs",
+      "repository": "https://github.com/ArtifexSoftware/mujs",
+      "commit": "e892c9fdbbddba94e52f656ccb378ed4885e30cc",
+      "archive": "mupdf-mujs-e892c9fdbbddba94e52f656ccb378ed4885e30cc.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/mujs/tar.gz/e892c9fdbbddba94e52f656ccb378ed4885e30cc"
+    },
+    {
+      "path": "thirdparty/openjpeg",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-openjpeg",
+      "commit": "957029eb875eee1118743f200cb86da9d8289de2",
+      "archive": "mupdf-openjpeg-957029eb875eee1118743f200cb86da9d8289de2.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-openjpeg/tar.gz/957029eb875eee1118743f200cb86da9d8289de2"
+    },
+    {
+      "path": "thirdparty/tesseract",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-tesseract",
+      "commit": "ad0f76d971946512a62c933f490c8111877eddaa",
+      "archive": "mupdf-tesseract-ad0f76d971946512a62c933f490c8111877eddaa.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-tesseract/tar.gz/ad0f76d971946512a62c933f490c8111877eddaa"
+    },
+    {
+      "path": "thirdparty/zint",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-zint",
+      "commit": "7a9fdd6cd00cd5bfd0082705d934c13ef84f25e1",
+      "archive": "mupdf-zint-7a9fdd6cd00cd5bfd0082705d934c13ef84f25e1.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-zint/tar.gz/7a9fdd6cd00cd5bfd0082705d934c13ef84f25e1"
+    },
+    {
+      "path": "thirdparty/zlib",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-zlib",
+      "commit": "da607da739fa6047df13e66a2af6b8bec7c2a498",
+      "archive": "mupdf-zlib-da607da739fa6047df13e66a2af6b8bec7c2a498.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-zlib/tar.gz/da607da739fa6047df13e66a2af6b8bec7c2a498"
+    },
+    {
+      "path": "thirdparty/zxing-cpp",
+      "repository": "https://github.com/ArtifexSoftware/thirdparty-zxing-cpp",
+      "commit": "742aef959e12a41eda494df78fd567c2e715ff57",
+      "archive": "mupdf-zxing-cpp-742aef959e12a41eda494df78fd567c2e715ff57.tar.gz",
+      "url": "https://codeload.github.com/ArtifexSoftware/thirdparty-zxing-cpp/tar.gz/742aef959e12a41eda494df78fd567c2e715ff57"
+    },
+    {
+      "path": "thirdparty/freetype/subprojects/dlg",
+      "repository": "https://github.com/nyorain/dlg",
+      "commit": "395ccad2c1e0daae535c4d20bb0a3f2424648e17",
+      "archive": "mupdf-freetype-dlg-395ccad2c1e0daae535c4d20bb0a3f2424648e17.tar.gz",
+      "url": "https://codeload.github.com/nyorain/dlg/tar.gz/395ccad2c1e0daae535c4d20bb0a3f2424648e17",
+      "parent_commit": "0a0221a1347e2f1e07c395263540026e9a0aa7c7"
+    }
+  ]
+}

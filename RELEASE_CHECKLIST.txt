@@ -101,3 +101,19 @@ sources are not complete in those sdists, so source gates remain pending.
 New model policy excludes optional Piper Hebrew/Arabic ONNX weights and rejects
 any unexpected ONNX paths. Current local 0.3.1 artifacts predate this exclusion;
 new hosted build verification is required before distributing newer binaries.
+
+Repository checkpoint: draft https://github.com/ChocoHari/Luma-Reader/pull/1
+now contains 119 allowlisted files at 0842c0e2950252bbb2fc90e765a5d44f969e03ae.
+Initial hosted run 39113742007 passed all steps (62 tests, single build voice).
+Latest model-policy run 39114077277 is in progress; inspect its actual result
+before claiming the updated package is verified. No binaries uploaded or merged.
+
+Hosted follow-up: run 39114077277 completed successfully for 0842c0e.
+All steps passed, including exact model allowlist, standalone diagnostic and
+archive integrity. Subsequent native-source downloader changes remain local.
+
+Native source checkpoint: retained Piper native bridge/CMake, exact pinned
+eSpeak, MuPDF release commit, all 18 MuPDF submodules and nested FreeType dlg.
+31 source archives total 391420834 bytes; no TLS bypass used. Local source-review
+bundle tooling passed four privacy/integrity tests. Exact binary correspondence
+and licence completeness remain pending.

@@ -37,6 +37,11 @@ jobs:
         run: |
           $env:LUMA_TEST_VOICE=Join-Path $PWD 'dist/Luma/_internal/voices/en_GB-cori-high.onnx'
           $report=Join-Path $env:RUNNER_TEMP 'luma-diagnostic.json'
+          # Prove the child can run without Python or developer tools on PATH.
+          $env:PATH="$env:SystemRoot\System32;$env:SystemRoot"
+          foreach ($variable in @('PYTHONHOME','PYTHONPATH','VIRTUAL_ENV','QT_PLUGIN_PATH','QT_QPA_PLATFORM_PLUGIN_PATH','QML_IMPORT_PATH','QML2_IMPORT_PATH')) {
+            [Environment]::SetEnvironmentVariable($variable,$null,'Process')
+          }
           $process=Start-Process -FilePath 'dist/Luma/Luma.exe' -ArgumentList '--self-test',('"'+$report+'"') -WindowStyle Hidden -Wait -PassThru
           if ($process.ExitCode -ne 0) { exit $process.ExitCode }
           $result=Get-Content -LiteralPath $report -Raw | ConvertFrom-Json
