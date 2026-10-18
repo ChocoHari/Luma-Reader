@@ -34,3 +34,5 @@ Run `python -m pytest tests -q`, then `python tools/build_windows.py`. See [Wind
 ## Licence and credits
 
 First-party source is AGPL-3.0-or-later. Models and third-party libraries retain their own terms. See [LICENSE](LICENSE), [NOTICE](NOTICE), [third-party components](THIRD_PARTY.md) and the [Cori model review](release/CORI_CLEARANCE.md). Donations or paid builds do not change the rights granted by those licences.
+
+Privacy and local storage details: [Privacy](release/PRIVACY.md).

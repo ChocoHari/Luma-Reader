@@ -1,6 +1,7 @@
 """Standalone entry point, including a deterministic local diagnostic mode."""
 import multiprocessing
 import sys
+import runtime_privacy  # Set the SDK environment policy before engine imports.
 
 
 if __name__=='__main__':

@@ -13,6 +13,7 @@ from PySide6.QtCore import QObject, QTimer, QUrl, Signal
 from PySide6.QtMultimedia import QAudioOutput, QMediaPlayer
 
 from reader_core import Sentence, Voice
+from runtime_privacy import prepare_inference_runtime
 
 
 class VoiceEngine:
@@ -22,6 +23,7 @@ class VoiceEngine:
 
     def load(self, path: Path):
         if self.path != path:
+            prepare_inference_runtime()
             from piper import PiperVoice
             self.voice = PiperVoice.load(str(path))
             self.path = path

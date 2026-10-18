@@ -8,7 +8,7 @@ root=Path(SPECPATH)
 sys.path.insert(0,str(root/'tools'))
 from native_policy import excluded_binary
 datas=[(str(root/name),'.') for name in ('LICENSE','NOTICE','THIRD_PARTY.md','USER_GUIDE.md','OTHER_READERS.md')]
-datas += [(str(root/'release/KNOWN_ISSUES.md'),'release')]
+datas += [(str(root/'release'/name),'release') for name in ('KNOWN_ISSUES.md','PRIVACY.md')]
 datas += [(str(root/'release/local-audit/SOURCE_MANIFEST.json'),'.')]
 datas += [(str(root/'assets'/name),'assets') for name in ('luma.ico','luma.png','book-wave.svg','page-sound.svg','luma-orbit.svg')]
 # Optional language-processing weights have separate provenance requirements.

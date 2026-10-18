@@ -130,7 +130,10 @@
     "release/native-notice-manifest.json",
     "release/REPLACING_NATIVE_LIBRARIES.md",
     "tools/native_policy.py",
-    "tests/test_native_policy.py"
+    "tests/test_native_policy.py",
+    "runtime_privacy.py",
+    "tests/test_runtime_privacy.py",
+    "release/PRIVACY.md"
   ],
   "excluded_directories": [
     "data",

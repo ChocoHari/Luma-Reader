@@ -1106,7 +1106,7 @@ class Reader(StudioFeatures, QMainWindow):
         dialog.exec()
 
     def about(self):
-        QMessageBox.information(self, "About Luma Reader", "Luma Reader · local document reading and notes\n\nPiper speech · RapidOCR recognition · Qt interface\n\nNo cloud requests are made by this application. Voices and OCR models run locally.\n\nPiper: GPL-3.0-or-later. PyMuPDF: AGPL/commercial. PySide6: LGPL/GPL/commercial. See THIRD_PARTY.md and voice model cards before distributing. This is a source-based personal installation.")
+        QMessageBox.information(self, "About Luma Reader", "Luma Reader · local document reading and notes\n\nPiper speech · RapidOCR recognition · Qt interface\n\nDocuments, voices and OCR are processed locally. Inference telemetry is disabled by Luma.\n\nPiper: GPL-3.0-or-later. PyMuPDF: AGPL/commercial. PySide6: LGPL/GPL/commercial. See THIRD_PARTY.md and voice model cards before distributing. Luma is open source. See the included notices for dependency and voice credits.")
 
     def closeEvent(self, event):
         if self.job:

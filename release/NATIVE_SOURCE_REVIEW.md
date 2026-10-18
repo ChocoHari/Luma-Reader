@@ -56,3 +56,13 @@ These source revisions establish release-reference coverage. Exact wheel/native 
 ## Minimal native-library policy
 
 PE import/delay-import inspection found that the Qt Widgets/Gui/Multimedia libraries do not import the QML/Quick group; its entry point was the optional VirtualKeyboard plugin. New packaging excludes that closed group and the unused OpenCV video-FFmpeg helper. A post-copy PE audit rejects any remaining direct/delay import of excluded libraries. The Windows system ICU import is explicitly retained as a system dependency. The packaged diagnostic now constructs/renders the real Reader window and Markdown editor in an isolated state folder, with global hotkey registration disabled. Validate each resulting build before claiming compatibility; this does not replace physical display/IME testing.
+
+## Microsoft runtime review, 18 October 2026
+
+The owner reports Visual Studio as "Not installed / not sure". Treat the distributor's licence status as unconfirmed. Microsoft's redistribution guidance explicitly limits distribution of the runtime package and individual binaries to licensed Visual Studio users, subject to the relevant terms:
+https://learn.microsoft.com/en-us/cpp/windows/redistributing-visual-cpp-files?view=msvc-170
+
+The current official licence link redirects to the Visual C++ V14 Redistributable and Runtime 2026 terms page:
+https://visualstudio.microsoft.com/license-terms/vs2026-ga-visualcpp-v14-redist-runtime/
+
+Its linked DOCX returned HTTP 403 during retrieval; no complete terms review is claimed. A signed installed DLL or a successful GitHub-hosted build does not establish this project's redistribution rights. Do not require the owner to install the Visual Studio IDE simply to run Luma. Keep the distribution gate pending until an applicable licence grant and the conditions for the actual runtime binaries have been established. No Visual Studio installation, account change or runtime replacement was performed.

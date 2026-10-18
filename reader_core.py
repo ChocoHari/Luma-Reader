@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Callable
 
 from runtime_paths import ASSET_ROOT as ROOT, DATA_ROOT as DATA, VOICE_ROOT as VOICES
+from runtime_privacy import prepare_inference_runtime
 
 
 def atomic_json(path: Path, value) -> None:
@@ -104,6 +105,7 @@ class OCR:
     def recognize(self, pixmap) -> str:
         import numpy as np
         if self.engine is None:
+            prepare_inference_runtime()
             from rapidocr_onnxruntime import RapidOCR
             self.engine = RapidOCR(intra_op_num_threads=2, inter_op_num_threads=2)
         rgb = np.frombuffer(pixmap.samples, dtype=np.uint8).reshape(pixmap.height, pixmap.width, pixmap.n)

@@ -6,7 +6,7 @@ The build uses `Luma.spec` with explicit first-party assets. It excludes local v
 
 The builder copies available installed dependency notice files, preserving package paths, and writes a SHA-256 inventory in `release/local-audit/binary-inventory.json`. These notices are a starting point, not proof that corresponding-source obligations or all native-library licences have been fulfilled.
 
-For local diagnostics, set `LUMA_DATA_DIR` to an isolated writable folder and run `Luma.exe --self-test <absolute-report-path.json>`. The report exercises the packaged Qt runtime, assets, PDF extraction/rendering, DOCX handling, OCR model loading, Piper and user storage. A successful host test is not a clean-machine or voice synthesis/playback test.
+For local diagnostics, set `LUMA_DATA_DIR` to an isolated writable folder and run `Luma.exe --self-test <absolute-report-path.json>`. The report exercises the packaged Qt runtime, assets, PDF extraction/rendering, DOCX handling, actual OCR inference, Reader/Markdown rendering, Piper speech synthesis, muted audio decoding/playback and user storage. The report also checks that inference telemetry was disabled before engine imports. A successful host test does not establish clean-machine operation or physical speaker audibility.
 
 `Launch Portable.cmd` selects writable data beside the executable. Normal launch uses per-user AppData. `installer/Luma.iss` is a per-user Inno Setup 6 configuration, preserving user data on uninstall. Installation, reinstallation, version upgrade and uninstall have passed isolated development-host verification. No file associations or privileged system changes are enabled implicitly.
 
@@ -14,7 +14,7 @@ Build artifacts remain local verification candidates until every applicable gate
 
 ## Current local result
 
-18 October 2026: a clean build produced the standalone executable. Its diagnostic reported `frozen: true` and passed the Windows Qt platform, assets, PDF extraction/rendering, DOCX, OCR model construction, Piper imports, eSpeak phonemization and isolated writable storage. The updated build contains the reviewed Cori high voice and credit/model-card files (844 inventoried files). A second frozen diagnostic synthesized a 3.92-second, 22050 Hz WAV using the bundled voice. The diagnostic ran on the development computer; this does not prove operation on a machine without Python installed or full audio-device playback.
+The latest completed minimal candidate passed the isolated Windows diagnostic, including actual OCR inference and Reader/Markdown rendering. Version 0.3.0-dev to 0.3.1-dev upgrade, installed diagnostics and uninstall passed all eight checks while retaining notes/settings. Current identifiers and verification status are in RELEASE_CHECKLIST.txt; older private reports are retained under verification/. Later source changes need a fresh build and matching-source validation before being described as packaged. These remain development-host results.
 
 After a successful inventory, run `python tools/archive_build.py` to produce the portable ZIP and SHA256SUMS.txt. It rejects additions or changed file hashes after audit and verifies ZIP integrity. It uses fixed member timestamps and sorted paths; identical input files yield identical archive bytes. This does not establish reproducible compiler output.
 
@@ -26,8 +26,6 @@ Installer follow-up: `python tools/build_installer.py` compiles with the portabl
 
 The builder now passes only the virtual environment scripts, base Python/DLLs and Windows system directories in PATH to PyInstaller. Package hooks may add their own installed library directories. The spec rejects binary origins outside the virtual environment, base Python installation and Windows directory. This prevents harvesting DLLs from unrelated applications such as Poppler or libheif.
 
-The 18 October rebuild contains 803 audited files and 137 native/model files, reduced from 848/183. Of these, 112 match installed distributions and 23 match base Python runtime files by hash. The two remaining inventory entries are the separately reviewed Cori voice and msvcp140.dll from Windows System32. The latter has a valid Microsoft Windows Authenticode signature; signature validity does not by itself establish redistribution permission. The full Python installation LICENSE.txt is now preserved and indexed in third-party-notices/Python.
-
-The rebuilt diagnostic passed all checks, including 4.24-second speech synthesis and muted decode-to-EndOfMedia. Source fingerprint: `4b4a5d1caf6159af974e8ca46bcc453ac9921897c8b167f764dcabbfebf285ac`. Tests: 59 passed. Portable archive integrity passed. These remain development-host results.
+The full Python installation LICENSE.txt is preserved and indexed in third-party-notices/Python. Unused Qt VirtualKeyboard/QML/Quick libraries and the OpenCV video-FFmpeg helper are excluded. Post-copy PE import inspection rejects dependencies on excluded libraries. A valid Microsoft DLL signature alone does not establish redistribution permission.
 
 Microsoft runtime follow-up: official deployment guidance says redistribution of Visual C++ runtime packages or individual binaries is subject to the applicable Visual Studio licence and distributable-code list. A valid signature or a DLL being installed on this host is insufficient permission evidence. Verify the applicable toolchain/distribution terms or choose a documented runtime prerequisite strategy before clearing the native gate. Reference: https://learn.microsoft.com/en-us/cpp/windows/redistributing-visual-cpp-files?view=msvc-170 .
