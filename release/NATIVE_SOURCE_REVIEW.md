@@ -19,10 +19,10 @@ Exact source URLs, member counts and licence-file inventories are retained local
 ## Qt module coverage
 
 - qtbase: shipped Core, Gui, Widgets, Network and OpenGL libraries.
-- qtdeclarative: shipped Qml, QmlMeta, QmlModels, QmlWorkerScript and Quick libraries.
+- qtdeclarative: retained reference source for earlier development candidates; new minimal builds exclude the QML/Quick group.
 - qtmultimedia: shipped Multimedia and MultimediaWidgets libraries and multimedia backends.
 - qtsvg: shipped Svg library and related image support.
-- qtvirtualkeyboard: shipped VirtualKeyboard library and its input plugin.
+- qtvirtualkeyboard: retained reference source for earlier development candidates; new minimal builds exclude its library and input plugin.
 - pyside-setup: Python bindings and Shiboken sources, separate from Qt framework sources.
 
 All retained Qt archives are version 6.12.0, matching the installed Qt/PySide package version. Version correspondence alone does not prove the exact build configuration, downstream patches or bundled third-party component source correspondence. Review those before clearing the native gate. FFmpeg n9.0.1 has its actual packaged configuration recorded separately in release/evidence/ffmpeg-build-config.json.
@@ -52,3 +52,7 @@ These source revisions establish release-reference coverage. Exact wheel/native 
 ## Packaged native notice preservation
 
 356 original notice/copyright-context files from the 31 source archives are retained in evidence/native-source-notices.zip. The separate native-notice-manifest.json pins its digest and count. The collector includes licences with nonstandard names (for example FreeType FTL.TXT and leptonica-license.txt) and root README copyright context, while excluding example code/images. Packaging checks the entire ZIP and every indexed notice before copying original bytes into third-party-notices/native-sources. The index retains source archive/member paths. Four focused tests cover byte preservation, source/bundle changes and unsafe ZIP paths. This is notice preservation, not completed binary/source mapping or automatic release approval.
+
+## Minimal native-library policy
+
+PE import/delay-import inspection found that the Qt Widgets/Gui/Multimedia libraries do not import the QML/Quick group; its entry point was the optional VirtualKeyboard plugin. New packaging excludes that closed group and the unused OpenCV video-FFmpeg helper. A post-copy PE audit rejects any remaining direct/delay import of excluded libraries. The Windows system ICU import is explicitly retained as a system dependency. The packaged diagnostic now constructs/renders the real Reader window and Markdown editor in an isolated state folder, with global hotkey registration disabled. Validate each resulting build before claiming compatibility; this does not replace physical display/IME testing.

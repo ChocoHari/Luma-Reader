@@ -128,7 +128,9 @@
     "tests/test_native_notices.py",
     "release/evidence/native-source-notices.zip",
     "release/native-notice-manifest.json",
-    "release/REPLACING_NATIVE_LIBRARIES.md"
+    "release/REPLACING_NATIVE_LIBRARIES.md",
+    "tools/native_policy.py",
+    "tests/test_native_policy.py"
   ],
   "excluded_directories": [
     "data",

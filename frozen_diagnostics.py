@@ -7,6 +7,35 @@ import wave
 from pathlib import Path
 
 
+def check_reader_window(application,folder):
+    """Exercise the real widget/editor tree without normal user state or hotkeys."""
+    import app as reader_module
+    import reader_core
+    import studio
+    from PySide6.QtCore import QEvent
+    originals=[(module,'DATA',module.DATA) for module in (reader_module,reader_core,studio)]
+    originals.append((reader_core,'VOICES',reader_core.VOICES))
+    window=None
+    try:
+        for module in (reader_module,reader_core,studio):module.DATA=Path(folder)
+        reader_core.VOICES=Path(folder)/'voices'
+        window=reader_module.Reader(register_hotkey=False)
+        window.new_note()
+        window.editor.setPlainText('# Offline editor check\n\nA short original note.')
+        window.refresh_markdown_workspace()
+        window.ensurePolished()
+        application.processEvents()
+        result={'reader_window_rendered':not window.grab().isNull(),
+                'markdown_editor':'Offline editor check' in window.markdown.toPlainText()}
+        return result
+    finally:
+        if window is not None:
+            window.editor.document().setModified(False)
+            window.close();window.deleteLater()
+            application.sendPostedEvents(None,QEvent.Type.DeferredDelete)
+        for module,name,value in originals:setattr(module,name,value)
+
+
 def run(output):
     report={'frozen':bool(getattr(sys,'frozen',False)),'checks':{},'errors':[]}
     try:
@@ -37,6 +66,7 @@ def run(output):
                 report['checks']['pdf_render']=pdf[0].get_pixmap().width>0
             doc=Document();doc.add_paragraph('Luma document check.');doc.save(folder/'sample.docx')
             report['checks']['docx']=Document(folder/'sample.docx').paragraphs[0].text=='Luma document check.'
+            report['checks'].update(check_reader_window(app,folder/'reader-state'))
         engine=RapidOCR()
         report['checks']['ocr_models_loaded']=engine is not None
         report['checks']['piper_import']=PiperVoice is not None

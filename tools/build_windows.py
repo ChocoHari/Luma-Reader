@@ -75,6 +75,8 @@ def main():
     verify_model_allowlist(output,
         {f"_internal/rapidocr_onnxruntime/models/{model['file']}" for model in ocr_evidence['local_comparison']} |
         {f"_internal/voices/{name}" for name in allowed_names})
+    from native_policy import verify_native_policy
+    native_policy=verify_native_policy(output)
     files=[]
     for path in sorted(output.rglob('*')):
         if path.is_file():
@@ -86,7 +88,7 @@ def main():
             if parts[0]!='third-party-notices' and ('webengine' in relative.lower() or 'qtpdf' in relative.lower() or path.name.lower() in {'qt6pdf.dll','qpdf.dll','icuuc.dll'}):
                 raise RuntimeError(f'Unused Qt module in build: {relative}')
             files.append({'path':relative,'bytes':path.stat().st_size,'sha256':digest(path)})
-    report={'public_binary_approved':False,'purpose':'local verification only','files':files}
+    report={'public_binary_approved':False,'purpose':'local verification only','native_policy':native_policy,'files':files}
     target=ROOT/'release'/'local-audit'/'binary-inventory.json'
     target.parent.mkdir(exist_ok=True)
     target.write_text(json.dumps(report,indent=2),encoding='utf-8')

@@ -5,6 +5,8 @@ import sys
 from PyInstaller.utils.hooks import collect_data_files,collect_dynamic_libs
 
 root=Path(SPECPATH)
+sys.path.insert(0,str(root/'tools'))
+from native_policy import excluded_binary
 datas=[(str(root/name),'.') for name in ('LICENSE','NOTICE','THIRD_PARTY.md','USER_GUIDE.md','OTHER_READERS.md')]
 datas += [(str(root/'release/KNOWN_ISSUES.md'),'release')]
 datas += [(str(root/'release/local-audit/SOURCE_MANIFEST.json'),'.')]
@@ -19,8 +21,7 @@ a=Analysis([str(root/'tools/frozen_entry.py')],pathex=[str(root)],binaries=binar
               'PySide6.QtPdf','PySide6.QtPdfWidgets','pytest','tkinter'],noarchive=False)
 # Qt uses the Windows system ICU API. Do not shadow it with a different ICU
 # found on the developer PATH (for example a Poppler runtime).
-a.binaries=[item for item in a.binaries if Path(item[0]).name.lower() not in
-    {'icuuc.dll','icudt78.dll','qt6pdf.dll','qpdf.dll'}]
+a.binaries=[item for item in a.binaries if not excluded_binary(item[0])]
 # Refuse libraries harvested from unrelated applications on a developer machine.
 trusted=[(root/'.venv').resolve(),Path(sys.base_prefix).resolve(),
          Path(os.environ.get('SystemRoot','C:/Windows')).resolve()]

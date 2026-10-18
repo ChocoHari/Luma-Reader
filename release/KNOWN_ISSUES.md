@@ -14,3 +14,5 @@
 - The initial hosted Windows CI run passed tests, standalone build/diagnostics and archive verification. New commits still need their own successful runs; see CI_VERIFICATION.md.
 
 - Optional Piper Hebrew/Arabic text-processing model weights are excluded from new distributable builds pending separate provenance review. The reviewed English Cori voice is supported; importing a voice does not guarantee its optional language-specific processing dependencies are bundled.
+
+- New minimal builds omit OpenCV video decoding and Qt VirtualKeyboard/QML/Quick. These were not Luma reader/editor features. Qt Widgets, PDF rendering, OCR and Qt audio playback remain supported; the separate Qt virtual-keyboard plugin is not bundled.

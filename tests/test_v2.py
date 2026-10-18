@@ -393,6 +393,18 @@ def test_two_column_pdf_speech_and_highlights_share_order(window,tmp_path,applic
     assert all(r[0]>300 for r in right_rects)
 
 
+def test_packaged_window_check_isolates_state_and_renders_markdown(tmp_path,application,monkeypatch):
+    import app as reader_module
+    import studio
+    from frozen_diagnostics import check_reader_window
+    private=tmp_path/'normal-user-state'
+    for module in (core,studio,reader_module):monkeypatch.setattr(module,'DATA',private)
+    result=check_reader_window(application,tmp_path/'diagnostic-state')
+    assert all(result.values())
+    assert not private.exists()
+    assert core.DATA==studio.DATA==reader_module.DATA==private
+
+
 def test_cross_page_selection_retains_source_range(window,tmp_path,application):
     import pymupdf as fitz
     from PySide6.QtCore import QPoint
