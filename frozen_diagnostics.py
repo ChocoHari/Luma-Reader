@@ -69,6 +69,14 @@ def run(output):
             report['checks'].update(check_reader_window(app,folder/'reader-state'))
         engine=RapidOCR()
         report['checks']['ocr_models_loaded']=engine is not None
+        # Exercise OpenCV preprocessing and inference, not just model construction.
+        from reader_core import OCR
+        recognizer=OCR();recognizer.engine=engine
+        with pymupdf.open() as sample:
+            page=sample.new_page(width=500,height=180)
+            page.insert_text((30,70),'Offline reading works.',fontsize=20)
+            recognized=recognizer.recognize(page.get_pixmap(dpi=150,colorspace=pymupdf.csRGB,alpha=False))
+        report['checks']['ocr_inference']='offline reading works' in recognized.casefold()
         report['checks']['piper_import']=PiperVoice is not None
         phonemizer=EspeakPhonemizer()
         report['checks']['piper_phonemization']=bool(phonemizer.phonemize('en-us','Luma standalone voice check.'))
