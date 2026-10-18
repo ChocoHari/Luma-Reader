@@ -52,6 +52,10 @@ def main():
         shutil.copy2(evidence,destination/'VOICE_CREDIT.md')
         shutil.copy2(ROOT/'release/evidence/piper-cori-MODEL_CARD.txt',destination/'MODEL_CARD.txt')
     shutil.copy2(ROOT/'installer'/'Launch Portable.cmd',output/'Launch Portable.cmd')
+    from model_inventory import verify_model_allowlist
+    verify_model_allowlist(output,
+        {f"_internal/rapidocr_onnxruntime/models/{model['file']}" for model in ocr_evidence['local_comparison']} |
+        {f"_internal/voices/{name}" for name in allowed_names})
     notices=output/'third-party-notices'
     from runtime_notices import copy_python_notice
     notice_index=[copy_python_notice(output)]

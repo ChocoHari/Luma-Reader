@@ -11,4 +11,6 @@
 - Muted audio decoding and completion passed. Physical speaker audibility and all output devices remain unverified.
 - Piper integration with other Windows readers is separate work. Do not claim the bundled voice is a system-wide SAPI voice or works in every reader.
 - Native-library corresponding source/notices and a public source distribution destination remain open release gates. Current artifacts are local development candidates.
-- CI is prepared but has not run on GitHub. It must pass in the selected repository before being described as verified.
+- The initial hosted Windows CI run passed tests, standalone build/diagnostics and archive verification. New commits still need their own successful runs; see CI_VERIFICATION.md.
+
+- Optional Piper Hebrew/Arabic text-processing model weights are excluded from new distributable builds pending separate provenance review. The reviewed English Cori voice is supported; importing a voice does not guarantee its optional language-specific processing dependencies are bundled.

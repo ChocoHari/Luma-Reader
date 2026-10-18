@@ -32,3 +32,9 @@ All retained Qt archives are version 6.12.0, matching the installed Qt/PySide pa
 Trace the exact shipped Piper/eSpeak, PyMuPDF/MuPDF and other native dependency builds to applicable source, patch and build records. Review dependencies embedded inside wheels, including codecs, cryptography, font/rendering and numerical libraries. Preserve their required notices. Check Microsoft runtime distribution terms separately; an installed signed DLL is insufficient permission evidence. Python's full runtime licence is now preserved automatically by the builder.
 
 The native and corresponding-source release gates remain pending. No public release or upload is authorized by this review record.
+
+## Piper and PyMuPDF source distributions
+
+The exact Piper 1.8.0 and PyMuPDF 1.28.2 PyPI source distributions were retained and matched their SHA-256 values published by PyPI. Neither archive contains all native engine source: Piper lacks its native bridge/eSpeak build sources, and the PyMuPDF distribution does not embed MuPDF source. Their upstream repository/build dependency records still need to be retained. Do not clear the corresponding-source gate based on these source distributions alone.
+
+The Piper source archive also exposed optional Hebrew/Arabic text-processing ONNX weights that the broad data collector copied into prior development candidates. They are outside the approved voice/OCR set. The spec now excludes Piper package ONNX data, and packaging checks require exactly the reviewed voice and three OCR paths, rejecting extras or missing files. These optional language-processing models are not bundled; voices requiring them need separate support/provenance review. Source archives remain evidence archives and are not executed or shipped as runtime data.

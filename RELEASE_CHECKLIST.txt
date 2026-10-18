@@ -52,15 +52,19 @@ NATIVE_SOURCE_REVIEW.md; STORAGE.md (all under release/).
 PHASE 6 - OPEN-SOURCE BETA [IN PROGRESS]
 [x] Allowlisted exact source snapshot, hashes and bundled fingerprint.
 [x] Contribution/issue/PR templates, known issues, beta guide and release notes.
-[x] Windows CI workflow prepared; reviewed-voice fetcher and portable checks.
+[x] Hosted Windows CI passed tests/build/diagnostics/archive on selected repository.
 [x] User guide consolidated to current app behavior; companion guides bundled.
 [x] Official Qt/PySide/FFmpeg source archives retained with hashes/inventories.
 [ ] Complete corresponding-source package and public distribution destination.
-[ ] User-selected GitHub repository, hosted CI run, tags and release readiness.
+[x] User-selected GitHub repository and initial hosted Windows CI run.
+[ ] Tags, final release readiness and hosted checks for subsequent changes.
 [ ] Clean-machine beta feedback and required remaining compatibility evidence.
 Selected public repository: https://github.com/ChocoHari/Luma-Reader .
-Connected GitHub access verified; remote was empty at inspection. Source-only
-review branch is being prepared. No binary release has been published.
+Connected GitHub access verified; remote was empty at inspection. Draft PR #1
+contains 115 allowlisted files; all uploaded blob hashes matched the prepared
+snapshot. CI context validation corrected in follow-up commit. Hosted checks
+passed for commit 23c1aad; stricter model-policy follow-up pending. No binary
+release has been published.
 
 PHASE 7 - MARKETING AND SUPPORT [IN PROGRESS]
 [x] Original-content screenshots, banners, logo exports and captioned demo.
@@ -89,3 +93,11 @@ Current artifacts/checksums: dist/SHA256SUMS.txt.
 Subsequent checklist/native-review tooling changes are outside the retained exact
 build snapshot. Rebuild before describing a newer source state as that binary.
 Historical raw verification stays private under verification/ and local-audit/.
+
+FOLLOW-UP SOURCE CHECKPOINT
+69 local tests passed after adding archive-checksum and packaged-model checks.
+Piper/PyMuPDF sdists retained with exact PyPI checksum matches; native engine
+sources are not complete in those sdists, so source gates remain pending.
+New model policy excludes optional Piper Hebrew/Arabic ONNX weights and rejects
+any unexpected ONNX paths. Current local 0.3.1 artifacts predate this exclusion;
+new hosted build verification is required before distributing newer binaries.

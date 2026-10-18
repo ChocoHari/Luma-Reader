@@ -116,7 +116,11 @@
     "tests/test_pdf_reading_order.py",
     "OTHER_READERS.md",
     "release/NATIVE_SOURCE_REVIEW.md",
-    ".gitignore"
+    ".gitignore",
+    "tests/test_native_sources.py",
+    "tools/model_inventory.py",
+    "tests/test_model_inventory.py",
+    "release/CI_VERIFICATION.md"
   ],
   "excluded_directories": [
     "data",

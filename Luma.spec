@@ -9,7 +9,9 @@ datas=[(str(root/name),'.') for name in ('LICENSE','NOTICE','THIRD_PARTY.md','US
 datas += [(str(root/'release/KNOWN_ISSUES.md'),'release')]
 datas += [(str(root/'release/local-audit/SOURCE_MANIFEST.json'),'.')]
 datas += [(str(root/'assets'/name),'assets') for name in ('luma.ico','luma.png','book-wave.svg','page-sound.svg','luma-orbit.svg')]
-datas += collect_data_files('piper')+collect_data_files('rapidocr_onnxruntime')
+# Optional language-processing weights have separate provenance requirements.
+# The reviewed package includes only the selected voice and the three OCR models.
+datas += collect_data_files('piper',excludes=['**/*.onnx'])+collect_data_files('rapidocr_onnxruntime')
 binaries=collect_dynamic_libs('piper')+collect_dynamic_libs('onnxruntime')
 a=Analysis([str(root/'tools/frozen_entry.py')],pathex=[str(root)],binaries=binaries,datas=datas,
     hiddenimports=['piper','rapidocr_onnxruntime','onnxruntime','frozen_diagnostics'],
