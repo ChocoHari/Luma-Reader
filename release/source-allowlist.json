@@ -123,7 +123,12 @@
     "release/CI_VERIFICATION.md",
     "release/mupdf-source-components.json",
     "tools/package_native_sources.py",
-    "tests/test_native_source_package.py"
+    "tests/test_native_source_package.py",
+    "tools/native_notices.py",
+    "tests/test_native_notices.py",
+    "release/evidence/native-source-notices.zip",
+    "release/native-notice-manifest.json",
+    "release/REPLACING_NATIVE_LIBRARIES.md"
   ],
   "excluded_directories": [
     "data",

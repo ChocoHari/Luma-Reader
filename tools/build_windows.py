@@ -53,12 +53,11 @@ def main():
         shutil.copy2(ROOT/'release/evidence/piper-cori-MODEL_CARD.txt',destination/'MODEL_CARD.txt')
     shutil.copy2(ROOT/'installer'/'Launch Portable.cmd',output/'Launch Portable.cmd')
     from model_inventory import verify_model_allowlist
-    verify_model_allowlist(output,
-        {f"_internal/rapidocr_onnxruntime/models/{model['file']}" for model in ocr_evidence['local_comparison']} |
-        {f"_internal/voices/{name}" for name in allowed_names})
     notices=output/'third-party-notices'
     from runtime_notices import copy_python_notice
     notice_index=[copy_python_notice(output)]
+    from native_notices import copy_native_notices
+    notice_index+=copy_native_notices(ROOT,output)
     for dist in metadata.distributions():
         name=dist.metadata.get('Name','unknown')
         for item in dist.files or []:
@@ -73,6 +72,9 @@ def main():
             notice_index.append({'package':name,'version':dist.version,'file':target.relative_to(output).as_posix()})
     notices.mkdir(exist_ok=True)
     (notices/'INDEX.json').write_text(json.dumps({'scope':'Available development-environment notices; not complete corresponding source or binary clearance','notices':notice_index},indent=2),encoding='utf-8')
+    verify_model_allowlist(output,
+        {f"_internal/rapidocr_onnxruntime/models/{model['file']}" for model in ocr_evidence['local_comparison']} |
+        {f"_internal/voices/{name}" for name in allowed_names})
     files=[]
     for path in sorted(output.rglob('*')):
         if path.is_file():
