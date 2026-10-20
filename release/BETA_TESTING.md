@@ -24,4 +24,4 @@ Use original or public-domain sample documents for shared reports. Keep private 
 - Minimal original sample, if shareable:
 - Redacted error message, if any:
 
-No public issue tracker or private security address has been selected yet. Prepare reports locally until the maintainer supplies a real destination. A missing test configuration is unverified, not passed.
+The selected issue tracker is https://github.com/ChocoHari/Luma-Reader/issues . No private security address has been selected. Review reports for private information before posting. A missing test configuration is unverified, not passed.

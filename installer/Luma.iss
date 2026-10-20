@@ -31,6 +31,8 @@ ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 CloseApplications=yes
 
+#include "obsolete-runtime.iss"
+
 [Files]
 Source: "..\dist\Luma\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 

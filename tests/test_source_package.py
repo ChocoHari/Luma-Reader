@@ -6,7 +6,7 @@ import zipfile
 import pytest
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
-from source_package import snapshot_sources,write_source_package
+from source_package import snapshot_sources,write_source_package,validate_public_notes
 
 
 def fixture_source(root):
@@ -34,3 +34,16 @@ def test_source_snapshot_rejects_forbidden_allowlist_entry(tmp_path):
     spec=json.loads(path.read_text());spec['files'].append('data/settings.json')
     path.write_text(json.dumps(spec))
     with pytest.raises(ValueError,match='Unsafe'):snapshot_sources(tmp_path)
+
+
+@pytest.mark.parametrize('text',['Free disk: C 11.9 GB, D 110.7 GB',
+    '4 physical cores / 8 logical processors','MemoryGB: 19.8',
+    'VirtualizationFirmwareEnabled: True'])
+def test_public_notes_reject_host_capacity_details(text):
+    with pytest.raises(ValueError,match='Private host-capacity'):
+        validate_public_notes({'RELEASE_CHECKLIST.txt':text.encode()})
+
+
+def test_public_notes_allow_generic_test_status_and_documented_storage():
+    validate_public_notes({'release/BUILD_WINDOWS.md':
+        b'Clean Windows test pending. Store notes in %LOCALAPPDATA%/Luma Reader.'})

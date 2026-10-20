@@ -7,6 +7,7 @@ import subprocess
 import sys
 import uuid
 import winreg
+from installed_payload import verify_installed_payload
 
 ROOT=Path(__file__).resolve().parents[1]
 KEY=r'Software\Microsoft\Windows\CurrentVersion\Uninstall\{A3658D58-C019-45CB-A0AF-2CBC8871E6B9}_is1'
@@ -48,10 +49,25 @@ def run():
     install(old,'old-install')
     old_sha=sha(target/'Luma.exe')
     report['checks']['old_version_registered']=installed_version()=='0.3.0-dev'
+    # Harmless sentinels at formerly packaged paths verify cleanup even when a
+    # particular retained fixture did not contain that optional component.
+    obsolete=['_internal/piper/hebrew/nakdimon.onnx','_internal/PySide6/Qt6Quick.dll']
+    for name in obsolete:
+        path=target/name;path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_bytes(b'Obsolete-package test sentinel; never executed')
+    portable_voice=target/'LumaData/voices/own-voice.onnx'
+    portable_voice.parent.mkdir(parents=True,exist_ok=True)
+    portable_voice.write_bytes(b'User-owned voice preservation sentinel')
+    own_voice_sha=sha(portable_voice)
     install(new,'upgrade')
     report['checks']['new_version_registered']=installed_version()=='0.3.1-dev'
     report['checks']['executable_updated']=sha(target/'Luma.exe')!=old_sha
     report['checks']['executable_matches_candidate']=sha(target/'Luma.exe')==sha(ROOT/'dist/Luma/Luma.exe')
+    inventory=json.loads((ROOT/'release/local-audit/binary-inventory.json').read_text())
+    report['installed_payload']=verify_installed_payload(target,inventory)
+    report['checks']['installed_matches_audit']=report['installed_payload']['passed']
+    report['checks']['obsolete_runtime_removed']=all(not (target/name).exists() for name in obsolete)
+    report['checks']['portable_voice_preserved']=portable_voice.is_file() and sha(portable_voice)==own_voice_sha
     report['checks']['user_data_preserved']=all(sha(data/name)==value for name,value in originals.items())
     env=os.environ.copy();env['LUMA_DATA_DIR']=str(data)
     env['LUMA_TEST_VOICE']=str(target/'_internal/voices/en_GB-cori-high.onnx')
@@ -65,6 +81,7 @@ def run():
     subprocess.run([str(uninstaller),'/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART'],check=True)
     report['checks']['uninstalled']=not (target/'Luma.exe').exists()
     report['checks']['uninstall_preserves_data']=all(sha(data/name)==value for name,value in originals.items())
+    report['checks']['uninstall_preserves_portable_voice']=portable_voice.is_file() and sha(portable_voice)==own_voice_sha
     report['passed']=all(report['checks'].values())
     (ROOT/'verification/upgrade-result.json').write_text(json.dumps(report,indent=2))
     print(json.dumps(report,indent=2))

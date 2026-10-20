@@ -6,11 +6,14 @@ from pathlib import Path
 import subprocess
 import uuid
 import sys
+from build_installer import installer_version
+from installed_payload import verify_installed_payload
 
 ROOT=Path(__file__).resolve().parents[1]
 
 
 def run():
+    version=installer_version()
     candidate='--candidate' in sys.argv
     if candidate:
         import winreg
@@ -23,12 +26,14 @@ def run():
                 else:
                     handle.Close()
                     raise RuntimeError('Existing Luma install found; refusing candidate lifecycle test')
-        installer=ROOT/'dist/installer/Luma-0.3.0-dev-Setup.exe'
+        installer=ROOT/f'dist/installer/Luma-{version}-Setup.exe'
     else:
         compiler=ROOT/'tmp/installer-tools/compiler/ISCC.exe'
         with (ROOT/'verification/installer-verification-compile.log').open('w') as log:
             subprocess.run([str(compiler),'/Qp','/DVerificationBuild=1',str(ROOT/'installer/Luma.iss')],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,check=True)
-        installer=ROOT/'dist/installer/Luma-0.3.0-dev-Verification-Setup.exe'
+        installer=ROOT/f'dist/installer/Luma-{version}-Verification-Setup.exe'
+    if not installer.is_file():
+        raise FileNotFoundError(f'Build the {version} installer before testing: {installer}')
     trial=ROOT/'verification'/('installer-trial-'+uuid.uuid4().hex[:8])
     target=trial/'app';data=trial/'user-data'
     assert target.resolve().is_relative_to((ROOT/'verification').resolve())
@@ -41,11 +46,15 @@ def run():
     env=os.environ.copy();env['LUMA_DATA_DIR']=str(data)
     subprocess.run(args,check=True)
     report['checks']['installed']=(target/'Luma.exe').is_file()
+    inventory=json.loads((ROOT/'release/local-audit/binary-inventory.json').read_text())
+    report['installed_payload']=verify_installed_payload(target,inventory)
+    report['checks']['installed_matches_audit']=report['installed_payload']['passed']
     env['LUMA_TEST_VOICE']=str(target/'_internal/voices/en_GB-cori-high.onnx')
     diagnostic=trial/'installed-diagnostic.json'
     subprocess.run([str(target/'Luma.exe'),'--self-test',str(diagnostic)],env=env,check=True,timeout=90)
     report['checks']['installed_diagnostic']=json.loads(diagnostic.read_text())['passed']
     subprocess.run(args,check=True)
+    report['checks']['reinstalled_matches_audit']=verify_installed_payload(target,inventory)['passed']
     report['checks']['reinstall_preserves_note']=hashlib.sha256(note.read_bytes()).hexdigest()==original
     uninstaller=target/'unins000.exe'
     assert uninstaller.resolve().parent==target.resolve()

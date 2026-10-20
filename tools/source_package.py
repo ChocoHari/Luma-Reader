@@ -1,9 +1,27 @@
 """Deterministic source snapshot from the reviewed explicit allowlist."""
 import hashlib
 import json
+import re
 from pathlib import Path
 import zipfile
 from audit_release import validate_sources
+
+
+def validate_public_notes(payloads):
+    """Reject known local host-capacity fields in public prose artifacts.
+
+    This supplements the explicit file allowlist; it is not a complete secret
+    scanner or permission to publish other private information.
+    """
+    patterns=(r'\b(?:MemoryGB|FreeGB|VirtualizationFirmwareEnabled|NumberOfLogicalProcessors)\b',
+              r'\bfree (?:disk|space)\s*:\s*[^\n]*\d',
+              r'\b[CD]\s*:?\s+\d+(?:\.\d+)?\s*GB\b',
+              r'\b\d+\s+physical cores\s*/\s*\d+\s+logical')
+    for name,data in payloads.items():
+        if Path(name).suffix.lower() not in {'.md','.txt'}:continue
+        text=data.decode('utf-8',errors='replace')
+        if any(re.search(pattern,text,re.I) for pattern in patterns):
+            raise ValueError(f'Private host-capacity detail in public notes: {name}')
 
 
 def snapshot_sources(root):
@@ -13,6 +31,7 @@ def snapshot_sources(root):
     if len(spec['files'])!=len(set(spec['files'])):errors.append('Duplicate source paths')
     if errors:raise ValueError('\n'.join(errors))
     payloads={name:(root/name).read_bytes() for name in sorted(spec['files'])}
+    validate_public_notes(payloads)
     records=[{'path':name,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()} for name,data in payloads.items()]
     fingerprint=hashlib.sha256(json.dumps(records,sort_keys=True,separators=(',',':')).encode()).hexdigest()
     return {'schema_version':1,'source_fingerprint':fingerprint,'files':records},payloads

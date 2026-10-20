@@ -133,7 +133,11 @@
     "tests/test_native_policy.py",
     "runtime_privacy.py",
     "tests/test_runtime_privacy.py",
-    "release/PRIVACY.md"
+    "release/PRIVACY.md",
+    "tests/test_installer_version.py",
+    "installer/obsolete-runtime.iss",
+    "tools/installed_payload.py",
+    "tests/test_installed_payload.py"
   ],
   "excluded_directories": [
     "data",
