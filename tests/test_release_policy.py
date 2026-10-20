@@ -34,3 +34,11 @@ def test_build_voice_hash_failure_does_not_replace_local_files(tmp_path):
         fetch_verified(upstream.as_uri(),target,expected)
     assert not target.exists()
     assert not list(tmp_path.glob('*.download'))
+
+
+def test_microsoft_runtime_clearance_cannot_be_omitted_or_left_pending():
+    gates=[{'id':name,'status':'passed'} for name in REQUIRED if name!='microsoft-runtime']
+    config={'public_binary_approved':True,'gates':gates}
+    assert 'Missing gate: microsoft-runtime' in public_blockers(config)
+    gates.append({'id':'microsoft-runtime','status':'pending'})
+    assert 'Pending gate: microsoft-runtime' in public_blockers(config)

@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import sys
 
-REQUIRED={'qt-ffmpeg','ocr-model-provenance','voice-clearance','corresponding-source','clean-package'}
+REQUIRED={'qt-ffmpeg','microsoft-runtime','ocr-model-provenance','voice-clearance','corresponding-source','clean-package'}
 
 
 def public_blockers(config):

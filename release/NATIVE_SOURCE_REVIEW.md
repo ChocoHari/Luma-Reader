@@ -65,7 +65,7 @@ https://learn.microsoft.com/en-us/cpp/windows/redistributing-visual-cpp-files?vi
 The current official licence link redirects to the Visual C++ V14 Redistributable and Runtime 2026 terms page:
 https://visualstudio.microsoft.com/license-terms/vs2026-ga-visualcpp-v14-redist-runtime/
 
-Its linked DOCX returned HTTP 403 during retrieval; no complete terms review is claimed. A signed installed DLL or a successful GitHub-hosted build does not establish this project's redistribution rights. Do not require the owner to install the Visual Studio IDE simply to run Luma. Keep the distribution gate pending until an applicable licence grant and the conditions for the actual runtime binaries have been established. No Visual Studio installation, account change or runtime replacement was performed.
+The full linked terms were subsequently read through Microsoft's Office viewer on 20 October 2026. The runtime end-user agreement alone does not grant the required redistribution rights. The Community, Build Tools and REDIST terms were reviewed separately; see [MSVC_RUNTIME_REVIEW.md](MSVC_RUNTIME_REVIEW.md) and the candidate-specific runtime inventory. The explicit `microsoft-runtime` release gate remains pending until a valid applicable grant, exact file coverage and distribution conditions are established. No Visual Studio agreement, installation or runtime replacement was performed.
 
 ## Qt Windows FFmpeg build trace, 20 October 2026
 

@@ -97,19 +97,22 @@ Later result notes are outside the retained build snapshot. No public binaries
 published and no PR merged. Other required release gates remain pending.
 
 CLEAN WINDOWS FOLLOW-UP
-A clean Windows guest/computer remains unavailable for verification. A private
-sample kit and VM setup proposal are prepared outside the public source list.
-No hypervisor installation, ISO download or licence acceptance was performed.
+User approved virtualization setup. VirtualBox is installed and a disposable VM
+is prepared; its empty-guest startup probe passed. Windows evaluation registration is complete; the official Microsoft ISO is
+downloading. Guest installation remains pending. A private sample kit is ready. No
+clean-Windows application test has been completed.
 Host-specific configuration and capacity details stay in private verification
 notes and must not be included in public source, marketing or review messages.
 
 REPOSITORY AND NATIVE SOURCE CHECKPOINT
 Draft: https://github.com/ChocoHari/Luma-Reader/pull/1
 Initial Git blob hashes verified; subsequent updates use leased branch writes.
-356 original native notice files from 31 pinned upstream source archives retained.
-Source-review ZIP: 391471590 bytes; reference coverage only, not approved as
+369 original native notice files from 33 pinned upstream source archives retained.
+Source-review ZIP: 393650412 bytes; reference coverage only, not approved as
 complete corresponding source. Native build/source/runtime review remains open.
-Microsoft runtime distribution rights remain unconfirmed. Official runtime guidance reviewed; linked terms DOCX returned 403.
+Microsoft runtime distribution rights remain unconfirmed. Full runtime, Community,
+Build Tools and REDIST terms reviewed; explicit microsoft-runtime gate added.
+See release/MSVC_RUNTIME_REVIEW.md and the candidate DLL inventory.
 Historical raw verification stays private under verification/ and local-audit/.
 
 UPGRADE AUDIT FOLLOW-UP [COMPLETE - DEVELOPMENT HOST]
@@ -138,3 +141,17 @@ recipe; zlib bytes match both official release hosts and Qt's pinned checksum.
 installer still contains its earlier 356-file notice snapshot. Nine focused
 source/hash/notice/packager tests passed. Native gates remain pending: recipe
 correspondence does not prove exact wheel reproduction or final clearance.
+
+NATIVE REVIEW / VM CHECKPOINT - 20 October 2026
+Draft source head: 850b332e44b987738bffce63b1af57caf5f907b1 (137 files).
+Hosted run 39385802420 completed successfully. Isolated source checkout: 94
+tests passed with the reviewed voice. Supplemental notice-copy hashes all passed.
+Source-review ZIP now contains 33 archives and remains publication-unapproved.
+Existing verified installer/portable/source snapshot remains paired and unchanged.
+VirtualBox installation completed successfully without a required restart; an
+empty test guest started and powered off successfully. Windows evaluation registration is complete and its official ISO download
+is underway. VM-specific logs/settings stay private.
+
+20 October: Microsoft runtime gate regression checks passed (3 tests). Runtime
+review/inventory added to the source allowlist. Existing candidate artifacts
+remain unchanged; these new review inputs have not yet been pushed or rebuilt.

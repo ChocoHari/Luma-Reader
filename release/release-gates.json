@@ -3,6 +3,13 @@
   "public_binary_approved": false,
   "gates": [
     {
+      "id": "microsoft-runtime",
+      "phase": 5,
+      "status": "pending",
+      "requirement": "Establish an applicable Microsoft redistribution licence grant, map the actual runtime binaries to permitted REDIST coverage and satisfy distribution and end-user terms.",
+      "evidence": "release/MSVC_RUNTIME_REVIEW.md; release/evidence/msvc-runtime-inventory.json; signatures verified, redistribution grant remains unconfirmed"
+    },
+    {
       "id": "qt-ffmpeg",
       "phase": 5,
       "status": "pending",
