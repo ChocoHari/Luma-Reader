@@ -49,7 +49,7 @@ def run(output):
         from PySide6.QtCore import QEventLoop,QTimer,QUrl
         import pymupdf
         from docx import Document
-        from rapidocr_onnxruntime import RapidOCR
+        from ocr_backend import create_engine
         from piper import PiperVoice
         from piper.phonemize_espeak import EspeakPhonemizer
         from runtime_paths import ASSET_ROOT,DATA_ROOT
@@ -72,7 +72,7 @@ def run(output):
             doc=Document();doc.add_paragraph('Luma document check.');doc.save(folder/'sample.docx')
             report['checks']['docx']=Document(folder/'sample.docx').paragraphs[0].text=='Luma document check.'
             report['checks'].update(check_reader_window(app,folder/'reader-state'))
-        engine=RapidOCR()
+        engine=create_engine()
         report['checks']['ocr_models_loaded']=engine is not None
         # Exercise OpenCV preprocessing and inference, not just model construction.
         from reader_core import OCR

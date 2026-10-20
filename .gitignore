@@ -1,4 +1,6 @@
 .venv/
+.venv313/
+ocr_models/
 __pycache__/
 .pytest_cache/
 .ci-data/

@@ -82,6 +82,8 @@ def forbid_network(monkeypatch):
         raise AssertionError("An offline engine attempted to connect to a network.")
     monkeypatch.setattr(socket.socket, "connect", denied)
     monkeypatch.setattr(socket, "create_connection", denied)
+    from rapidocr.utils.download_file import DownloadFile
+    monkeypatch.setattr(DownloadFile, 'run', denied)
 
 
 def test_actual_offline_ocr_and_cache(tmp_path, monkeypatch):

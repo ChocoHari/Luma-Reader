@@ -3,7 +3,8 @@ Dim shell, files, root, python, script
 Set shell = CreateObject("WScript.Shell")
 Set files = CreateObject("Scripting.FileSystemObject")
 root = files.GetParentFolderName(WScript.ScriptFullName)
-python = files.BuildPath(root, ".venv\Scripts\pythonw.exe")
+python = files.BuildPath(root, ".venv313\Scripts\pythonw.exe")
+If Not files.FileExists(python) Then python = files.BuildPath(root, ".venv\Scripts\pythonw.exe")
 script = files.BuildPath(root, "app.py")
 If Not files.FileExists(python) Then
     MsgBox "Run Setup.ps1 first to install the reader's local environment.", 48, "Luma Reader"

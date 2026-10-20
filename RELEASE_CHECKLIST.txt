@@ -200,3 +200,25 @@ SHA-256 c54187f966aba580574271329d084c228f1a59e15b116ccff7bab79023f07b62.
 Exact PyMuPDF wheel-reported commit is now included. Native/source gates stay
 pending; no independent upstream reproduction or public approval claimed.
 Old verified binary/source candidate remains paired and unchanged.
+
+Runtime/OCR migration: .venv313 source suite passed all 102 tests, including
+actual offline OCR with downloader rejection and two-column geometry. Same
+three reviewed model hashes; newer default model weights excluded. Setup,
+source launchers, build paths and CI updated. Prior paired candidate copied and
+all package hashes rechecked before rebuild. 0.3.2-dev frozen build follows;
+standalone, strict upgrade and clean-Windows checks remain pending.
+
+First refreshed frozen candidate passed the isolated-PATH diagnostic: actual
+OCR, Piper synthesis, muted playback, Reader/editor and PDF/DOCX all passed.
+Runtime reports Python 3.13.16 and OpenSSL 3.5.9; 1255 audited files, 126 native
+libraries and four approved models. First source fingerprint:
+f2b180d2ccc614443573042dc13523af8d38c4926ea522d5998bbde7191d0564
+Old/new inventory comparison identified 37 removed runtime/model paths; exact
+cleanup rules added. Final rebuild, installer/archive pairing and strict upgrade
+checks remain required after that source change. Refreshed changes are local;
+latest hosted success still covers the earlier 5e355080 source commit.
+
+Upgrade verifier now derives the current target version and accepts an explicit
+retained baseline; same-version/missing/outside-project baselines are rejected.
+All 103 source tests passed after the change. Refreshed 0.3.1-to-0.3.2 actual
+upgrade remains pending. Final source-paired build follows these verifier edits.

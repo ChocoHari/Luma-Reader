@@ -27,7 +27,7 @@ def main():
     output=ROOT/'dist'/'Luma'
     ocr_evidence=json.loads((ROOT/'release/evidence/ocr-upstream-metadata.json').read_text())
     for model in ocr_evidence['local_comparison']:
-        path=output/'_internal/rapidocr_onnxruntime/models'/model['file']
+        path=output/'_internal/ocr_models'/model['file']
         if not model['upstream_matches'] or digest(path)!=model['sha256']:
             raise RuntimeError('OCR model does not match reviewed upstream artifact')
     model_notices=output/'third-party-notices/OCR-models'
@@ -74,7 +74,7 @@ def main():
     notices.mkdir(exist_ok=True)
     (notices/'INDEX.json').write_text(json.dumps({'scope':'Available development-environment notices; not complete corresponding source or binary clearance','notices':notice_index},indent=2),encoding='utf-8')
     verify_model_allowlist(output,
-        {f"_internal/rapidocr_onnxruntime/models/{model['file']}" for model in ocr_evidence['local_comparison']} |
+        {f"_internal/ocr_models/{model['file']}" for model in ocr_evidence['local_comparison']} |
         {f"_internal/voices/{name}" for name in allowed_names})
     from native_policy import verify_native_policy
     native_policy=verify_native_policy(output)

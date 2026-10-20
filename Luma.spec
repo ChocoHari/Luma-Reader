@@ -13,10 +13,12 @@ datas += [(str(root/'release/local-audit/SOURCE_MANIFEST.json'),'.')]
 datas += [(str(root/'assets'/name),'assets') for name in ('luma.ico','luma.png','book-wave.svg','page-sound.svg','luma-orbit.svg')]
 # Optional language-processing weights have separate provenance requirements.
 # The reviewed package includes only the selected voice and the three OCR models.
-datas += collect_data_files('piper',excludes=['**/*.onnx'])+collect_data_files('rapidocr_onnxruntime')
+datas += collect_data_files('piper',excludes=['**/*.onnx'])+collect_data_files('rapidocr',excludes=['**/*.onnx'])
+from ocr_backend import verified_models
+datas += [(str(path),'ocr_models') for path in verified_models().values()]
 binaries=collect_dynamic_libs('piper')+collect_dynamic_libs('onnxruntime')
 a=Analysis([str(root/'tools/frozen_entry.py')],pathex=[str(root)],binaries=binaries,datas=datas,
-    hiddenimports=['piper','rapidocr_onnxruntime','onnxruntime','frozen_diagnostics'],
+    hiddenimports=['piper','rapidocr','rapidocr.inference_engine.onnxruntime','onnxruntime','frozen_diagnostics'],
     excludes=['PySide6.QtWebEngineCore','PySide6.QtWebEngineWidgets','PySide6.QtWebEngineQuick',
               'PySide6.QtPdf','PySide6.QtPdfWidgets','pytest','tkinter'],noarchive=False)
 # Qt uses the Windows system ICU API. Do not shadow it with a different ICU

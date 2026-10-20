@@ -1,5 +1,6 @@
 """Version-to-version installer check in a fresh owned directory."""
 import hashlib
+import argparse
 import json
 import os
 from pathlib import Path
@@ -8,6 +9,7 @@ import sys
 import uuid
 import winreg
 from installed_payload import verify_installed_payload
+from build_installer import upgrade_installers
 
 ROOT=Path(__file__).resolve().parents[1]
 KEY=r'Software\Microsoft\Windows\CurrentVersion\Uninstall\{A3658D58-C019-45CB-A0AF-2CBC8871E6B9}_is1'
@@ -29,13 +31,13 @@ def installed_version():
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def run():
+def run(baseline=None,baseline_version='0.3.0-dev'):
+    pair=upgrade_installers(ROOT,baseline,baseline_version)
     refuse_existing()
     compiler=ROOT/'tmp/installer-tools/compiler/ISCC.exe'
     with (ROOT/'verification/upgrade-compile.log').open('w') as log:
-        subprocess.run([str(compiler),'/Qp','/DAppVersion=0.3.1-dev',str(ROOT/'installer/Luma.iss')],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,check=True)
-    old=ROOT/'dist/installer/Luma-0.3.0-dev-Setup.exe'
-    new=ROOT/'dist/installer/Luma-0.3.1-dev-Setup.exe'
+        subprocess.run([str(compiler),'/Qp','/DAppVersion='+pair['to_version'],str(ROOT/'installer/Luma.iss')],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,check=True)
+    old,new=pair['old'],pair['new']
     trial=ROOT/'verification'/('upgrade-trial-'+uuid.uuid4().hex[:8])
     target=trial/'app';data=trial/'user-data'
     assert target.resolve().is_relative_to((ROOT/'verification').resolve()) and not target.exists()
@@ -43,12 +45,12 @@ def run():
     (data/'notes.md').write_text('# Preserve this note\n',encoding='utf-8')
     (data/'settings.json').write_text(json.dumps({'theme':'Lavender','replacements':{'Luma':'Loo ma'}}))
     originals={name:sha(data/name) for name in ('notes.md','settings.json')}
-    report={'from_version':'0.3.0-dev','to_version':'0.3.1-dev','trial':trial.name,'checks':{}}
+    report={'from_version':pair['from_version'],'to_version':pair['to_version'],'trial':trial.name,'checks':{}}
     def install(path,label):
         subprocess.run([str(path),'/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/NOICONS',f'/DIR={target}',f'/LOG={trial / (label+".log")}'],check=True)
     install(old,'old-install')
     old_sha=sha(target/'Luma.exe')
-    report['checks']['old_version_registered']=installed_version()=='0.3.0-dev'
+    report['checks']['old_version_registered']=installed_version()==pair['from_version']
     # Harmless sentinels at formerly packaged paths verify cleanup even when a
     # particular retained fixture did not contain that optional component.
     obsolete=['_internal/piper/hebrew/nakdimon.onnx','_internal/PySide6/Qt6Quick.dll']
@@ -60,7 +62,7 @@ def run():
     portable_voice.write_bytes(b'User-owned voice preservation sentinel')
     own_voice_sha=sha(portable_voice)
     install(new,'upgrade')
-    report['checks']['new_version_registered']=installed_version()=='0.3.1-dev'
+    report['checks']['new_version_registered']=installed_version()==pair['to_version']
     report['checks']['executable_updated']=sha(target/'Luma.exe')!=old_sha
     report['checks']['executable_matches_candidate']=sha(target/'Luma.exe')==sha(ROOT/'dist/Luma/Luma.exe')
     inventory=json.loads((ROOT/'release/local-audit/binary-inventory.json').read_text())
@@ -88,4 +90,9 @@ def run():
     if not report['passed']:raise RuntimeError('Upgrade acceptance failed')
 
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--baseline-installer',type=Path)
+    parser.add_argument('--baseline-version',default='0.3.0-dev')
+    args=parser.parse_args()
+    run(args.baseline_installer,args.baseline_version)

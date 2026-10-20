@@ -38,6 +38,7 @@
     "marketing/README.md",
     "marketing/demo-captions.srt",
     "marketing/demo/study-notes.md",
+    "ocr_backend.py",
     "pdf_reading_order.py",
     "pdf_selection.py",
     "pytest.ini",
@@ -108,6 +109,7 @@
     "tests/test_native_policy.py",
     "tests/test_native_source_package.py",
     "tests/test_native_sources.py",
+    "tests/test_ocr_backend.py",
     "tests/test_pdf_reading_order.py",
     "tests/test_reader.py",
     "tests/test_release.py",
@@ -129,6 +131,7 @@
     "tools/design_preview.py",
     "tools/fetch_build_voice.py",
     "tools/fetch_native_sources.py",
+    "tools/fetch_ocr_models.py",
     "tools/fetch_release_evidence.py",
     "tools/frozen_entry.py",
     "tools/installed_payload.py",
@@ -154,7 +157,9 @@
     ".venv",
     "Piper Voices",
     "build",
-    "dist"
+    "dist",
+    ".venv313",
+    "ocr_models"
   ],
   "notes": [
     "No private source books or personal screenshots are included.",

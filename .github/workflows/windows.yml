@@ -20,7 +20,7 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@v7.0.0
         with:
-          python-version: '3.11'
+          python-version: '3.13.16'
           architecture: x64
       - name: Install locked development dependencies
         run: |
@@ -29,6 +29,8 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Fetch reviewed build voice
         run: .\.venv\Scripts\python.exe tools/fetch_build_voice.py
+      - name: Fetch exact reviewed OCR models
+        run: .\.venv\Scripts\python.exe tools/fetch_ocr_models.py
       - name: Functional tests
         run: .\.venv\Scripts\python.exe -m pytest tests -q
       - name: Build with matching source identity

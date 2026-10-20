@@ -17,3 +17,5 @@ Sources:
 - https://rapidai.github.io/RapidOCRDocs/main/en/model_licenses/
 
 The current RapidOCR model notice explicitly covers the classifier hash and newer PP-OCRv6 models. It is not used as blanket clearance for the older PP-OCRv4 models; those identities and licence declaration were checked against their own upstream repository. Inference libraries and other assets retain their separate terms. This review covers these exact artifacts only.
+
+Runtime migration: RapidOCR 3.10.0 is configured with explicit paths to these same three files in ocr_models/. Its default PP-OCRv6 weights are excluded. Model hashes are checked before inference as well as during build. The build/setup helper downloads only the immutable reviewed artifacts; the reader performs no model setup download. A Python 3.13.16 trial with network and downloader rejection recovered all reference words from the original scan fixture. Full reader integration tests, including actual OCR and two-column geometry, passed in the refreshed source environment. This does not extend model clearance to any newer weights.

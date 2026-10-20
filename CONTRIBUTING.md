@@ -2,7 +2,7 @@
 
 Luma Community is developed under AGPL-3.0-or-later. Contributions to first-party code are accepted under that licence; contributors retain their copyright. Do not submit code or assets you lack permission to distribute. No contributor licence assignment or private relicensing permission is implied.
 
-Use Python 3.11 on Windows. Create a local virtual environment, install requirements-lock.txt and run `python -m pytest`. Source changes should keep reading, note saving, Piper speech, OCR and offline operation usable. Add meaningful regression coverage for changed behaviour.
+Use Python 3.13.16 on Windows. Create a local virtual environment, install requirements-lock.txt and run `python -m pytest`. Source changes should keep reading, note saving, Piper speech, OCR and offline operation usable. Add meaningful regression coverage for changed behaviour.
 
 For a clean checkout, run `python tools/fetch_build_voice.py` before engine tests. It fetches only the reviewed Cori pair and enforces both hashes; it will not overwrite an existing different file. Engine tests exercise discovered voices instead of assuming the maintainer's private five-voice folder. Install requirements-build.txt for packaging. `python tools/verify_source_checkout.py` exercises an isolated allowlisted source tree with only approved voices while reusing your development dependencies; it is not a clean-machine test.
 

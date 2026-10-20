@@ -50,3 +50,7 @@ also requires an applicable Visual Studio licence.
 A successful hosted build, a valid signature, or an open-source build exception
 alone cannot clear this gate. The existing local installer and portable archive have
 not been rebuilt or approved for public distribution by this documentation update.
+
+## Python Windows build conditions
+
+The official Python 3.13.16 build package's complete LICENSE.txt was retained and its original bytes preserved by the notice-copy helper. Its Windows-specific section describes Microsoft code embedded in the interpreter's EXE/DLL/PYD files and permits redistribution of the Windows interpreter subject to stated conditions. These include preserving notices, avoiding misleading Microsoft branding, the Microsoft-platform restriction and protective downstream terms, with the restrictions scoped to Microsoft's code. This is relevant component-specific evidence; it does not automatically establish coverage for separate runtime DLLs collected from Qt, scientific wheels or a host system directory. Map the actual final component set and downstream terms before clearing the Microsoft gate. The full Python licence remains bundled separately; no additional restrictions are asserted over Luma's own source.

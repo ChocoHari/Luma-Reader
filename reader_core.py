@@ -105,9 +105,8 @@ class OCR:
     def recognize(self, pixmap) -> str:
         import numpy as np
         if self.engine is None:
-            prepare_inference_runtime()
-            from rapidocr_onnxruntime import RapidOCR
-            self.engine = RapidOCR(intra_op_num_threads=2, inter_op_num_threads=2)
+            from ocr_backend import create_engine
+            self.engine = create_engine()
         rgb = np.frombuffer(pixmap.samples, dtype=np.uint8).reshape(pixmap.height, pixmap.width, pixmap.n)
         # RapidOCR expects BGR for a numpy input.
         image = rgb[:, :, :3][:, :, ::-1].copy()

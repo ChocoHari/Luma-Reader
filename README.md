@@ -27,7 +27,7 @@ The current candidate bundles the reviewed Cori high voice. Other local voices a
 
 ## Develop or build
 
-Use Windows x64 and Python 3.11. Create `.venv`, install `requirements-lock.txt`, then `requirements-build.txt`. Run `python tools/fetch_build_voice.py` to obtain only the reviewed build voice with enforced hashes. Existing matching files are reused; mismatched local files are not overwritten.
+Use Windows x64 and Python 3.13.16. Create `.venv`, install `requirements-lock.txt`, then `requirements-build.txt`. Run `python tools/fetch_ocr_models.py` for the three hash-pinned OCR models, then `python tools/fetch_build_voice.py` to obtain only the reviewed build voice with enforced hashes. Existing matching files are reused; mismatched local files are not overwritten.
 
 Run `python -m pytest tests -q`, then `python tools/build_windows.py`. See [Windows build instructions](release/BUILD_WINDOWS.md), [source snapshots](release/SOURCE_PACKAGING.md) and [contribution guidelines](CONTRIBUTING.md). The repository workflow prepares and checks local build candidates; it does not publish a release automatically.
 
