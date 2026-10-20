@@ -1,0 +1,75 @@
+{
+  "scope": "Retained source/build-recipe trace; exact wheel build provenance and final release clearance remain unverified",
+  "binary_clearance": false,
+  "qt_reference": {
+    "tag": "v6.12.0",
+    "commit": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+    "archive": "qt5-ef25002ed292b132d1ed3246bfcee1d24a9cd966.tar.gz",
+    "archive_sha256": "bd178691618f3b89b16043016c82de522be616bc99e6a8ec1c3ce48000dadef8",
+    "upstream_members": {
+      "coin/provisioning/common/windows/install-ffmpeg.ps1": {
+        "sha256": "ff062a53615b800df09c43aaa5789f93f0a7ae5afbaf7bc1c35d6ff9e82ba811",
+        "bytes": 15230
+      },
+      "coin/provisioning/common/windows/zlib.ps1": {
+        "sha256": "250ff79dcaffa87b692f34a4536f7aee3bad2c624d1d8a3b926d6067df346e51",
+        "bytes": 6364
+      },
+      "coin/provisioning/common/windows/zlib-helpers.ps1": {
+        "sha256": "b7c7b3003da4e5eecfe4dbbb200e6f6bad82ac7b8fb5fff2043401c7eda57414",
+        "bytes": 1885
+      },
+      "coin/provisioning/common/shared/ffmpeg_config_options.txt": {
+        "sha256": "5331acdc4bb8689719d6319e3ede3babd46793320d5305128224b4ac19bb810c",
+        "bytes": 198
+      },
+      "coin/provisioning/common/windows/helpers.ps1": {
+        "sha256": "755818331ff854627fb83eb5a609d4c55075c82804aa8c699eb904e8a2409a5d",
+        "bytes": 13153
+      }
+    }
+  },
+  "ffmpeg": {
+    "version": "9.0.1",
+    "runtime_configuration": "--prefix=/c/FFmpeg-n9.0.1/build/msvc/installed --disable-programs --disable-doc --disable-debug --enable-network --disable-lzma --enable-pic --disable-vulkan --disable-v4l2-m2m --disable-decoder=truemotion1 --disable-avdevice --disable-avfilter --enable-zlib --extra-cflags='-IC:/zlib-1.3.1/build/amd64' --extra-ldflags='-LIBPATH:C:/zlib-1.3.1/build/amd64' --toolchain=msvc --enable-shared --disable-static",
+    "runtime_license": "LGPL version 2.1 or later",
+    "configuration_tokens_match_qt_windows_msvc_shared_recipe": true,
+    "official_input_sha1_in_qt_script": "89c318905212e6b67e10e42ab10ab8007e0aefda",
+    "original_release_archive_retained": false,
+    "original_release_fetch": "Verified TLS rejected expired certificate; no verification bypass. Qt HTTPS cache hostname did not resolve. GitHub tag source archive retained separately."
+  },
+  "zlib": {
+    "version": "1.3.1",
+    "archive": "zlib-1.3.1.tar.gz",
+    "sha256": "9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23",
+    "qt_input_sha1_matches": true,
+    "official_github_and_fossil_bytes_match": true,
+    "provisioning_patches": [
+      "Remove unistd.h include from zconf.h",
+      "Remove linker base address from win32/Makefile.msc"
+    ],
+    "patch_application_in_shipped_binary": "Not independently reproduced"
+  },
+  "packaged_ffmpeg_files": [
+    {
+      "path": "_internal/PySide6/avcodec-63.dll",
+      "sha256": "fd6b08a07310d34a6be4349172557f5a234bd66420e28934b625b669a763ba2f"
+    },
+    {
+      "path": "_internal/PySide6/avformat-63.dll",
+      "sha256": "8a38846c7420f94aa85b4d87dae7d97d5c54a5cdb9eb6c5eb1c7b40a86e2ab8b"
+    },
+    {
+      "path": "_internal/PySide6/avutil-61.dll",
+      "sha256": "2538cdbed7a6d2c8d1219bf1a79412e6bf657d16ce5759b62df3182813f4e4dc"
+    },
+    {
+      "path": "_internal/PySide6/swresample-7.dll",
+      "sha256": "a7c667837f334c9d2820ec95c89e7cdf0205698e45341537b3ae6c761d9be1dc"
+    },
+    {
+      "path": "_internal/PySide6/swscale-10.dll",
+      "sha256": "a6142d95cb96f8397fcc6b99142a674a5f0417206de40091b43a64024b734658"
+    }
+  ]
+}

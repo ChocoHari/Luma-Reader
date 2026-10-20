@@ -1,0 +1,10 @@
+{
+  "retrieved": "2026-10-18",
+  "version": "6.7.3",
+  "source": "https://github.com/jrsoftware/issrc/releases/download/is-6_7_3/innosetup-6.7.3.exe",
+  "sha256": "9c73c3bae7ed48d44112a0f48e66742c00090bdb5bef71d9d3c056c66e97b732",
+  "authenticode_status": "Valid",
+  "signer": "CN=Pyrsys B.V., O=Pyrsys B.V., S=Noord-Holland, C=NL",
+  "deployment": "Portable compiler in temporary workspace build tools, current user; no purchase",
+  "license_source": "https://jrsoftware.org/files/is/license.txt"
+}

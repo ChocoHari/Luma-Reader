@@ -1,0 +1,30 @@
+name: Report a reproducible problem
+description: Describe a reader, editor, speech or installation problem using non-private examples.
+body:
+  - type: markdown
+    attributes:
+      value: Keep personal books, notes, reading lists, account details and full logs out of public reports. Use original sample text and redact paths.
+  - type: input
+    id: version
+    attributes:
+      label: Luma version or source fingerprint
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Windows version and display scaling
+      description: Include audio output type if relevant. Omit identifying device names.
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Use the smallest original example that shows the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true

@@ -1,0 +1,105 @@
+[
+  {
+    "file": "AGPL-3.0-or-later.txt",
+    "url": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/AGPL-3.0-or-later.txt",
+    "retrieved_date": "2026-10-17",
+    "status": "retrieved",
+    "sha256": "d8a6cc31abc16b6748c7a21f21611f5a1ec33f67d22ca23d7da1c19b95496bee",
+    "bytes": 34020
+  },
+  {
+    "file": "piper-aru-MODEL_CARD.txt",
+    "url": "https://huggingface.co/rhasspy/piper-voices/raw/main/en/en_GB/aru/medium/MODEL_CARD",
+    "retrieved_date": "2026-10-17",
+    "status": "retrieved",
+    "sha256": "b9a880778b6cc58330e78f862ba3554836f4ac9194f613533dbfdf28fce0a7ff",
+    "bytes": 368
+  },
+  {
+    "file": "piper-cori-MODEL_CARD.txt",
+    "url": "https://huggingface.co/rhasspy/piper-voices/raw/main/en/en_GB/cori/high/MODEL_CARD",
+    "retrieved_date": "2026-10-17",
+    "status": "retrieved",
+    "sha256": "136e7bd168b6c35b4a5df01a0253297e5773b5775ceae0af5160f264aa58208f",
+    "bytes": 468
+  },
+  {
+    "file": "piper-jenny-MODEL_CARD.txt",
+    "url": "https://huggingface.co/rhasspy/piper-voices/raw/main/en/en_GB/jenny_dioco/medium/MODEL_CARD",
+    "retrieved_date": "2026-10-17",
+    "status": "retrieved",
+    "sha256": "bc8aec32196ab14f46260ab6e002cf004b0793ddd7886011145fe00106e20d45",
+    "bytes": 298
+  },
+  {
+    "file": "piper-northern-MODEL_CARD.txt",
+    "url": "https://huggingface.co/rhasspy/piper-voices/raw/main/en/en_GB/northern_english_male/medium/MODEL_CARD",
+    "retrieved_date": "2026-10-17",
+    "status": "retrieved",
+    "sha256": "75661c3a50c0ba82b32b3a438e54103d8dfe5bbe8fbb864ac687a040e79948bb",
+    "bytes": 305
+  },
+  {
+    "file": "piper-semaine-MODEL_CARD.txt",
+    "url": "https://huggingface.co/rhasspy/piper-voices/raw/main/en/en_GB/semaine/medium/MODEL_CARD",
+    "retrieved_date": "2026-10-17",
+    "status": "retrieved",
+    "sha256": "d3c370c9c73b69347f9487cc24b0cfa5f2a400c47d209f0aa4ce20123562e46d",
+    "bytes": 332
+  },
+  {
+    "file": "jenny-dataset-README.txt",
+    "url": "https://raw.githubusercontent.com/dioco-group/jenny-tts-dataset/main/README.md",
+    "retrieved_date": "2026-10-17",
+    "status": "retrieved",
+    "sha256": "0812e329e383c5a0559aad41df1eb6c5c3a779381357228bd5052f128ce680c4",
+    "bytes": 1957
+  },
+  {
+    "file": "cori-author-page.html",
+    "url": "https://brycebeattie.com/files/tts/",
+    "retrieved_date": "2026-10-17",
+    "status": "unavailable",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1002)>"
+  },
+  {
+    "file": "RapidOCR-Apache-2.0.txt",
+    "url": "https://raw.githubusercontent.com/RapidAI/RapidOCR/v1.4.4/LICENSE",
+    "retrieved_date": "2026-10-17",
+    "status": "retrieved",
+    "sha256": "3e0af25fdd06aa9586ae97adb00ea927ebe5a3805ac77d2d3a81ce5f55693333",
+    "bytes": 11422
+  },
+  {
+    "file": "PaddleOCR-Apache-2.0.txt",
+    "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.7/LICENSE",
+    "retrieved_date": "2026-10-17",
+    "status": "retrieved",
+    "sha256": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856",
+    "bytes": 11438
+  },
+  {
+    "file": "Qt-LGPL-3.0.txt",
+    "url": "https://raw.githubusercontent.com/qt/qtbase/v6.8.3/LICENSES/LGPL-3.0-only.txt",
+    "retrieved_date": "2026-10-17",
+    "status": "retrieved",
+    "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+    "bytes": 7651
+  },
+  {
+    "file": "GPL-3.0.txt",
+    "url": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/GPL-3.0-only.txt",
+    "retrieved_date": "2026-10-17",
+    "status": "retrieved",
+    "sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0",
+    "bytes": 34674
+  },
+  {
+    "file": "LGPL-2.1.txt",
+    "url": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/LGPL-2.1-or-later.txt",
+    "retrieved_date": "2026-10-17",
+    "status": "retrieved",
+    "sha256": "5749785c8bdefafcb5d798270ed0a967036fe2ca63dcedade1627565dfef81d2",
+    "bytes": 26001
+  }
+]
