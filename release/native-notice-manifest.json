@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "file": "release/evidence/native-source-notices.zip",
-  "sha256": "9084eac82cc20da3c4644e5789c5721d0e6f62433c25e3c88a9e5aeb1e3c6706",
-  "notice_count": 356,
-  "source_archive_count": 31,
+  "sha256": "c3d09dd893a003de919653d39f70797e30a1a45f8ae4989dd3a8a3e111715559",
+  "notice_count": 369,
+  "source_archive_count": 33,
   "binary_clearance": false
 }

@@ -137,7 +137,8 @@
     "tests/test_installer_version.py",
     "installer/obsolete-runtime.iss",
     "tools/installed_payload.py",
-    "tests/test_installed_payload.py"
+    "tests/test_installed_payload.py",
+    "release/evidence/ffmpeg-source-trace.json"
   ],
   "excluded_directories": [
     "data",

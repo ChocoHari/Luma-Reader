@@ -82,23 +82,19 @@ PHASES 8-9 - RESEARCH/PILOT ONLY [PROPOSALS PREPARED]
 Evidence: release/VOICE_PILOT_PROPOSAL.md; VOICE_PILOT_SCRIPT.md;
 PREMIUM_PROPOSAL.md (all under release/).
 
-LATEST COMPLETED DEVELOPMENT CANDIDATE
-82 source tests passed locally. Hosted run 39145997368 passed at source head
-74303cbcb7195c1e630f43382f03d32a4752cbb5 (132 allowlisted files).
-Standalone: 1153 audited files. Inference telemetry disabled before SDK import;
-actual OCR, Reader/Markdown, PDF/DOCX, Piper and muted playback passed.
-Source fingerprint: 803286b442b52efc038d22ac95cf0ff16b0282cb8785395beb0aaa0ea3bd7e1d
-Portable: 270422058 bytes. Matching-source ZIP retained.
-Current 0.3.1-dev installer lifecycle: installer-trial-d0cabe5d, all five checks
-passed. The earlier version-upgrade trial remains separate evidence; the new
-privacy candidate was installed/reinstalled, not re-run through the old upgrade.
-Hashes: dist/SHA256SUMS.txt. No binaries published or PR merged.
-
-CURRENT SOURCE FOLLOW-UP
-Lifecycle verifier now derives installer version from the actual Inno spec,
-preventing accidental testing of the old fixture. Four focused regression cases
-passed; these helper/test changes and current notes are newer than the retained
-binary source snapshot and pushed head. No new application change is pending.
+LATEST COMPLETED DEVELOPMENT CANDIDATE - 20 October 2026
+98 source tests passed locally. Source head:
+d4e5e08881c572b7110f9918e398529f93b6afa2 (136 allowlisted files).
+Hosted run 39379876112 completed successfully.
+Standalone: 1153 audited files; four reviewed ONNX models. Isolated developer-
+path diagnostic passed OCR, Reader/editor, PDF/DOCX, Piper and muted playback.
+Source fingerprint: 2f6b17681e5238ac1e84f24025e6550754f4e624d628157632f55bc9a9f6ec56
+Strict upgrade: upgrade-trial-0f19e902 passed all 12 checks, with every package
+hash matching, obsolete runtime removed and notes/settings/portable voice retained.
+Portable: 270422591 bytes. Installer 0.3.1-dev: 221207050 bytes.
+Matching-source ZIP verified; hashes: dist/SHA256SUMS.txt.
+Later result notes are outside the retained build snapshot. No public binaries
+published and no PR merged. Other required release gates remain pending.
 
 CLEAN WINDOWS FOLLOW-UP
 A clean Windows guest/computer remains unavailable for verification. A private
@@ -116,15 +112,29 @@ complete corresponding source. Native build/source/runtime review remains open.
 Microsoft runtime distribution rights remain unconfirmed. Official runtime guidance reviewed; linked terms DOCX returned 403.
 Historical raw verification stays private under verification/ and local-audit/.
 
-UPGRADE AUDIT FOLLOW-UP [IN PROGRESS]
-Prior upgrade tests did not check stale runtime files. Exact installer cleanup
-for former package-owned paths and full installed-payload comparison added.
-New checks cover old model/Qt sentinels and user portable voice preservation.
-Eleven focused installer/version/inventory tests passed. A fresh build and
-actual stricter upgrade trial are required before checking this item complete.
+UPGRADE AUDIT FOLLOW-UP [COMPLETE - DEVELOPMENT HOST]
+20 October: upgrade-trial-0f19e902 passed all 12 checks. All 1153 audited files
+matched; no missing, changed or unexpected runtime files remained. Exact
+former package files removed; notes/settings and portable user voice survived
+upgrade and uninstall. Initial failed trial is retained privately as evidence.
+98 local source tests passed. Source head d4e5e08881c572b7110f9918e398529f93b6afa2
+contains 136 allowlisted files. Hosted run 39379876112 completed successfully.
+Current candidate source fingerprint:
+2f6b17681e5238ac1e84f24025e6550754f4e624d628157632f55bc9a9f6ec56
+Portable integrity and isolated-path diagnostic passed actual OCR, Reader/editor,
+PDF/DOCX, Piper synthesis and muted playback, with inference telemetry disabled.
+Portable: 270422591 bytes. Installer: 221207050 bytes. SHA256SUMS refreshed.
+Actual native/model inventory: 127 files, including 123 DLL/PYD and four models.
+Source ZIP hashes/embedded identity match; known local capacity fields absent.
+Sanitized source successfully published to draft PR; no public binary release.
+Verification-result notes after the build are outside that retained snapshot.
+Clean-Windows, native distribution/source review and other open gates remain.
 
-STRICT UPGRADE FINDING
-Trial upgrade-trial-01bd2e8b failed the complete payload check because 46 old
-DLLs remained. Other upgrade/diagnostic/data/uninstall checks passed. Exact
-former package paths added to cleanup; repeat trial pending. Public checklist
-sanitized; known local capacity fields are now rejected by source packaging.
+NATIVE REVIEW FOLLOW-UP - 20 October 2026
+Retained source-reference set expanded to 33 archives with pinned Qt provisioning
+and zlib 1.3.1. Actual FFmpeg configure tokens match the Qt Windows MSVC shared
+recipe; zlib bytes match both official release hosts and Qt's pinned checksum.
+369 source notice files retained for the next candidate; the verified current
+installer still contains its earlier 356-file notice snapshot. Nine focused
+source/hash/notice/packager tests passed. Native gates remain pending: recipe
+correspondence does not prove exact wheel reproduction or final clearance.

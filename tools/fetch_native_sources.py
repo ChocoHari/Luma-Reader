@@ -1,6 +1,7 @@
 """Retain official versioned source archives; no compilation or licence clearance implied."""
 import hashlib
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 import tarfile
 import urllib.request
@@ -13,6 +14,12 @@ for module in ('qtbase','qtdeclarative','qtmultimedia','qtsvg','qtvirtualkeyboar
     name=f'{module}-everywhere-src-6.12.0.tar.xz'
     SOURCES.append((name,'https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/'+name))
 SOURCES += [
+ ('zlib-1.3.1.tar.gz',
+  'https://github.com/madler/zlib/releases/download/v1.3.1/zlib-1.3.1.tar.gz',
+  '9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23'),
+ ('qt5-ef25002ed292b132d1ed3246bfcee1d24a9cd966.tar.gz',
+  'https://codeload.github.com/qt/qt5/tar.gz/ef25002ed292b132d1ed3246bfcee1d24a9cd966',
+  'bd178691618f3b89b16043016c82de522be616bc99e6a8ec1c3ce48000dadef8'),
  ('piper1-gpl-639388b6317fc4731e91d53da42aea68fd4166ff.tar.gz',
   'https://codeload.github.com/OHF-Voice/piper1-gpl/tar.gz/639388b6317fc4731e91d53da42aea68fd4166ff'),
  ('espeak-ng-724808c5a83f9ef95fdd0db886ba7ba537ff224a.tar.gz',
@@ -37,6 +44,7 @@ def verify_hash(path, expected):
 def main():
     folder=ROOT/'release/local-audit/upstream-sources';folder.mkdir(parents=True,exist_ok=True)
     records=[]
+    inventoried_at=datetime.now(timezone.utc).isoformat()
     for name,url,*hashes in SOURCES:
         expected=hashes[0] if hashes else None
         target=folder/name
@@ -59,9 +67,9 @@ def main():
              'archive_members':len(members),'licence_entries':notices,
              'status':'retained official versioned archive; binary patches/build correspondence not fully verified'}
         records.append(row)
-        (folder/'manifest.json').write_text(json.dumps({'retrieved':'2026-10-18','archives':records,'native_gate_passed':False},indent=2))
+        (folder/'manifest.json').write_text(json.dumps({'inventoried_at_utc':inventoried_at,'archives':records,'native_gate_passed':False},indent=2))
         print(json.dumps({k:row[k] for k in ('file','bytes','sha256','archive_members')}),flush=True)
-    (folder/'manifest.json').write_text(json.dumps({'retrieved':'2026-10-18','archives':records,'native_gate_passed':False},indent=2))
+    (folder/'manifest.json').write_text(json.dumps({'inventoried_at_utc':inventoried_at,'archives':records,'native_gate_passed':False},indent=2))
 
 
 if __name__=='__main__':main()

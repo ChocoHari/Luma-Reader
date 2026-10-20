@@ -30,3 +30,7 @@ The first stricter trial (upgrade-trial-01bd2e8b) found 46 additional legacy DLL
 - Physical audible playback and relevant audio/display devices.
 
 No passing development-host report clears native redistribution/source obligations or authorizes a public binary release. Package hashes are in dist/SHA256SUMS.txt.
+
+## Stricter upgrade result, 20 October 2026
+
+Repeat trial upgrade-trial-0f19e902 passed all 12 checks for source fingerprint 2f6b17681e5238ac1e84f24025e6550754f4e624d628157632f55bc9a9f6ec56. All 1153 audited files matched, with no missing/changed/extra runtime files. Old model/Qt sentinels and the 46 observed legacy DLLs were removed. Notes/settings and the portable user voice survived both upgrade and uninstall. Installed diagnostics passed. This supersedes the failed trial for cleanup behavior; clean-Windows and interruption/display checks remain pending. These result notes are newer than the retained build snapshot.

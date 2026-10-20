@@ -45,13 +45,13 @@ The Piper v1.8.0 release resolves to commit 639388b6317fc4731e91d53da42aea68fd41
 
 MuPDF 1.28.2 resolves to fe374accd98a43174a328fa7980d7675e06d5b0d. The release-server download failed certificate verification; it was not bypassed. The official Artifex GitHub archive is retained instead. Its .gitmodules and thirdparty Git tree identify 18 pinned repositories, all retained. FreeType has one nested dlg submodule at 395ccad2c1e0daae535c4d20bb0a3f2424648e17, also retained. The other retained component archives and dlg did not expose further .gitmodules files. See mupdf-source-components.json for exact paths, repositories and revisions.
 
-The current collection has 31 archives, totaling 391420834 bytes, with SHA-256 inventories. tools/package_native_sources.py assembles only this explicit set into dist/Luma-upstream-source-review.zip, preserving original archives and review metadata. It rejects missing/extra names, changed hashes and unsafe paths and verifies ZIP integrity. This is a local review artifact; publication_approved and completeness_verified remain false.
+The current collection has 33 archives, totaling 393592391 bytes, with SHA-256 inventories. tools/package_native_sources.py assembles only this explicit set into dist/Luma-upstream-source-review.zip, preserving original archives and review metadata. It rejects missing/extra names, changed hashes and unsafe paths and verifies ZIP integrity. This is a local review artifact; publication_approved and completeness_verified remain false.
 
 These source revisions establish release-reference coverage. Exact wheel/native build provenance, downstream patches, generated build inputs and licence/notice completeness still require review before native or corresponding-source gates can pass. No source download is executed. The first-party application source remains separate from the upstream review archive.
 
 ## Packaged native notice preservation
 
-356 original notice/copyright-context files from the 31 source archives are retained in evidence/native-source-notices.zip. The separate native-notice-manifest.json pins its digest and count. The collector includes licences with nonstandard names (for example FreeType FTL.TXT and leptonica-license.txt) and root README copyright context, while excluding example code/images. Packaging checks the entire ZIP and every indexed notice before copying original bytes into third-party-notices/native-sources. The index retains source archive/member paths. Four focused tests cover byte preservation, source/bundle changes and unsafe ZIP paths. This is notice preservation, not completed binary/source mapping or automatic release approval.
+369 original notice/copyright-context files from the 33 source archives are now retained in evidence/native-source-notices.zip. The previously verified local binary candidate contains the earlier 356-file/31-archive notice collection; these supplemental review inputs are for the next candidate build. The separate native-notice-manifest.json pins its digest and count. The collector includes licences with nonstandard names (for example FreeType FTL.TXT and leptonica-license.txt) and root README copyright context, while excluding example code/images. Packaging checks the entire ZIP and every indexed notice before copying original bytes into third-party-notices/native-sources. The index retains source archive/member paths. Four focused tests cover byte preservation, source/bundle changes and unsafe ZIP paths. This is notice preservation, not completed binary/source mapping or automatic release approval.
 
 ## Minimal native-library policy
 
@@ -59,10 +59,20 @@ PE import/delay-import inspection found that the Qt Widgets/Gui/Multimedia libra
 
 ## Microsoft runtime review, 18 October 2026
 
-The owner reports Visual Studio as "Not installed / not sure". Treat the distributor's licence status as unconfirmed. Microsoft's redistribution guidance explicitly limits distribution of the runtime package and individual binaries to licensed Visual Studio users, subject to the relevant terms:
+The applicable distributor runtime licence grant has not been established. Treat the project's redistribution rights as unconfirmed. Microsoft's redistribution guidance explicitly limits distribution of the runtime package and individual binaries to licensed Visual Studio users, subject to the relevant terms:
 https://learn.microsoft.com/en-us/cpp/windows/redistributing-visual-cpp-files?view=msvc-170
 
 The current official licence link redirects to the Visual C++ V14 Redistributable and Runtime 2026 terms page:
 https://visualstudio.microsoft.com/license-terms/vs2026-ga-visualcpp-v14-redist-runtime/
 
 Its linked DOCX returned HTTP 403 during retrieval; no complete terms review is claimed. A signed installed DLL or a successful GitHub-hosted build does not establish this project's redistribution rights. Do not require the owner to install the Visual Studio IDE simply to run Luma. Keep the distribution gate pending until an applicable licence grant and the conditions for the actual runtime binaries have been established. No Visual Studio installation, account change or runtime replacement was performed.
+
+## Qt Windows FFmpeg build trace, 20 October 2026
+
+Qt Multimedia's retained attribution record points to Qt's provisioning scripts for its prebuilt FFmpeg binaries. The v6.12.0 Qt meta-repository resolves to ef25002ed292b132d1ed3246bfcee1d24a9cd966. Its complete reference archive is now retained, including Windows FFmpeg/zlib provisioning, shared configure defaults and helper scripts. The GitHub tag API reports the Qt tag unsigned; no independent signature verification is claimed.
+
+The current packaged avcodec DLL was queried directly for configuration/license metadata. Its configuration token list exactly matches the retained Windows MSVC shared recipe: FFmpeg 9.0.1, common defaults, amd64 zlib include/library paths, MSVC toolchain and shared/non-static flags. File hashes for all five shipped FFmpeg libraries and five relevant provisioning members are recorded in evidence/ffmpeg-source-trace.json. This is recipe correspondence, not independent reproduction of the wheel or proof that every source patch/build input has been identified.
+
+The zlib 1.3.1 release archive was obtained from the author's official GitHub release and compared byte-for-byte by SHA-256 with the project's official historical-release host. Its SHA-1 also matches the input checksum pinned by Qt's zlib provisioning script. SHA-256: 9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23. The Qt script records removal of the unistd.h include from zconf.h and the linker base address from win32/Makefile.msc. Those patch instructions are retained, not executed or independently reproduced against the shipped binary.
+
+The original FFmpeg release-server archive still failed verified TLS because of an expired certificate. Qt's HTTPS cache hostname did not resolve. No verification bypass or HTTP fallback was used. The official GitHub tag archive remains a source reference; its compressed bytes are not claimed to match the original release archive checksum pinned by Qt. Native/source release gates remain pending.
