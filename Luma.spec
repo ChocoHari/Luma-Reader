@@ -23,7 +23,7 @@ a=Analysis([str(root/'tools/frozen_entry.py')],pathex=[str(root)],binaries=binar
 # found on the developer PATH (for example a Poppler runtime).
 a.binaries=[item for item in a.binaries if not excluded_binary(item[0])]
 # Refuse libraries harvested from unrelated applications on a developer machine.
-trusted=[(root/'.venv').resolve(),Path(sys.base_prefix).resolve(),
+trusted=[Path(sys.prefix).resolve(),Path(sys.base_prefix).resolve(),
          Path(os.environ.get('SystemRoot','C:/Windows')).resolve()]
 for name,source,kind in a.binaries:
     if not any(Path(source).resolve().is_relative_to(base) for base in trusted):

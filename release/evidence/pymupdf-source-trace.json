@@ -1,0 +1,53 @@
+{
+  "scope": "Published wheel to verified local candidate correspondence and wheel-reported build metadata; not independent build provenance",
+  "candidate_source_fingerprint": "2f6b17681e5238ac1e84f24025e6550754f4e624d628157632f55bc9a9f6ec56",
+  "wheel": "pymupdf-1.28.2-cp310-abi3-win_amd64.whl",
+  "wheel_sha256": "ebd244918798502d7b4504c90410d1711a4d7675a32584ca30f1bab419ecbffe",
+  "native_files": [
+    {
+      "path": "pymupdf/_extra.pyd",
+      "sha256": "43292c50f18dafa1d92dec67e076d2340a361a24e510edb6ccfe8de7364b6b10",
+      "installed_and_packaged_match": true
+    },
+    {
+      "path": "pymupdf/_mupdf.pyd",
+      "sha256": "8b0a0a990523eaecf695ec7f9bb5660047b11948649a7e89369141c03dc589d9",
+      "installed_and_packaged_match": true
+    },
+    {
+      "path": "pymupdf/mupdfcpp64.dll",
+      "sha256": "998184dce298f24a4c2b080a9173594c96c6f78796732bdd8e95ca0e557557cb",
+      "installed_and_packaged_match": true
+    }
+  ],
+  "wheel_build_metadata": {
+    "pymupdf_git_diff": "",
+    "pymupdf_git_sha": "12786d12b2962a1d77fd13b103162eddf749644c",
+    "mupdf_location": "https://mupdf.com/downloads/archive/mupdf-1.28.2-source.tar.gz",
+    "pymupdf_version": "1.28.2",
+    "swig_version": "4.4.1"
+  },
+  "wheel_build_metadata_sha256": "6561ced4e8b28638d0ca36a028d4f91d1ac2ca309750930283f125aa0b04cae2",
+  "retained_sdist_setup_sha256": "d623992d3a3575c190cebb23ad5e2ce0006207e3aedbcd898a236cdf61efbd6c",
+  "independent_build_reproduction_performed": false,
+  "build_metadata_independently_authenticated": false,
+  "redistribution_cleared": false,
+  "wheel_reported_commit_archive": {
+    "source": "https://codeload.github.com/pymupdf/PyMuPDF/tar.gz/12786d12b2962a1d77fd13b103162eddf749644c",
+    "file": "PyMuPDF-12786d12b2962a1d77fd13b103162eddf749644c.tar.gz",
+    "bytes": 97605163,
+    "sha256": "cd400ac13ecd659631ac96e0d7ec52c5a90829ad64cee46b61ddaaaca10770fb",
+    "included_in_main_source_review_bundle": true,
+    "build_input_members": [
+      {
+        "member": "setup.py",
+        "sha256": "d623992d3a3575c190cebb23ad5e2ce0006207e3aedbcd898a236cdf61efbd6c"
+      },
+      {
+        "member": "pyproject.toml",
+        "sha256": "d1051651dc236a0ed7cdc92c64391fd30a90157267ebdb6787e389dfd52863ed"
+      }
+    ],
+    "setup_matches_retained_sdist": true
+  }
+}

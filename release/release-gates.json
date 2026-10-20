@@ -39,7 +39,7 @@
       "id": "clean-package",
       "phase": 6,
       "status": "pending",
-      "requirement": "Verify installer/portable artifacts without private data, with licence files, checksums, upgrade/uninstall and no-Python launch tests."
+      "requirement": "Verify maintained runtime/dependency versions and installer/portable artifacts without private data, with licence files, checksums, upgrade/uninstall and clean-Windows no-Python launch tests."
     }
   ]
 }

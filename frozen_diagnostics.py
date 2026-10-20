@@ -39,6 +39,8 @@ def check_reader_window(application,folder):
 def run(output):
     report={'frozen':bool(getattr(sys,'frozen',False)),'checks':{},'errors':[]}
     try:
+        import ssl
+        report['runtime']={'python':sys.version.split()[0],'openssl':ssl.OPENSSL_VERSION}
         from runtime_privacy import prepare_inference_runtime
         prepare_inference_runtime()
         report['checks']['inference_telemetry_disabled']=os.environ.get('ORT_DISABLE_TELEMETRY')=='1'

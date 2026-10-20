@@ -155,3 +155,48 @@ is underway. VM-specific logs/settings stay private.
 20 October: Microsoft runtime gate regression checks passed (3 tests). Runtime
 review/inventory added to the source allowlist. Existing candidate artifacts
 remain unchanged; these new review inputs have not yet been pushed or rebuilt.
+
+20 October: Piper bridge and all 373 phonemizer data files match the retained
+published wheel; no extra phonemizer files. Correct Python CMake/eSpeak revision
+recorded in release/evidence/piper-source-trace.json. Local review inputs only;
+no upstream build reproduction or source-gate clearance claimed.
+
+Hosted Windows run 39485790284 passed for draft commit
+9628be85c5a1dafecebb0391271ac312b00abb7a, including standalone diagnostic
+and archive verification. Subsequent local Piper trace notes are not yet pushed.
+
+20 October: all three packaged PDF native files match the retained PyMuPDF
+wheel. Wheel-reported commit, MuPDF URL and SWIG version recorded in
+release/evidence/pymupdf-source-trace.json. Exact commit archive download is
+in progress outside the main 33-archive source bundle. CPython runtime refresh
+required before public binary release; see release/PYTHON_RUNTIME_REVIEW.md.
+Private native ownership mapping: 99 of 123 files match installed distributions;
+24 Python/Windows runtime files require separate mapping. These new notes are
+local, not rebuilt or pushed. Source allowlist/privacy check passed (142 files).
+
+Runtime refresh trial: official Python 3.13.16 NuGet catalogue SHA-512 and
+PSF executable/DLL signatures verified; launch reports OpenSSL 3.5.9. Separate
+project-local environment created; pinned binary-only dependency install underway.
+Builder/audit now follow the active environment rather than a fixed .venv path.
+13 focused package/policy checks passed. No new frozen candidate built yet.
+
+Runtime trial stopped at dependency resolution: legacy rapidocr-onnxruntime
+1.4.4 requires Python <3.13. Restriction preserved; maintained RapidOCR 3.10.0
+is under review for explicit offline legacy-model configuration. No new OCR
+dependency adopted. Diagnostics/build inventories now record Python/OpenSSL
+versions for subsequent candidates. Exact PyMuPDF commit archive completed; its
+setup.py matches the retained source distribution. Archive remains separate
+from the main source-review bundle pending incorporation.
+
+Offline OCR compatibility probe prepared privately: three original reviewed
+models copied only after SHA-256 checks; explicit model paths, network audit
+rejection and package downloader rejection configured. Probe not yet run;
+Python 3.13 base dependencies and maintained OCR review wheel still downloading.
+Production lock and OCR backend unchanged.
+
+Source review bundle updated: 34 archives, 371 original notice files. Nine
+focused source/archive/notice checks passed. Review ZIP: 491258922 bytes;
+SHA-256 c54187f966aba580574271329d084c228f1a59e15b116ccff7bab79023f07b62.
+Exact PyMuPDF wheel-reported commit is now included. Native/source gates stay
+pending; no independent upstream reproduction or public approval claimed.
+Old verified binary/source candidate remains paired and unchanged.

@@ -5,6 +5,7 @@ import subprocess
 import sys
 import importlib.metadata as metadata
 import shutil
+import ssl
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -62,7 +63,7 @@ def main():
         name=dist.metadata.get('Name','unknown')
         for item in dist.files or []:
             source=Path(dist.locate_file(item)).resolve()
-            if not source.is_file() or not source.is_relative_to((ROOT/'.venv').resolve()):continue
+            if not source.is_file() or not source.is_relative_to(Path(sys.prefix).resolve()):continue
             if not any(word in source.name.lower() for word in ('license','licence','copying','notice')):continue
             # Preserve the original relative hierarchy, avoiding basename collisions.
             relative=Path(*[part for part in item.parts if part not in ('..','.')])
@@ -88,7 +89,9 @@ def main():
             if parts[0]!='third-party-notices' and ('webengine' in relative.lower() or 'qtpdf' in relative.lower() or path.name.lower() in {'qt6pdf.dll','qpdf.dll','icuuc.dll'}):
                 raise RuntimeError(f'Unused Qt module in build: {relative}')
             files.append({'path':relative,'bytes':path.stat().st_size,'sha256':digest(path)})
-    report={'public_binary_approved':False,'purpose':'local verification only','native_policy':native_policy,'files':files}
+    report={'public_binary_approved':False,'purpose':'local verification only',
+            'runtime':{'python':sys.version.split()[0],'openssl':ssl.OPENSSL_VERSION},
+            'native_policy':native_policy,'files':files}
     target=ROOT/'release'/'local-audit'/'binary-inventory.json'
     target.parent.mkdir(exist_ok=True)
     target.write_text(json.dumps(report,indent=2),encoding='utf-8')

@@ -1,0 +1,50 @@
+{
+  "scope": "Reference recipe and wheel-to-candidate byte correspondence; not independently reproduced build provenance",
+  "candidate_source_fingerprint": "2f6b17681e5238ac1e84f24025e6550754f4e624d628157632f55bc9a9f6ec56",
+  "wheel": "piper_tts-1.8.0-cp39-abi3-win_amd64.whl",
+  "wheel_sha256": "5da9bfdb05dfe15da3536859d422e605483ffa6d2b3ec2c5b9593bae6b5aa6a4",
+  "native_bridge": {
+    "wheel_member": "piper/espeakbridge.pyd",
+    "sha256": "29631a68cf69727df76071561c9d839dfd05ae326e7f4ed01ae4a69d03f63429",
+    "installed_and_packaged_match": true
+  },
+  "phonemizer_data": {
+    "files_matched": 373,
+    "no_extra_files": true,
+    "records_sha256": "b5b2badbfbda4e07481a6282340ac317109e6aab75367784e830136c2ab7d5e2"
+  },
+  "reference_source": {
+    "piper_archive": "piper1-gpl-639388b6317fc4731e91d53da42aea68fd4166ff.tar.gz",
+    "sha256": "a7045b7ef4268d1088047c20a69ae447b552e579dacb42d3dc18f53576aa54ce",
+    "espeak_archive": "espeak-ng-724808c5a83f9ef95fdd0db886ba7ba537ff224a.tar.gz",
+    "espeak_sha256": "7d8ebd78201923a443245362a928999977d1721c3eeba596eafc6ea8db7e243c",
+    "python_bridge_espeak_revision": "724808c5a83f9ef95fdd0db886ba7ba537ff224a",
+    "uses_static_espeak_and_ucd": true,
+    "recipe_members": [
+      {
+        "member": "piper1-gpl-639388b6317fc4731e91d53da42aea68fd4166ff/CMakeLists.txt",
+        "sha256": "cda01f6b8f8ed8fc748397e4ea687933c7141cfd051bdef0a33478bcae3f5a8e"
+      },
+      {
+        "member": "piper1-gpl-639388b6317fc4731e91d53da42aea68fd4166ff/src/piper/espeakbridge.c",
+        "sha256": "660dd64017208798ee47fcdc9613ad9fc59ec6c359cb22afaad82be8858ad432"
+      },
+      {
+        "member": "piper1-gpl-639388b6317fc4731e91d53da42aea68fd4166ff/setup.py",
+        "sha256": "74d8c7084527702fb4eae15cad0a1f3ad39872b5d74e4704fd796a86addbcb98"
+      },
+      {
+        "member": "piper1-gpl-639388b6317fc4731e91d53da42aea68fd4166ff/pyproject.toml",
+        "sha256": "3d8c160ff055260d06c2606caa6e5c90cc46fb5f72c9d49e42c3b050dc24ab43"
+      },
+      {
+        "member": "piper1-gpl-639388b6317fc4731e91d53da42aea68fd4166ff/.github/workflows/publish.yml",
+        "sha256": "c5d1187139150a4f0785eb99d4264cde3dabae7422fda8cdb3958bbc84d6c67a"
+      }
+    ],
+    "separate_libpiper_recipe_used": false
+  },
+  "cryptographic_attestation_verification_performed": false,
+  "independent_build_reproduction_performed": false,
+  "redistribution_cleared": false
+}

@@ -4,6 +4,7 @@ from __future__ import annotations
 import hashlib
 import importlib.metadata as metadata
 import json
+import sys
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,7 +51,7 @@ def main() -> int:
         for item in dist.files or []:
             lowered = str(item).lower()
             path = Path(dist.locate_file(item)).resolve()
-            if not path.is_relative_to((ROOT / '.venv').resolve()) or not path.is_file():
+            if not path.is_relative_to(Path(sys.prefix).resolve()) or not path.is_file():
                 continue
             if any(token in path.name.lower() for token in ('license', 'licence', 'copying', 'notice')):
                 notices.append({'path': str(item).replace('\\', '/'), 'sha256': digest(path)})

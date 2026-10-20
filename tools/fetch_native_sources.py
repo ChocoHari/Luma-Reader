@@ -14,6 +14,9 @@ for module in ('qtbase','qtdeclarative','qtmultimedia','qtsvg','qtvirtualkeyboar
     name=f'{module}-everywhere-src-6.12.0.tar.xz'
     SOURCES.append((name,'https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/'+name))
 SOURCES += [
+ ('PyMuPDF-12786d12b2962a1d77fd13b103162eddf749644c.tar.gz',
+  'https://codeload.github.com/pymupdf/PyMuPDF/tar.gz/12786d12b2962a1d77fd13b103162eddf749644c',
+  'cd400ac13ecd659631ac96e0d7ec52c5a90829ad64cee46b61ddaaaca10770fb'),
  ('zlib-1.3.1.tar.gz',
   'https://github.com/madler/zlib/releases/download/v1.3.1/zlib-1.3.1.tar.gz',
   '9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23'),
