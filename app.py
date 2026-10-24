@@ -23,7 +23,7 @@ from reader_core import (DATA, ROOT, VOICES, Cancelled, Document, Page, State, a
     clean_pdf_text, discover_voices, load_document, ocr_pdf_page, pdf_key, python_position, qt_position, sentences)
 from speech import Speech, export_audio
 from rich_editor import NoteEditor
-from studio import StudioFeatures
+from studio import StudioFeatures, WrappingLayout
 from appearance import place_edges
 
 WELCOME = """Welcome to Luma Reader
@@ -127,6 +127,11 @@ class Reader(StudioFeatures, QMainWindow):
         self.clip_button.setToolTip("Copy text in any app, then press Ctrl+Alt+R" if self.hotkey and self.hotkey.registered
                                     else "Global shortcut unavailable. Use this button to read copied text.")
         self.refresh_recent()
+        available = self.screen().availableGeometry()
+        if available.width() < 1200:
+            self.splitter.widget(0).hide()
+        self.resize(min(1340, available.width()), min(880, available.height()))
+        self.move(available.topLeft())
         self.save_timer = QTimer(self)
         self.save_timer.setInterval(4000)
         self.save_timer.timeout.connect(self.save_progress)
@@ -208,7 +213,8 @@ class Reader(StudioFeatures, QMainWindow):
         self.meta = QLabel()
         self.meta.setObjectName("muted")
         main_layout.addWidget(self.meta)
-        tools = QHBoxLayout()
+        tools = WrappingLayout()
+        self.reading_tools = tools
         tools.addWidget(self.button("Read selection", self.read_selection))
         tools.addWidget(self.button("Read from cursor", self.read_cursor))
         self.draft_button = self.button("Make editable copy", self.make_draft)
@@ -298,7 +304,7 @@ class Reader(StudioFeatures, QMainWindow):
         bottom.setObjectName("playback")
         bottom_layout = QVBoxLayout(bottom)
         bottom_layout.setContentsMargins(24, 14, 24, 14)
-        controls = QHBoxLayout()
+        controls = WrappingLayout()
         controls.setSpacing(10)
         controls.addWidget(self.button("Previous", lambda: self.skip(-1)))
         self.play_button = self.button("▶  Play", self.play_pause, True)
@@ -306,7 +312,6 @@ class Reader(StudioFeatures, QMainWindow):
         controls.addWidget(self.play_button)
         controls.addWidget(self.button("Stop", self.stop))
         controls.addWidget(self.button("Next", lambda: self.skip(1)))
-        controls.addSpacing(12)
         controls.addWidget(QLabel("Voice"))
         self.voice_combo = QComboBox()
         self.voice_combo.setMinimumWidth(150)
@@ -872,6 +877,8 @@ class Reader(StudioFeatures, QMainWindow):
     def resizeEvent(self, event):
         super().resizeEvent(event)
         place_edges(self)
+        if hasattr(self, "format_bar"):
+            self.update_compact_workspace()
         if hasattr(self, "preview_scroll"):
             QTimer.singleShot(100, self.render_page)
 

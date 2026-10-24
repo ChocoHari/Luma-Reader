@@ -1,7 +1,24 @@
 LUMA COMMUNITY RELEASE PROGRAMME
-Approved 17 October 2026. Updated 18 October 2026.
+Approved 17 October 2026. Updated 21 October 2026.
 Goal: distributable open-source Windows reader; no Python setup for end users.
 Overall goal ACTIVE. Public binary distribution is NOT approved.
+
+CURRENT RELEASE CHECKPOINT - 21 October 2026
+Candidate: 0.3.2-dev. Python 3.13.16 / RapidOCR 3.10.0.
+Source fingerprint: 390a76a34c74b044789cdb4db556ab668604bada9cfe6dc288dda741f7c57ae4
+103 local source tests passed; hosted run 39494166264 passed for commit
+14f1ce49ee29452dd2be47158f627494422b6717.
+Standalone diagnostic passed; actual 0.3.1-dev to 0.3.2-dev upgrade passed all
+12 checks with all 1255 installed package files matching the audit.
+Portable, installer and matching-source ZIP identities are recorded together
+in dist/SHA256SUMS.txt. Read-only clean-system transfer media is prepared.
+Windows evaluation installation reached the guest lock screen; user sign-in,
+clean baseline snapshot and offline Luma installation tests remain pending.
+Current runtime origins/signatures checked privately; redistribution remains
+uncleared. Open gates: Microsoft runtime, Qt/FFmpeg, corresponding source and
+clean package. Frame/display checks and donation destinations remain open.
+Public binaries are not approved; PR #1 remains draft. Phases 8-9 remain proposals.
+Later historical entries below describe earlier candidates and intermediate work.
 
 PHASE 1 - LICENSING FOUNDATION [COMPLETE]
 [x] Dependency/model/asset inventory and first-party licence.
@@ -82,7 +99,7 @@ PHASES 8-9 - RESEARCH/PILOT ONLY [PROPOSALS PREPARED]
 Evidence: release/VOICE_PILOT_PROPOSAL.md; VOICE_PILOT_SCRIPT.md;
 PREMIUM_PROPOSAL.md (all under release/).
 
-LATEST COMPLETED DEVELOPMENT CANDIDATE - 20 October 2026
+HISTORICAL DEVELOPMENT CANDIDATE - 20 October 2026
 98 source tests passed locally. Source head:
 d4e5e08881c572b7110f9918e398529f93b6afa2 (136 allowlisted files).
 Hosted run 39379876112 completed successfully.
@@ -222,3 +239,82 @@ Upgrade verifier now derives the current target version and accepts an explicit
 retained baseline; same-version/missing/outside-project baselines are rejected.
 All 103 source tests passed after the change. Refreshed 0.3.1-to-0.3.2 actual
 upgrade remains pending. Final source-paired build follows these verifier edits.
+
+21 October: refreshed candidate source fingerprint
+390a76a34c74b044789cdb4db556ab668604bada9cfe6dc288dda741f7c57ae4
+passed isolated-PATH frozen diagnostics. All 103 local source tests and hosted
+Windows run 39494166264 passed for source commit
+14f1ce49ee29452dd2be47158f627494422b6717. Actual upgrade 0.3.1-dev to
+0.3.2-dev passed all 12 checks in upgrade-trial-b1aac66d: all 1255 audited files
+matched, no stale runtime remained, and notes/settings/user-voice sentinel
+survived upgrade and uninstall. Initial restricted-context installer attempt
+failed before file installation; normal per-user host-context repeat passed.
+Portable/source/installer checksum set refreshed; exact source ZIP remains
+paired with that build. These verification notes were updated after the build.
+VM test kit refreshed to 0.3.2. Windows evaluation ISO finished downloading and
+the prepared VM started. Guest Windows installation and clean-system tests are
+not yet complete. An administrator prompt requires the user to handle it.
+
+21 October: user identified the administrator prompt as an unrelated printer
+driver update and declined it. Windows DVD boot succeeded with user keyboard
+input. Windows 11 Enterprise Evaluation installation started on the disposable
+virtual disk; 12 percent observed. Guest setup, clean baseline snapshot and Luma
+clean-system checks remain pending.
+Read-only Luma test ISO prepared and payload read back with matching SHA-256.
+Draft PR description now records the successful 12-check upgrade result.
+Windows guest installation observed progressing beyond 50 percent; no clean
+system result is claimed yet.
+Windows installation reached first-run region setup after automatic guest
+restarts. User handling account/privacy screens and an unrelated host security
+update window. Desktop baseline snapshot and clean Luma tests still pending.
+21 October: VM now observed at Windows lock screen; user sign-in requested.
+Current-candidate Microsoft runtime inventory refreshed privately: 14 signed
+DLLs match audited hashes and build origins (two Python package, eleven wheel,
+one host-system). Redistribution gate remains pending; signature/origin evidence
+is not a distribution grant. Current source-paired packages were not changed.
+21 October: fresh Windows desktop reached; virtual NIC disconnected. Live
+baseline snapshot failed with VirtualBox service/RPC error. Critical-error
+dialog poweroff was rejected because the snapshot state remained active.
+Private logs/config preserved; no Luma installation or clean test performed.
+Manual recovery of failed VM session requested; baseline remains unverified.
+21 October recovery: user closed failed VM. Powered-off disk chain recognized;
+no successful live snapshot existed. New powered-off clean baseline snapshot
+completed and registered. Verified read-only test ISO attached; guest started
+with virtual network still disconnected. Guest boot and Luma tests pending.
+21 October clean guest: visible wizard licence, pre-install cancellation/exit,
+default per-user setup, shortcut and completion verified. Installed Luma launched
+offline without guest developer tools; TXT opened, speech highlight advanced,
+original PDF rendered as primary. Audio confirmation pending. Guest display clips
+window/bottom controls; responsiveness needs investigation. Remaining clean checks
+are not passed. Private observations: vm-setup/clean-guest-observations.json.
+21 October: user confirmed clear audible speech from installed Luma in the offline Windows VM. Physical audio check passed for the short TXT fixture.
+21 October clean guest OCR: image-only scanned.pdf automatically recognized
+offline (37 words); secondary Text view visibly includes heading, sentences,
+START/FINISH and Figure 1 caption. This proves representative fixture OCR,
+not full-book accuracy or diagram semantics. Clear speech user-confirmed.
+21 October source follow-up: initial screen-bound sizing and wrapping toolbar/
+playback layouts implemented for guest clipping. 31 V2 tests passed, including
+1024x720 and 800x600 control-bound checks. Full suite in progress. Existing
+0.3.2-dev packages remain paired and unchanged; rebuilt guest check required.
+Full source suite after responsive-layout change: 105 tests passed. New standalone build, matching source archive, and guest visual checks remain required before this source change is treated as a verified package.
+21 October responsive candidate: 0.3.3-dev standalone build completed; source
+fingerprint 0d3029adcd3fea02ef866b77d38e98e27c18200ab105dc4c77ea21dd4e31c866.
+Frozen isolated-PATH diagnostic passed actual OCR, PDF/DOCX, Markdown, bundled
+voice synthesis and muted playback to EndOfMedia. Portable integrity passed;
+installer and matching source ZIP checksums recorded. New read-only test disc
+installer readback hash passed and disc attached to offline guest. Guest upgrade
+and responsive visual checks remain pending. Prior 0.3.2 candidate preserved.
+21 October clean guest 0.3.3: visible upgrade from 0.3.2 completed and app
+opened offline. Window fits guest display; Play/Stop/voice/speed/volume visible.
+Opening sidebar wraps Settings onto another row while controls remain within
+window. Small-display clipping resolved for this guest configuration. Recent
+history/data preservation and full byte audit not established by this visual
+check. Other clean-system and display requirements remain pending.
+
+24 October: user reconfirmed clear audible offline VM speech for the TXT fixture.
+Guest 0.3.3 DOCX fixture opened (29 words). Markdown fixture opened and task
+syntax inserted visibly; save/reopen remains unverified. Compact-window source
+now hides duplicate document headings, reduces margins, and reserves editor
+space; 107 source tests passed, including editor viewport checks at 1024x720
+and 800x600. This change is not yet verified in a standalone guest build.
+Prior paired 0.3.3 artifacts preserved with matching hashes. Preparing 0.3.4-dev.

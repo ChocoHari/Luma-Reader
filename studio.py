@@ -6,15 +6,87 @@ import re
 import tempfile
 import uuid
 from pathlib import Path
-from PySide6.QtCore import Qt, QTimer, QRectF, QUrl
+from PySide6.QtCore import Qt, QTimer, QRectF, QUrl, QRect, QSize, QPoint
 from PySide6.QtGui import QAction, QColor, QFont, QIcon, QPainter, QPixmap, QTextCursor, QTextDocument
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDialog, QDialogButtonBox,
-    QFileDialog, QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMessageBox, QPushButton,
+    QFileDialog, QFormLayout, QHBoxLayout, QLayout, QWidgetItem, QLabel, QLineEdit, QMessageBox, QPushButton,
     QSpinBox, QTableWidget, QTableWidgetItem, QTextBrowser, QVBoxLayout, QWidget, QMenuBar, QSplitter, QListWidgetItem, QInputDialog)
 from appearance import ASSETS, PALETTES, install_frame, logo_pixmap, place_edges, tokens
 from rich_editor import FormatBar
 from reader_core import DATA, ROOT, Document, Page, python_position, qt_position, sentences, atomic_json
 from speech_text import margin_ranges, prepare_parts
+
+
+class WrappingLayout(QLayout):
+    """Keep toolbar controls reachable without imposing a single-row minimum."""
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.items = []
+        self.setSpacing(8)
+
+    def addWidget(self, widget, stretch=0):
+        super().addWidget(widget)
+
+    def addItem(self, item):
+        self.items.append(item)
+        self.invalidate()
+
+    def insertWidget(self, index, widget):
+        self.addChildWidget(widget)
+        self.items.insert(index, QWidgetItem(widget))
+        self.invalidate()
+
+    def addStretch(self, stretch=0):
+        pass
+
+    def count(self):
+        return len(self.items)
+
+    def itemAt(self, index):
+        return self.items[index] if 0 <= index < len(self.items) else None
+
+    def takeAt(self, index):
+        return self.items.pop(index) if 0 <= index < len(self.items) else None
+
+    def expandingDirections(self):
+        return Qt.Orientation(0)
+
+    def hasHeightForWidth(self):
+        return True
+
+    def heightForWidth(self, width):
+        return self.arrange(QRect(0, 0, width, 0), False)
+
+    def minimumSize(self):
+        size = QSize()
+        for item in self.items:
+            if not item.isEmpty():
+                size = size.expandedTo(item.minimumSize())
+        margins = self.contentsMargins()
+        return size + QSize(margins.left()+margins.right(), margins.top()+margins.bottom())
+
+    def sizeHint(self):
+        return self.minimumSize()
+
+    def setGeometry(self, rect):
+        super().setGeometry(rect)
+        self.arrange(rect, True)
+
+    def arrange(self, rect, apply):
+        margins = self.contentsMargins()
+        area = rect.adjusted(margins.left(), margins.top(), -margins.right(), -margins.bottom())
+        x, y, row_height = area.x(), area.y(), 0
+        for item in self.items:
+            if item.isEmpty():
+                continue
+            size = item.sizeHint()
+            if row_height and x + size.width() > area.right()+1:
+                x, y, row_height = area.x(), y+row_height+self.spacing(), 0
+            if apply:
+                item.setGeometry(QRect(QPoint(x, y), size))
+            x += size.width()+self.spacing()
+            row_height = max(row_height, size.height())
+        return y + row_height - rect.y() + margins.bottom()
 
 
 class StudioFeatures:
@@ -37,14 +109,14 @@ class StudioFeatures:
         self.replacements = self.state.value.get("replacements",{})
         self.omit_margins = self.state.value.get("omit_margins",True)
         self._margin_cache = []
-        self.setMinimumSize(1060,740)
+        self.setMinimumSize(760,560)
         install_frame(self)
         # V1's identity header is replaced by the custom title bar and compact command row.
         self.findChild(QWidget,"header").hide()
         main = self.content.parentWidget()
         layout = main.layout()
         commands = QWidget()
-        row = QHBoxLayout(commands)
+        row = WrappingLayout(commands)
         row.setContentsMargins(0,0,0,0)
         sidebar = self.splitter.widget(0)
         self.sidebar_button = self.button("☰", lambda:sidebar.setVisible(not sidebar.isVisible()))
@@ -161,6 +233,23 @@ class StudioFeatures:
         self.system_theme.colorSchemeChanged.connect(lambda *_:self.apply_theme())
         place_edges(self)
 
+    def update_compact_workspace(self):
+        # The title remains in the window caption; preserve document space on
+        # short displays instead of squeezing the editor between fixed toolbars.
+        compact = self.height() < 800
+        focused = self.focus_button.isChecked()
+        self.title.setVisible(not compact and not focused)
+        self.meta.setVisible(not compact and not focused)
+        layout = self.content.parentWidget().layout()
+        layout.setContentsMargins(12 if compact else 28, 8 if compact else 22,
+                                  12 if compact else 28, 8 if compact else 18)
+        layout.setSpacing(6 if compact else 12)
+        for index in range(self.reading_tools.count()):
+            widget = self.reading_tools.itemAt(index).widget()
+            if widget is not None:
+                widget.setVisible(not focused and (widget is not self.draft_button or not self.editable))
+        self.content.setMinimumHeight(140)
+
     def apply_theme(self,*_):
         if not hasattr(self,"theme_box"):
             return self._base_apply_theme()
@@ -228,6 +317,7 @@ class StudioFeatures:
         self.splitter.widget(0).setVisible(False if focused else getattr(self,"_focus_sidebar_visible",True))
         self.format_bar.setVisible(self.editable and not focused)
         self.focus_button.setText("Exit focus" if focused else "Focus")
+        self.update_compact_workspace()
 
     def write_recovery(self):
         if not self.editable or not self.editor.document().isModified() or self._updating:return
@@ -367,6 +457,7 @@ class StudioFeatures:
         self.tabs.setTabVisible(1,self.note_format=="markdown")
         self.tabs.setTabText(0,"Rich note" if self.note_format=="rich" else "Markdown source" if self.note_format=="markdown" else "Text")
         self.sync_note_controls()
+        self.update_compact_workspace()
         self.update_title()
         QTimer.singleShot(0,self.render_page)
 

@@ -483,3 +483,38 @@ def test_readonly_text_export_keeps_pdf_source(window,tmp_path,monkeypatch):
     assert window.document.path==path and window.pdf is not None
     assert out.exists()
 
+
+@pytest.mark.parametrize('size', [(1024, 720), (800, 600)])
+def test_small_window_keeps_playback_controls_inside(window, application, size):
+    from PySide6.QtCore import QPoint
+    from PySide6.QtWidgets import QWidget
+    window.splitter.widget(0).hide()
+    window.resize(*size)
+    application.processEvents()
+    assert window.width() <= size[0]
+    assert window.height() <= size[1]
+    for widget in (window.play_button, window.voice_combo, window.speed, window.volume):
+        origin = widget.mapTo(window, QPoint(0, 0))
+        assert origin.x() >= 0 and origin.y() >= 0
+        assert origin.x()+widget.width() <= window.width()
+        assert origin.y()+widget.height() <= window.height()
+    # Every visible command remains reachable after toolbar wrapping.
+    for widget in (window.workspace, window.theme_box, window.appearance_mode, window.focus_button):
+        origin = widget.mapTo(window, QPoint(0, 0))
+        assert origin.x()+widget.width() <= window.width()
+        assert origin.y()+widget.height() <= window.height()
+
+
+@pytest.mark.parametrize("size", [(1024, 720), (800, 600)])
+def test_small_markdown_window_reserves_editor_viewport(window, application, size):
+    window.new_markdown()
+    window.splitter.widget(0).hide()
+    window.resize(*size)
+    application.processEvents()
+    assert window.width() <= size[0] and window.height() <= size[1]
+    assert window.editor.viewport().height() >= 100
+    assert window.editor.viewport().width() >= 300
+    window.focus_button.setChecked(True)
+    window.toggle_writing_focus()
+    application.processEvents()
+    assert window.editor.viewport().height() >= 160
