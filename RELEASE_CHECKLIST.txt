@@ -1,23 +1,31 @@
 LUMA COMMUNITY RELEASE PROGRAMME
-Approved 17 October 2026. Updated 21 October 2026.
+Approved 17 October 2026. Updated 24 October 2026.
 Goal: distributable open-source Windows reader; no Python setup for end users.
 Overall goal ACTIVE. Public binary distribution is NOT approved.
 
-CURRENT RELEASE CHECKPOINT - 21 October 2026
-Candidate: 0.3.2-dev. Python 3.13.16 / RapidOCR 3.10.0.
-Source fingerprint: 390a76a34c74b044789cdb4db556ab668604bada9cfe6dc288dda741f7c57ae4
-103 local source tests passed; hosted run 39494166264 passed for commit
-14f1ce49ee29452dd2be47158f627494422b6717.
-Standalone diagnostic passed; actual 0.3.1-dev to 0.3.2-dev upgrade passed all
-12 checks with all 1255 installed package files matching the audit.
-Portable, installer and matching-source ZIP identities are recorded together
-in dist/SHA256SUMS.txt. Read-only clean-system transfer media is prepared.
-Windows evaluation installation reached the guest lock screen; user sign-in,
-clean baseline snapshot and offline Luma installation tests remain pending.
-Current runtime origins/signatures checked privately; redistribution remains
-uncleared. Open gates: Microsoft runtime, Qt/FFmpeg, corresponding source and
-clean package. Frame/display checks and donation destinations remain open.
-Public binaries are not approved; PR #1 remains draft. Phases 8-9 remain proposals.
+CURRENT RELEASE CHECKPOINT - 24 October 2026
+Candidate: 0.3.4-dev. Python 3.13.16 / RapidOCR 3.10.0.
+Source fingerprint: ca276e1f497d75874540037e4fd596de483f1cf2d99648bcdfb232c8393839db
+107 local source tests passed. Standalone diagnostic passed actual OCR,
+PDF/DOCX/Markdown, Piper synthesis and muted playback. Installer compiled;
+portable integrity passed; matching source and all package hashes recorded in
+verification/compact-editor/package-result.json and dist/SHA256SUMS.txt.
+New installer test ISO passed readback; current candidate guest check pending.
+Earlier clean guest checks: 0.3.2 installed offline with no developer tools,
+TXT speech audible (user confirmed), original PDF and scanned OCR verified.
+0.3.3 upgraded visibly and DOCX opened; Markdown task insertion observed,
+but save/reopen and compact editor visual verification remain pending.
+Powered-off clean baseline snapshot exists; VM resumed, NIC off; desktop-control window not available.
+Remaining clean checks include portable launch, WAV export, interrupted install
+and preservation during uninstall. Current 0.3.3 to 0.3.4 host upgrade passed all 12 checks: 1255 installed
+files match; notes/settings/user voice preserved through upgrade and uninstall.
+GitHub draft PR #1 now contains the paired 0.3.4 source at commit
+2cf8d3d4342d4e3e35e57af55bd054a98ee43f91. Hosted Windows run
+40127886388 completed successfully. Later checklist entries are outside the
+retained source snapshot; its matching archive is preserved.
+Open gates: Microsoft runtime, Qt/FFmpeg, corresponding source and clean package.
+Frame/display checks and donation destinations remain open. Public binaries
+are not approved. Phases 8-9 remain proposals.
 Later historical entries below describe earlier candidates and intermediate work.
 
 PHASE 1 - LICENSING FOUNDATION [COMPLETE]
@@ -318,3 +326,49 @@ now hides duplicate document headings, reduces margins, and reserves editor
 space; 107 source tests passed, including editor viewport checks at 1024x720
 and 800x600. This change is not yet verified in a standalone guest build.
 Prior paired 0.3.3 artifacts preserved with matching hashes. Preparing 0.3.4-dev.
+24 October 0.3.4-dev: standalone build and frozen diagnostic passed actual
+OCR, document rendering, Markdown, Piper synthesis and muted playback. Portable
+integrity passed; installer compiled; all three paired package hashes recorded
+in verification/compact-editor/package-result.json. Read-only installer test
+disc passed readback hashing. Guest visual/editor and remaining clean checks
+are pending. Public binary approval remains false.
+24 October current upgrade: 0.3.3 to 0.3.4 passed all 12 lifecycle checks
+in upgrade-trial-17175a08. All 1255 installed files matched the build audit;
+obsolete files removed; notes/settings and user voice sentinel preserved
+through upgrade and uninstall. Installed diagnostic passed. Restricted-context
+attempt failed before installation; normal user-context test passed. Installer
+was recompiled by the verifier; package hashes refreshed afterward. Existing
+attached test ISO retains its original verified installer bytes and hash.
+
+24 October: 145-file matching source snapshot updated on draft PR #1; all six
+changed Git blob hashes verified. Hosted Windows run 40127886388 passed at
+commit 2cf8d3d4342d4e3e35e57af55bd054a98ee43f91. No merge/tag/public binary.
+VM invisible-window recovery: original-context save completed, but state
+registration was lost; logs/config preserved. Supported adoptstate associated
+the exact saved file again; normal desktop resume now restoring. Guest result
+not yet established.
+24 October VM recovery verified: visible guest desktop restored with modified
+notes.md still open. File > Save cleared the modified-title marker and displayed
+Saved notes.md. Reopen/persisted task content remains pending. Installed guest
+is still 0.3.3; 0.3.4 installer is attached but not yet applied. Use normal desktop
+context for subsequent VirtualBox lifecycle commands.
+24 October clean guest 0.3.4: visible upgrade completed and app launched
+offline. Saved Markdown reopened; inserted - [ ] Offline study note persisted.
+Focus mode provides a substantially larger editor area with playback controls
+visible. WAV export reported success; reading.wav visible as 521 KB WAV file
+in Documents. External playback is pending. Sidebar Recent/Outline/Saved area
+is nearly zero height at this display size and needs a layout correction.
+WAV follow-up: exported file opens in Windows Media Player and reports
+12-second duration. Playback counter advancement/audibility not established;
+that part of the external playback check remains open.
+24 October sidebar source correction: document navigation now has its own
+scrolling container and a minimum list area. Short windows scroll lower actions
+instead of collapsing Recent/Outline/Saved lists. 35 editor/UI tests passed,
+including list viewport and lower-action reachability at 1024x720 and 800x600.
+Full suite running. This source change is not included in verified 0.3.4 packages.
+Sidebar correction full source suite: 109 passed in 42.93 seconds.
+Evidence: verification/sidebar-layout/source-test-result.json. New standalone
+build and guest visual check remain required before marking package fix passed.
+24 October: verified 0.3.4 paired archives, inventories and lifecycle evidence
+preserved under verification/sidebar-layout/prior-0.3.4. Preparing 0.3.5-dev
+with the sidebar scrolling fix; 109 source tests passed before packaging.

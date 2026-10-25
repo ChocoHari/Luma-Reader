@@ -1,7 +1,7 @@
 ; Compile with Inno Setup 6 after building and reviewing dist/Luma.
 ; Local verification installer only until release/release-gates.json is cleared.
 #ifndef AppVersion
-#define AppVersion "0.3.4-dev"
+#define AppVersion "0.3.5-dev"
 #endif
 [Setup]
 #ifdef VerificationBuild

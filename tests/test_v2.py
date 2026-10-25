@@ -518,3 +518,21 @@ def test_small_markdown_window_reserves_editor_viewport(window, application, siz
     window.toggle_writing_focus()
     application.processEvents()
     assert window.editor.viewport().height() >= 160
+
+
+@pytest.mark.parametrize("size", [(1024, 720), (800, 600)])
+def test_small_sidebar_keeps_document_lists_usable(window, application, size):
+    window.resize(*size)
+    window.splitter.widget(0).show()
+    application.processEvents()
+    assert window.width() <= size[0] and window.height() <= size[1]
+    assert window.recent.viewport().height() >= 100
+    scroll = window.sidebar_scroll.verticalScrollBar()
+    assert scroll.maximum() > 0
+    scroll.setValue(scroll.maximum())
+    application.processEvents()
+    # Scrolling exposes lower actions rather than compressing the lists.
+    from PySide6.QtCore import QPoint
+    last = window.sidebar_scroll.widget().layout().itemAt(6).widget()
+    bottom = last.mapTo(window.sidebar_scroll.viewport(), QPoint(0, last.height()))
+    assert bottom.y() <= window.sidebar_scroll.viewport().height()
