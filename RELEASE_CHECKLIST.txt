@@ -1,0 +1,374 @@
+LUMA COMMUNITY RELEASE PROGRAMME
+Approved 17 October 2026. Updated 24 October 2026.
+Goal: distributable open-source Windows reader; no Python setup for end users.
+Overall goal ACTIVE. Public binary distribution is NOT approved.
+
+CURRENT RELEASE CHECKPOINT - 24 October 2026
+Candidate: 0.3.4-dev. Python 3.13.16 / RapidOCR 3.10.0.
+Source fingerprint: ca276e1f497d75874540037e4fd596de483f1cf2d99648bcdfb232c8393839db
+107 local source tests passed. Standalone diagnostic passed actual OCR,
+PDF/DOCX/Markdown, Piper synthesis and muted playback. Installer compiled;
+portable integrity passed; matching source and all package hashes recorded in
+verification/compact-editor/package-result.json and dist/SHA256SUMS.txt.
+New installer test ISO passed readback; current candidate guest check pending.
+Earlier clean guest checks: 0.3.2 installed offline with no developer tools,
+TXT speech audible (user confirmed), original PDF and scanned OCR verified.
+0.3.3 upgraded visibly and DOCX opened; Markdown task insertion observed,
+but save/reopen and compact editor visual verification remain pending.
+Powered-off clean baseline snapshot exists; VM resumed, NIC off; desktop-control window not available.
+Remaining clean checks include portable launch, WAV export, interrupted install
+and preservation during uninstall. Current 0.3.3 to 0.3.4 host upgrade passed all 12 checks: 1255 installed
+files match; notes/settings/user voice preserved through upgrade and uninstall.
+GitHub draft PR #1 now contains the paired 0.3.4 source at commit
+2cf8d3d4342d4e3e35e57af55bd054a98ee43f91. Hosted Windows run
+40127886388 completed successfully. Later checklist entries are outside the
+retained source snapshot; its matching archive is preserved.
+Open gates: Microsoft runtime, Qt/FFmpeg, corresponding source and clean package.
+Frame/display checks and donation destinations remain open. Public binaries
+are not approved. Phases 8-9 remain proposals.
+Later historical entries below describe earlier candidates and intermediate work.
+
+PHASE 1 - LICENSING FOUNDATION [COMPLETE]
+[x] Dependency/model/asset inventory and first-party licence.
+[x] Third-party notice policy and exact approved voice manifest.
+[x] Private-data-safe source allowlist and release gates.
+Evidence: THIRD_PARTY.md; release/release-gates.json; release/CORI_CLEARANCE.md.
+This foundation does not clear all binary/source distribution obligations.
+
+PHASE 2 - MARKDOWN EDITOR [COMPLETE]
+[x] Markdown default; Source/Preview/Split; syntax toolbar and outline.
+[x] Tasks, links, quotes, code, tables, focus and recovery drafts.
+[x] HTML import/conversion; save/reopen/recovery and speech checks.
+Evidence: tests/test_v2.py; USER_GUIDE.md.
+
+PHASE 3 - WINDOWS FRAME [IN PROGRESS]
+[x] Native resize/caption/maximize hit tests; standard-frame fallback.
+[x] Maximize/restore, Alt+Space, Alt+F4 and full Snap hover flyout.
+[ ] Select a Snap layout and verify resulting bounds.
+[ ] Visible taskbar/auto-hide, scaling, monitor movement/disconnection.
+Evidence: release/WINDOW_SUPPORT.md. Tested one 1920x1080/100% Windows host.
+
+PHASE 4 - PDF INTERACTION [COMPLETE]
+[x] Original-page selection, Copy, Read selection and Read from here.
+[x] Multiline and Shift-click cross-page selection; zoom/rotation mapping.
+[x] OCR coordinates, legacy cache upgrade and confident highlight fallback.
+[x] Representative native/scanned/rotated/two-column documents verified.
+[x] Native and OCR column order shared with highlight/selection mappings.
+Evidence: release/PDF_VERIFICATION.md; tests/test_pdf_reading_order.py;
+tests/test_reader.py; tests/test_v2.py. Actual offline OCR recovered/mapped
+all 11 lines in an original two-column image-only PDF.
+Limits: arbitrary tables/nested layouts, figure descriptions, letter-level OCR
+selection, full-book accuracy and continuous edge-drag navigation are not claimed.
+
+PHASE 5 - STANDALONE PACKAGING [IN PROGRESS]
+[x] Read-only assets separate from per-user/portable writable data.
+[x] One-time non-overwriting data migration and voice imports.
+[x] Runtime/OCR/Piper/reviewed Cori voice; no blanket local voice copying.
+[x] Restrict DLL search paths and reject unexpected native-library origins.
+[x] Preserve/index Python runtime licence and available dependency notices.
+[x] Portable integrity, matching source identity and installer checksums.
+[x] Install, reinstall, version upgrade, installed diagnostics and uninstall.
+[x] Preserve notes/settings through upgrade and user data after uninstall.
+[ ] Complete native licences, build/patch/source correspondence and runtime terms.
+[ ] Clean Windows machine, interrupted install and visible wizard checks.
+Evidence: release/BUILD_WINDOWS.md; INSTALLER_VERIFICATION.md;
+NATIVE_SOURCE_REVIEW.md; STORAGE.md (all under release/).
+
+PHASE 6 - OPEN-SOURCE BETA [IN PROGRESS]
+[x] Allowlisted exact source snapshot, hashes and bundled fingerprint.
+[x] Contribution/issue/PR templates, known issues, beta guide and release notes.
+[x] Hosted Windows CI passed tests/build/diagnostics/archive on selected repository.
+[x] User guide consolidated to current app behavior; companion guides bundled.
+[x] Official Qt/PySide/FFmpeg source archives retained with hashes/inventories.
+[ ] Complete corresponding-source package and public distribution destination.
+[x] User-selected GitHub repository and initial hosted Windows CI run.
+[ ] Tags, final release readiness and hosted checks for subsequent changes.
+[ ] Clean-machine beta feedback and required remaining compatibility evidence.
+Selected public repository: https://github.com/ChocoHari/Luma-Reader .
+Connected GitHub access verified; remote was empty at inspection. Draft PR #1
+contains the allowlisted source snapshot; all uploaded blob hashes matched the prepared
+snapshot. CI context validation corrected in follow-up commit. Hosted checks
+passed through current head, including strict model policy and dependency
+isolation. No binary release has been published.
+
+PHASE 7 - MARKETING AND SUPPORT [IN PROGRESS]
+[x] Original-content screenshots, banners, logo exports and captioned demo.
+[x] Page copy, FAQ, launch/update drafts, support story and platform drafts.
+[x] Local marketing ZIP/manifest; visuals and video inspected.
+[ ] Payout country/provider eligibility and actual donation destinations.
+[ ] Final public-release claim review against remaining gates.
+Evidence: marketing/; dist/Luma-marketing-preview.zip. No public posts/accounts.
+Payout country remains unanswered; no country inferred from timezone.
+
+PHASES 8-9 - RESEARCH/PILOT ONLY [PROPOSALS PREPARED]
+[x] Consented original free-voice pilot/script/evaluation proposal.
+[x] Premium feature validation and one-time per-major-version proposal.
+[x] No training, recordings, spending or final price committed.
+Evidence: release/VOICE_PILOT_PROPOSAL.md; VOICE_PILOT_SCRIPT.md;
+PREMIUM_PROPOSAL.md (all under release/).
+
+HISTORICAL DEVELOPMENT CANDIDATE - 20 October 2026
+98 source tests passed locally. Source head:
+d4e5e08881c572b7110f9918e398529f93b6afa2 (136 allowlisted files).
+Hosted run 39379876112 completed successfully.
+Standalone: 1153 audited files; four reviewed ONNX models. Isolated developer-
+path diagnostic passed OCR, Reader/editor, PDF/DOCX, Piper and muted playback.
+Source fingerprint: 2f6b17681e5238ac1e84f24025e6550754f4e624d628157632f55bc9a9f6ec56
+Strict upgrade: upgrade-trial-0f19e902 passed all 12 checks, with every package
+hash matching, obsolete runtime removed and notes/settings/portable voice retained.
+Portable: 270422591 bytes. Installer 0.3.1-dev: 221207050 bytes.
+Matching-source ZIP verified; hashes: dist/SHA256SUMS.txt.
+Later result notes are outside the retained build snapshot. No public binaries
+published and no PR merged. Other required release gates remain pending.
+
+CLEAN WINDOWS FOLLOW-UP
+User approved virtualization setup. VirtualBox is installed and a disposable VM
+is prepared; its empty-guest startup probe passed. Windows evaluation registration is complete; the official Microsoft ISO is
+downloading. Guest installation remains pending. A private sample kit is ready. No
+clean-Windows application test has been completed.
+Host-specific configuration and capacity details stay in private verification
+notes and must not be included in public source, marketing or review messages.
+
+REPOSITORY AND NATIVE SOURCE CHECKPOINT
+Draft: https://github.com/ChocoHari/Luma-Reader/pull/1
+Initial Git blob hashes verified; subsequent updates use leased branch writes.
+369 original native notice files from 33 pinned upstream source archives retained.
+Source-review ZIP: 393650412 bytes; reference coverage only, not approved as
+complete corresponding source. Native build/source/runtime review remains open.
+Microsoft runtime distribution rights remain unconfirmed. Full runtime, Community,
+Build Tools and REDIST terms reviewed; explicit microsoft-runtime gate added.
+See release/MSVC_RUNTIME_REVIEW.md and the candidate DLL inventory.
+Historical raw verification stays private under verification/ and local-audit/.
+
+UPGRADE AUDIT FOLLOW-UP [COMPLETE - DEVELOPMENT HOST]
+20 October: upgrade-trial-0f19e902 passed all 12 checks. All 1153 audited files
+matched; no missing, changed or unexpected runtime files remained. Exact
+former package files removed; notes/settings and portable user voice survived
+upgrade and uninstall. Initial failed trial is retained privately as evidence.
+98 local source tests passed. Source head d4e5e08881c572b7110f9918e398529f93b6afa2
+contains 136 allowlisted files. Hosted run 39379876112 completed successfully.
+Current candidate source fingerprint:
+2f6b17681e5238ac1e84f24025e6550754f4e624d628157632f55bc9a9f6ec56
+Portable integrity and isolated-path diagnostic passed actual OCR, Reader/editor,
+PDF/DOCX, Piper synthesis and muted playback, with inference telemetry disabled.
+Portable: 270422591 bytes. Installer: 221207050 bytes. SHA256SUMS refreshed.
+Actual native/model inventory: 127 files, including 123 DLL/PYD and four models.
+Source ZIP hashes/embedded identity match; known local capacity fields absent.
+Sanitized source successfully published to draft PR; no public binary release.
+Verification-result notes after the build are outside that retained snapshot.
+Clean-Windows, native distribution/source review and other open gates remain.
+
+NATIVE REVIEW FOLLOW-UP - 20 October 2026
+Retained source-reference set expanded to 33 archives with pinned Qt provisioning
+and zlib 1.3.1. Actual FFmpeg configure tokens match the Qt Windows MSVC shared
+recipe; zlib bytes match both official release hosts and Qt's pinned checksum.
+369 source notice files retained for the next candidate; the verified current
+installer still contains its earlier 356-file notice snapshot. Nine focused
+source/hash/notice/packager tests passed. Native gates remain pending: recipe
+correspondence does not prove exact wheel reproduction or final clearance.
+
+NATIVE REVIEW / VM CHECKPOINT - 20 October 2026
+Draft source head: 850b332e44b987738bffce63b1af57caf5f907b1 (137 files).
+Hosted run 39385802420 completed successfully. Isolated source checkout: 94
+tests passed with the reviewed voice. Supplemental notice-copy hashes all passed.
+Source-review ZIP now contains 33 archives and remains publication-unapproved.
+Existing verified installer/portable/source snapshot remains paired and unchanged.
+VirtualBox installation completed successfully without a required restart; an
+empty test guest started and powered off successfully. Windows evaluation registration is complete and its official ISO download
+is underway. VM-specific logs/settings stay private.
+
+20 October: Microsoft runtime gate regression checks passed (3 tests). Runtime
+review/inventory added to the source allowlist. Existing candidate artifacts
+remain unchanged; these new review inputs have not yet been pushed or rebuilt.
+
+20 October: Piper bridge and all 373 phonemizer data files match the retained
+published wheel; no extra phonemizer files. Correct Python CMake/eSpeak revision
+recorded in release/evidence/piper-source-trace.json. Local review inputs only;
+no upstream build reproduction or source-gate clearance claimed.
+
+Hosted Windows run 39485790284 passed for draft commit
+9628be85c5a1dafecebb0391271ac312b00abb7a, including standalone diagnostic
+and archive verification. Subsequent local Piper trace notes are not yet pushed.
+
+20 October: all three packaged PDF native files match the retained PyMuPDF
+wheel. Wheel-reported commit, MuPDF URL and SWIG version recorded in
+release/evidence/pymupdf-source-trace.json. Exact commit archive download is
+in progress outside the main 33-archive source bundle. CPython runtime refresh
+required before public binary release; see release/PYTHON_RUNTIME_REVIEW.md.
+Private native ownership mapping: 99 of 123 files match installed distributions;
+24 Python/Windows runtime files require separate mapping. These new notes are
+local, not rebuilt or pushed. Source allowlist/privacy check passed (142 files).
+
+Runtime refresh trial: official Python 3.13.16 NuGet catalogue SHA-512 and
+PSF executable/DLL signatures verified; launch reports OpenSSL 3.5.9. Separate
+project-local environment created; pinned binary-only dependency install underway.
+Builder/audit now follow the active environment rather than a fixed .venv path.
+13 focused package/policy checks passed. No new frozen candidate built yet.
+
+Runtime trial stopped at dependency resolution: legacy rapidocr-onnxruntime
+1.4.4 requires Python <3.13. Restriction preserved; maintained RapidOCR 3.10.0
+is under review for explicit offline legacy-model configuration. No new OCR
+dependency adopted. Diagnostics/build inventories now record Python/OpenSSL
+versions for subsequent candidates. Exact PyMuPDF commit archive completed; its
+setup.py matches the retained source distribution. Archive remains separate
+from the main source-review bundle pending incorporation.
+
+Offline OCR compatibility probe prepared privately: three original reviewed
+models copied only after SHA-256 checks; explicit model paths, network audit
+rejection and package downloader rejection configured. Probe not yet run;
+Python 3.13 base dependencies and maintained OCR review wheel still downloading.
+Production lock and OCR backend unchanged.
+
+Source review bundle updated: 34 archives, 371 original notice files. Nine
+focused source/archive/notice checks passed. Review ZIP: 491258922 bytes;
+SHA-256 c54187f966aba580574271329d084c228f1a59e15b116ccff7bab79023f07b62.
+Exact PyMuPDF wheel-reported commit is now included. Native/source gates stay
+pending; no independent upstream reproduction or public approval claimed.
+Old verified binary/source candidate remains paired and unchanged.
+
+Runtime/OCR migration: .venv313 source suite passed all 102 tests, including
+actual offline OCR with downloader rejection and two-column geometry. Same
+three reviewed model hashes; newer default model weights excluded. Setup,
+source launchers, build paths and CI updated. Prior paired candidate copied and
+all package hashes rechecked before rebuild. 0.3.2-dev frozen build follows;
+standalone, strict upgrade and clean-Windows checks remain pending.
+
+First refreshed frozen candidate passed the isolated-PATH diagnostic: actual
+OCR, Piper synthesis, muted playback, Reader/editor and PDF/DOCX all passed.
+Runtime reports Python 3.13.16 and OpenSSL 3.5.9; 1255 audited files, 126 native
+libraries and four approved models. First source fingerprint:
+f2b180d2ccc614443573042dc13523af8d38c4926ea522d5998bbde7191d0564
+Old/new inventory comparison identified 37 removed runtime/model paths; exact
+cleanup rules added. Final rebuild, installer/archive pairing and strict upgrade
+checks remain required after that source change. Refreshed changes are local;
+latest hosted success still covers the earlier 5e355080 source commit.
+
+Upgrade verifier now derives the current target version and accepts an explicit
+retained baseline; same-version/missing/outside-project baselines are rejected.
+All 103 source tests passed after the change. Refreshed 0.3.1-to-0.3.2 actual
+upgrade remains pending. Final source-paired build follows these verifier edits.
+
+21 October: refreshed candidate source fingerprint
+390a76a34c74b044789cdb4db556ab668604bada9cfe6dc288dda741f7c57ae4
+passed isolated-PATH frozen diagnostics. All 103 local source tests and hosted
+Windows run 39494166264 passed for source commit
+14f1ce49ee29452dd2be47158f627494422b6717. Actual upgrade 0.3.1-dev to
+0.3.2-dev passed all 12 checks in upgrade-trial-b1aac66d: all 1255 audited files
+matched, no stale runtime remained, and notes/settings/user-voice sentinel
+survived upgrade and uninstall. Initial restricted-context installer attempt
+failed before file installation; normal per-user host-context repeat passed.
+Portable/source/installer checksum set refreshed; exact source ZIP remains
+paired with that build. These verification notes were updated after the build.
+VM test kit refreshed to 0.3.2. Windows evaluation ISO finished downloading and
+the prepared VM started. Guest Windows installation and clean-system tests are
+not yet complete. An administrator prompt requires the user to handle it.
+
+21 October: user identified the administrator prompt as an unrelated printer
+driver update and declined it. Windows DVD boot succeeded with user keyboard
+input. Windows 11 Enterprise Evaluation installation started on the disposable
+virtual disk; 12 percent observed. Guest setup, clean baseline snapshot and Luma
+clean-system checks remain pending.
+Read-only Luma test ISO prepared and payload read back with matching SHA-256.
+Draft PR description now records the successful 12-check upgrade result.
+Windows guest installation observed progressing beyond 50 percent; no clean
+system result is claimed yet.
+Windows installation reached first-run region setup after automatic guest
+restarts. User handling account/privacy screens and an unrelated host security
+update window. Desktop baseline snapshot and clean Luma tests still pending.
+21 October: VM now observed at Windows lock screen; user sign-in requested.
+Current-candidate Microsoft runtime inventory refreshed privately: 14 signed
+DLLs match audited hashes and build origins (two Python package, eleven wheel,
+one host-system). Redistribution gate remains pending; signature/origin evidence
+is not a distribution grant. Current source-paired packages were not changed.
+21 October: fresh Windows desktop reached; virtual NIC disconnected. Live
+baseline snapshot failed with VirtualBox service/RPC error. Critical-error
+dialog poweroff was rejected because the snapshot state remained active.
+Private logs/config preserved; no Luma installation or clean test performed.
+Manual recovery of failed VM session requested; baseline remains unverified.
+21 October recovery: user closed failed VM. Powered-off disk chain recognized;
+no successful live snapshot existed. New powered-off clean baseline snapshot
+completed and registered. Verified read-only test ISO attached; guest started
+with virtual network still disconnected. Guest boot and Luma tests pending.
+21 October clean guest: visible wizard licence, pre-install cancellation/exit,
+default per-user setup, shortcut and completion verified. Installed Luma launched
+offline without guest developer tools; TXT opened, speech highlight advanced,
+original PDF rendered as primary. Audio confirmation pending. Guest display clips
+window/bottom controls; responsiveness needs investigation. Remaining clean checks
+are not passed. Private observations: vm-setup/clean-guest-observations.json.
+21 October: user confirmed clear audible speech from installed Luma in the offline Windows VM. Physical audio check passed for the short TXT fixture.
+21 October clean guest OCR: image-only scanned.pdf automatically recognized
+offline (37 words); secondary Text view visibly includes heading, sentences,
+START/FINISH and Figure 1 caption. This proves representative fixture OCR,
+not full-book accuracy or diagram semantics. Clear speech user-confirmed.
+21 October source follow-up: initial screen-bound sizing and wrapping toolbar/
+playback layouts implemented for guest clipping. 31 V2 tests passed, including
+1024x720 and 800x600 control-bound checks. Full suite in progress. Existing
+0.3.2-dev packages remain paired and unchanged; rebuilt guest check required.
+Full source suite after responsive-layout change: 105 tests passed. New standalone build, matching source archive, and guest visual checks remain required before this source change is treated as a verified package.
+21 October responsive candidate: 0.3.3-dev standalone build completed; source
+fingerprint 0d3029adcd3fea02ef866b77d38e98e27c18200ab105dc4c77ea21dd4e31c866.
+Frozen isolated-PATH diagnostic passed actual OCR, PDF/DOCX, Markdown, bundled
+voice synthesis and muted playback to EndOfMedia. Portable integrity passed;
+installer and matching source ZIP checksums recorded. New read-only test disc
+installer readback hash passed and disc attached to offline guest. Guest upgrade
+and responsive visual checks remain pending. Prior 0.3.2 candidate preserved.
+21 October clean guest 0.3.3: visible upgrade from 0.3.2 completed and app
+opened offline. Window fits guest display; Play/Stop/voice/speed/volume visible.
+Opening sidebar wraps Settings onto another row while controls remain within
+window. Small-display clipping resolved for this guest configuration. Recent
+history/data preservation and full byte audit not established by this visual
+check. Other clean-system and display requirements remain pending.
+
+24 October: user reconfirmed clear audible offline VM speech for the TXT fixture.
+Guest 0.3.3 DOCX fixture opened (29 words). Markdown fixture opened and task
+syntax inserted visibly; save/reopen remains unverified. Compact-window source
+now hides duplicate document headings, reduces margins, and reserves editor
+space; 107 source tests passed, including editor viewport checks at 1024x720
+and 800x600. This change is not yet verified in a standalone guest build.
+Prior paired 0.3.3 artifacts preserved with matching hashes. Preparing 0.3.4-dev.
+24 October 0.3.4-dev: standalone build and frozen diagnostic passed actual
+OCR, document rendering, Markdown, Piper synthesis and muted playback. Portable
+integrity passed; installer compiled; all three paired package hashes recorded
+in verification/compact-editor/package-result.json. Read-only installer test
+disc passed readback hashing. Guest visual/editor and remaining clean checks
+are pending. Public binary approval remains false.
+24 October current upgrade: 0.3.3 to 0.3.4 passed all 12 lifecycle checks
+in upgrade-trial-17175a08. All 1255 installed files matched the build audit;
+obsolete files removed; notes/settings and user voice sentinel preserved
+through upgrade and uninstall. Installed diagnostic passed. Restricted-context
+attempt failed before installation; normal user-context test passed. Installer
+was recompiled by the verifier; package hashes refreshed afterward. Existing
+attached test ISO retains its original verified installer bytes and hash.
+
+24 October: 145-file matching source snapshot updated on draft PR #1; all six
+changed Git blob hashes verified. Hosted Windows run 40127886388 passed at
+commit 2cf8d3d4342d4e3e35e57af55bd054a98ee43f91. No merge/tag/public binary.
+VM invisible-window recovery: original-context save completed, but state
+registration was lost; logs/config preserved. Supported adoptstate associated
+the exact saved file again; normal desktop resume now restoring. Guest result
+not yet established.
+24 October VM recovery verified: visible guest desktop restored with modified
+notes.md still open. File > Save cleared the modified-title marker and displayed
+Saved notes.md. Reopen/persisted task content remains pending. Installed guest
+is still 0.3.3; 0.3.4 installer is attached but not yet applied. Use normal desktop
+context for subsequent VirtualBox lifecycle commands.
+24 October clean guest 0.3.4: visible upgrade completed and app launched
+offline. Saved Markdown reopened; inserted - [ ] Offline study note persisted.
+Focus mode provides a substantially larger editor area with playback controls
+visible. WAV export reported success; reading.wav visible as 521 KB WAV file
+in Documents. External playback is pending. Sidebar Recent/Outline/Saved area
+is nearly zero height at this display size and needs a layout correction.
+WAV follow-up: exported file opens in Windows Media Player and reports
+12-second duration. Playback counter advancement/audibility not established;
+that part of the external playback check remains open.
+24 October sidebar source correction: document navigation now has its own
+scrolling container and a minimum list area. Short windows scroll lower actions
+instead of collapsing Recent/Outline/Saved lists. 35 editor/UI tests passed,
+including list viewport and lower-action reachability at 1024x720 and 800x600.
+Full suite running. This source change is not included in verified 0.3.4 packages.
+Sidebar correction full source suite: 109 passed in 42.93 seconds.
+Evidence: verification/sidebar-layout/source-test-result.json. New standalone
+build and guest visual check remain required before marking package fix passed.
+24 October: verified 0.3.4 paired archives, inventories and lifecycle evidence
+preserved under verification/sidebar-layout/prior-0.3.4. Preparing 0.3.5-dev
+with the sidebar scrolling fix; 109 source tests passed before packaging.

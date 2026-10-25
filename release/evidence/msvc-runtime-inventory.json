@@ -1,0 +1,119 @@
+{
+  "scope": "Microsoft runtime files in the verified local candidate; valid signatures are not redistribution permission",
+  "source_fingerprint": "2f6b17681e5238ac1e84f24025e6550754f4e624d628157632f55bc9a9f6ec56",
+  "redistribution_cleared": false,
+  "files": [
+    {
+      "file": "_internal/msvcp140.dll",
+      "sha256": "def46aa6a8f72f27bafac0c43334419486a4d1dcdb6c479a8ef7034b3e1fa4cb",
+      "version": "14.50.35719.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    },
+    {
+      "file": "_internal/vcruntime140_1.dll",
+      "sha256": "e4b533a94e02c574780e4b333fcf0889f65ed00d39e32c0fbbda2116f185873f",
+      "version": "14.34.31938.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    },
+    {
+      "file": "_internal/vcruntime140.dll",
+      "sha256": "a8f950b4357ec12cfccddc9094cca56a3d5244b95e09ea6e9a746489f2d58736",
+      "version": "14.34.31938.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    },
+    {
+      "file": "_internal/numpy.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+      "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde",
+      "version": "14.40.33810.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    },
+    {
+      "file": "_internal/PySide6/MSVCP140_1.dll",
+      "sha256": "2be87527c41e1ba8aff48e326e0adcd4743516e0bbcc9304986c726e27de6aca",
+      "version": "14.44.35211.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI"
+    },
+    {
+      "file": "_internal/PySide6/MSVCP140_2.dll",
+      "sha256": "6a72ed8a87eae1671640bd1ca98eccb989f1772ae46ab84594e385bf6d4ac4fb",
+      "version": "14.44.35211.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI"
+    },
+    {
+      "file": "_internal/PySide6/MSVCP140.dll",
+      "sha256": "f6f1d55bfd64027820ddce48f9cd8cf46d53bfa34047e6acf4ef348d492a05cb",
+      "version": "14.44.35211.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI"
+    },
+    {
+      "file": "_internal/PySide6/VCRUNTIME140_1.dll",
+      "sha256": "302b1e160e858602490a55e32ae2e29ddfc0bec2a188e19550cb655cdaa58f9c",
+      "version": "14.44.35211.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI"
+    },
+    {
+      "file": "_internal/PySide6/VCRUNTIME140.dll",
+      "sha256": "a36e0cb185eb89533ed96d4568138f86a1315756a8b2644c5963a8ce23e32101",
+      "version": "14.44.35211.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI"
+    },
+    {
+      "file": "_internal/Shapely.libs/msvcp140-0fa7eb792d3fbcf2233e4ea47e9144b9.dll",
+      "sha256": "0fa7eb792d3fbcf2233e4ea47e9144b9b1309ba8ed5d4731a72fffa8f4f556d6",
+      "version": "14.44.35229.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    },
+    {
+      "file": "_internal/shiboken6/MSVCP140_1.dll",
+      "sha256": "eea79bc8561325f10ebf50564091ea48a893f9733aaa91962825d1e250992cc3",
+      "version": "14.44.35211.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI"
+    },
+    {
+      "file": "_internal/shiboken6/MSVCP140.dll",
+      "sha256": "1ba4d7c0a95d375da138a057a57593b33510ad5bda6c5e2686afd68faa5b4231",
+      "version": "14.44.35211.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI"
+    },
+    {
+      "file": "_internal/shiboken6/VCRUNTIME140_1.dll",
+      "sha256": "f02cd4a862b85a9a3153d27e15e5a213f5df8e3d77004ed2e87b8a7e8873d97c",
+      "version": "14.44.35211.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI"
+    },
+    {
+      "file": "_internal/shiboken6/VCRUNTIME140.dll",
+      "sha256": "e7be9112ee9a5b9f44b44bff24cb761cca9b1ed7550b612f77b70edfcf5fdabf",
+      "version": "14.44.35211.0",
+      "company": "Microsoft Corporation",
+      "authenticode_status": "Valid",
+      "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI"
+    }
+  ]
+}

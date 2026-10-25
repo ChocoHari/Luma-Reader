@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "default_policy": "exclude",
+  "voices": [
+    {
+      "file": "en_GB-aru-medium.onnx",
+      "bytes": 76754097,
+      "sha256": "9e74d089a8563f8b2446426d01becb046cd3c3bfbafe1a20fd03a9a79bd82619",
+      "config_present": true,
+      "config_sha256": "00529fabf0e79f29a9cb10fda5b60f9b7cf80671faac2b316e13af20e7816d5e",
+      "redistribution_approved": false,
+      "review_evidence": null,
+      "review_status": "See VOICE_REVIEW.md; local availability is not distribution clearance."
+    },
+    {
+      "file": "en_GB-cori-high.onnx",
+      "bytes": 114219352,
+      "sha256": "470b4dd634c98f8a4850d7626ffc3dfc90774628eeef6605a6dd8f88f30a5903",
+      "config_present": true,
+      "config_sha256": "9e7fb5b5671612c22f3c81cbe46c1ae87b031a4632bcb509e499dad6f1e2adec",
+      "redistribution_approved": true,
+      "review_evidence": "release/CORI_CLEARANCE.md",
+      "review_status": "Exact model and config verified against upstream metadata; author labels model public domain."
+    },
+    {
+      "file": "en_GB-jenny_dioco-medium.onnx",
+      "bytes": 63201294,
+      "sha256": "469c630d209e139dd392a66bf4abde4ab86390a0269c1e47b4e5d7ce81526b01",
+      "config_present": true,
+      "config_sha256": "a9a7a93a317c9a3cb6563e37eb057df9ef09c06188a8a4341b0fcb58cba54dd4",
+      "redistribution_approved": false,
+      "review_evidence": null,
+      "review_status": "See VOICE_REVIEW.md; local availability is not distribution clearance."
+    },
+    {
+      "file": "en_GB-northern_english_male-medium.onnx",
+      "bytes": 63201294,
+      "sha256": "57a219ae8e638873db7d18893304be5069c42868f392bb95c3ff17f0690d0689",
+      "config_present": true,
+      "config_sha256": "69557ed3d974463453e9b0c09dd99a7ed0e52b8b87b64b357dbeeb2540a97d47",
+      "redistribution_approved": false,
+      "review_evidence": null,
+      "review_status": "See VOICE_REVIEW.md; local availability is not distribution clearance."
+    },
+    {
+      "file": "en_GB-semaine-medium.onnx",
+      "bytes": 76737711,
+      "sha256": "d6dab6f3b92db43ea3f78c7f20dc8eadb47a1f15d8a1c9d451cf3ccd201a2f66",
+      "config_present": true,
+      "config_sha256": "6425dcb878684043b77d772b173ae006d86a583b110303edda48b8438ecee5ee",
+      "redistribution_approved": false,
+      "review_evidence": null,
+      "review_status": "See VOICE_REVIEW.md; local availability is not distribution clearance."
+    }
+  ]
+}
